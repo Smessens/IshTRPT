@@ -4,7 +4,16 @@
 /* Your code will be inserted here */
 
 struct __attribute__((__packed__)) pkt {
-    /* Your code will be inserted here */
+  uint8_t type : 2;
+  uint8_t tr : 1;
+  uint8_t window : 5;
+  uint8_t l : 1;
+  uint16_t length : 15;
+  uint8_t seqnum : 8;
+  uint32_t timestamp : 32;
+  uint32_t crc1 : 32;
+  uint32_t crc2 : 32;
+  char * payload;
 };
 
 /* Extra code */
@@ -12,17 +21,35 @@ struct __attribute__((__packed__)) pkt {
 
 pkt_t* pkt_new()
 {
-    /* Your code will be inserted here */
+  pkt_t new = (pkt_t *) malloc(sizeof(pkt_t));
+  new->type = 0;
+  new->tr = 0;
+  new->window = 0;
+  new->l = 0;
+  new->length = 0;
+  new->seqnum = 0;
+  new->timestamp = 0;
+  new->crc1 = 0;
+  new->crc2 = 0;
+  new->payload = null;
+
+  return new;
 }
 
 void pkt_del(pkt_t *pkt)
 {
-    /* Your code will be inserted here */
+    free(pkt->payload);
+    free(pkt);
 }
 
 pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 {
-    /* Your code will be inserted here */
+    char buffer = data[0]; // recup 2 first bytes
+    uint8_t l = buffer & 1; //recup l
+    if (l == 1) { // => length sur 15 bits
+      uint32_t crc_header = (uint16_t) data[5] << 8;
+      crc_header += (uint16_t) data[6];
+    }
 }
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
