@@ -1,6 +1,7 @@
 #include "packet_interface.h"
 #include <stdlib.h>
-#include <math.h>
+#include <math.h>#include <string.h>
+
 
 /* Extra #includes */
 /* Your code will be inserted here */
@@ -37,8 +38,7 @@ void ctoi(char * data,int * buffer, int  number)
     if(i%16==0){
       buffData = data[(int)floor(i/16)];
     }
-    buffer[i]=buffData&1;
-    buffData>>1;
+    buffer[i]=(buffData>>1)&1;
   }
 
 }
@@ -56,7 +56,6 @@ pkt_t* pkt_new()
   new->crc1 = 0;
   new->crc2 = 0;
   new->payload = NULL;
-
   return new;
 }
 
@@ -72,7 +71,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     pkt_status_code error;
 
     char * pdata = (char *) malloc(sizeof(char));
-    pdata = data[0];
+    memcpy(pdata,data[0],2);
     ctoi(pdata, buff,1); //take first two bytes and put it in binary in a char table
     free(pdata);
     // set type
@@ -95,25 +94,31 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 
     // set length
     char * buffdata = (char *) malloc(sizeof(char));
-    int l=buff[8];
+    char buffdata2;
+    int l=buff[8];                        // finding L
     uint16_t leng;
     if (l==0){
       leng=(uint16_t)btoi(buff,9,15);
     }
     else{
-      buffdata=data[0]<<8;
-      buffdata+=data[1]>>8;
+      buffdata2=data[0];
+      buffdata=&buffdata2<<8;
+      buffdata2=data[1];
+      buffdata+=&buffdata2>>8;
       ctoi(buffdata, buff,1);
-      len=(uint16_t)btoi(buff,1,15);
+      leng=(uint16_t)btoi(buff,1,15);
     }
     if(pkt_set_length(pkt,leng)!=PKT_OK){ // erreur si taille ilégale
-      free(buffdata);
       return E_LENGTH;
     }
+
     free(buffdata);
 
     //set Sequnum
+    char * pdata2 =  malloc(sizeof(char));
+    pdata2 = &data[1];
     ctoi(data[1],buff,1);
+    free(pdata2);
     uint8_t seqnum;
     if (l==0){
       seqnum=btoi(buff,0,7);
@@ -146,6 +151,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     free(databuff);
 
     //set CRC1
+
     //crc32_z()
 
     //set payload
@@ -153,7 +159,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     int i;
 
     if (l==0){
-      data[5]=buff[0];
+      buff[0]=data[5];
       payload[0]=buff[0]<<8;
       for (i=0;i<floor(leng/2);i++){
         buff[0]=data[i+5];
@@ -164,8 +170,9 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
       }
 
       if(leng%2==0){
-        buff=data[(int)floor(len/2)]>>8;
-        payload[(int)floor(len/2)]=buff<<8; // efface le byte non nécessaire
+        buff=&data[(int)floor(len/2)];
+        buff>>8;
+        payload[(int)floor(len/2)]=(buff<<8); // efface le byte non nécessaire
       }
     }
 
@@ -174,12 +181,14 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
         payload[i]=data[i+6];
       }
       if(leng%2==1){ // si le nombre d'octets est impaire
-        buff=data[(int)floor(leng/2)]>>8;
+        buff=&data[(int)floor(len/2)];
+        buff>>8;
         payload[(int)floor(leng/2)] =databuff<<8; // efface le byte non nécessaire
       }
     }
 
-    if(PKT_OK!=pkt_set_payload(pkt,payload,leng)){
+    error = pkt_set_payload(pkt,payload,leng);
+    if(PKT_OK!=error){
       return E_UNCONSISTENT;
       /*
        /!\ 3 erreur possible a tester !
@@ -197,20 +206,20 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
   buf[0]=(char) pkt_get_type(pkt);
-  buf[1]=pkt_get_tr(pkt);
-  buf[2]=pkt_get_window(pkt);
-  buf[4]=pkt_get_length(pkt);
+  buf[1]=(char)pkt_get_tr(pkt);
+  buf[2]=(char)pkt_get_window(pkt);
+  buf[4]=(char)pkt_get_length(pkt);
   if(buf[4]<64){
     buf[3]=0;
   }
   else{
     buf[3]=1;
   }
-  buf[5]=pkt_get_seqnum(pkt);
-  buf[6]=pkt_get_timestamp(pkt);
-  buf[7]=pkt_get_crc1(pkt);
-  buf[8]=pkt_get_payload(pkt);
-  buf[9]=pkt_set_crc2(pkt);
+  buf[5]=(char)pkt_get_seqnum(pkt);
+  buf[6]=(char)pkt_get_timestamp(pkt);
+  buf[7]=(char)pkt_get_crc1(pkt);
+  buf[8]=(char)pkt_get_payload(pkt);
+  buf[9]=(char)pkt_set_crc2(pkt);
 
 
   return PKT_OK;
@@ -298,7 +307,7 @@ pkt_status_code pkt_set_window(pkt_t *pkt, const uint8_t window)
 
 pkt_status_code pkt_set_seqnum(pkt_t *pkt, const uint8_t seqnum) // /!\ sequnum erreur a coder
 {
-  pkt->sequnum = seqnum;
+  pkt->seqnum = seqnum;
   return PKT_OK;
 }
 
@@ -325,46 +334,54 @@ pkt_status_code pkt_set_crc1(pkt_t *pkt, const uint32_t crc1)
 
 pkt_status_code pkt_set_crc2(pkt_t *pkt, const uint32_t crc2)
 {
-  pkt->crc2 = ccr2; // /!\ A modif !!
+  pkt->crc2 = crc2; // /!\ A modif !!
   return PKT_OK;
 }
 
 pkt_status_code pkt_set_payload(pkt_t *pkt,
                                 const char *data,
                                 const uint16_t length){
+  if (length>512){
+    return E_LENGTH; // juste?
+  }
+  pkt->payload=data;
+  return PKT_OK;                                  // coder les différentes erreurs
 
 }
 
+/*
 
-ssize_t varuint_decode(const uint8_t *data, const size_t len, uint16_t *retval)
+ssize_t varuint_decode(const uint8_t *data, const size_t len, uint16_t *retval) // coder erreur
 {
-    /* Your code will be inserted here */
     return NULL;
 }
 
 
-ssize_t varuint_encode(uint16_t val, uint8_t *data, const size_t len)
+ssize_t varuint_encode(uint16_t val, uint8_t *data, const size_t len) // coder erreur
 {
-    /* Your code will be inserted here */
     return NULL;
 }
 
-size_t varuint_len(const uint8_t *data)
+size_t varuint_len(const uint8_t *data) // coder erreur
 {
-    /* Your code will be inserted here */
-    return NULL;
-}
-
-
-ssize_t varuint_predict_len(uint16_t val)
-{
-    /* Your code will be inserted here */
     return NULL;
 }
 
 
-ssize_t predict_header_length(const pkt_t *pkt)
+ssize_t varuint_predict_len(uint16_t val) // coder erreur
 {
-    /* Your code will be inserted here */
     return NULL;
 }
+
+
+ssize_t predict_header_length(const pkt_t *pkt)  // coder erreur
+{
+    int l =pkt_get_length(pkt);
+    if(l<64){
+      return 11;
+    }
+    else{
+      return 12;
+    }
+}
+*/
