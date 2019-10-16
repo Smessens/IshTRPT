@@ -1,4 +1,6 @@
 #include "packet_interface.h"
+#include <stdlib.h>
+#include <math.h>
 
 /* Extra #includes */
 /* Your code will be inserted here */
@@ -16,11 +18,35 @@ struct __attribute__((__packed__)) pkt {
 };
 
 /* Extra code */
-/* Your code will be inserted here */
+
+// convert a int buffer between begin and end into his int value
+int btoi(int* buffer, int begin, int end) {
+	int r = buffer[end];
+  int i;
+	for(i=0; i <= end-begin; i++) {
+		r += pow(buffer[end-i]*2,i);
+	}
+  return r;
+}
+
+void ctoi(char * data,int * buffer, int  number)
+{
+  int i;
+  char buffData;
+  for (i=0;i<16*number;i++){
+    if(i%16==0){
+      buffData = data[(int)floor(i/16)];
+    }
+    buffer[i]=buffData&1;
+    buffData>>1;
+  }
+
+}
+
 
 pkt_t* pkt_new()
 {
-  pkt_t new = (pkt_t *) malloc(sizeof(pkt_t));
+  pkt_t * new = (pkt_t *) malloc(sizeof(pkt_t));
   new->type = 0;
   new->tr = 0;
   new->window = 0;
@@ -29,7 +55,7 @@ pkt_t* pkt_new()
   new->timestamp = 0;
   new->crc1 = 0;
   new->crc2 = 0;
-  new->payload = null;
+  new->payload = NULL;
 
   return new;
 }
@@ -45,8 +71,10 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     int * buff = (int *)malloc(sizeof(int)*32);
     pkt_status_code error;
 
-    ctoi(data[0], buff); //take first two bytes and put it in binary in a char table
-
+    char * pdata = (char *) malloc(sizeof(char));
+    pdata = data[0];
+    ctoi(pdata, buff,1); //take first two bytes and put it in binary in a char table
+    free(pdata);
     // set type
     ptypes_t pt= (ptypes_t) btoi(buff,0,1);
     if(PKT_OK!=pkt_set_type(pkt,pt)){//check if type is legal
@@ -56,7 +84,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 
     // set TR
     uint8_t tr = (uint8_t) buff[2];
-    if(PKT_OK!=pkt_set_tr(pkt,tr);){//check if tr is ok
+    if(PKT_OK!=pkt_set_tr(pkt,tr)){//check if tr is ok
       free(buff);
       return E_TR; //send type error
     }
@@ -66,33 +94,36 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     pkt_set_window(pkt,window);
 
     // set length
+    char * buffdata = (char *) malloc(sizeof(char));
     int l=buff[8];
-    uint16_t len;
+    uint16_t leng;
     if (l==0){
-      len==btoi(buff,9,15);
+      leng=(uint16_t)btoi(buff,9,15);
     }
     else{
-      char buffdata=data[0]<<8;
+      buffdata=data[0]<<8;
       buffdata+=data[1]>>8;
-      ctoi(buffdata, buff)
-      len==btoi(buff,1,15);
+      ctoi(buffdata, buff,1);
+      len=(uint16_t)btoi(buff,1,15);
     }
-    if(pkt_set_length(pkt,len)!=PKT_OK){ // erreur si taille ilégale
-      return E_LENGTH
+    if(pkt_set_length(pkt,leng)!=PKT_OK){ // erreur si taille ilégale
+      free(buffdata);
+      return E_LENGTH;
     }
+    free(buffdata);
 
-    ctoi(data[1],buff);
     //set Sequnum
+    ctoi(data[1],buff,1);
     uint8_t seqnum;
     if (l==0){
       seqnum=btoi(buff,0,7);
-      if(pkt_set_seqnum(pkt,sequnum)!=PKT_OK){ // erreur si taille ilégale
+      if(pkt_set_seqnum(pkt,seqnum)!=PKT_OK){ // erreur si taille ilégale
         return E_SEQNUM;
       }
     }
     else{
       seqnum=btoi(buff,8,15);
-      if(pkt_set_seqnum(pkt,sequnum)!=PKT_OK){ // erreur si taille ilégale
+      if(pkt_set_seqnum(pkt,seqnum)!=PKT_OK){ // erreur si taille ilégale
         return E_SEQNUM;
       }
     }
@@ -109,7 +140,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
       databuff[0] = data[2];
       databuff[1] = data[3];
     }
-    ctoi(databuff, buff);
+    ctoi(databuff, buff, 2);
     uint32_t timestamp = (uint32_t) btoi(buff,0,31);
     pkt_set_timestamp(pkt,timestamp);
     free(databuff);
@@ -118,39 +149,41 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     //crc32_z()
 
     //set payload
-
-    char * payload = (char *)malloc(sizeof(char)*len);
+    char * payload = (char *)malloc(sizeof(char)*leng);
     int i;
-    if (l==0){
-      data[5]=databuff[0];
-      payload[0]=databuff[0]<<8;
-      for (i=0;i<floor(len/2);i++){
-        databuff[0]=data[i+5];
-        databuff[1]=data[i+6];
 
-        payload[i]=databuff[0]<<8;
-        payload[i]=payload[i]+databuff[1]>>8;
+    if (l==0){
+      data[5]=buff[0];
+      payload[0]=buff[0]<<8;
+      for (i=0;i<floor(leng/2);i++){
+        buff[0]=data[i+5];
+        buff[1]=data[i+6];
+
+        payload[i]=buff[0]<<8;
+        payload[i]=payload[i]+(buff[1]>>8);
       }
 
-      if(len%2=0){
-        databuff=data[floor(len/2)]>>8;
-        payload[floor(len/2)] =databuff<<8; // efface le byte non nécessaire
+      if(leng%2==0){
+        buff=data[(int)floor(len/2)]>>8;
+        payload[(int)floor(len/2)]=buff<<8; // efface le byte non nécessaire
       }
     }
 
     else{
-      for (i=0;i<floor(len/2);i++){
+      for (i=0;i<(int)floor(len/2);i++){
         payload[i]=data[i+6];
       }
-      if(len%2=1){ // si le nombre d'octets est impaire
-        databuff=data[floor(len/2)]>>8;
-        payload[floor(len/2)] =databuff<<8; // efface le byte non nécessaire
+      if(leng%2==1){ // si le nombre d'octets est impaire
+        buff=data[(int)floor(leng/2)]>>8;
+        payload[(int)floor(leng/2)] =databuff<<8; // efface le byte non nécessaire
       }
     }
 
-    error
-    if(PKT_OK!=pkt_set_payload(pkt,payload,len)){
-      return
+    if(PKT_OK!=pkt_set_payload(pkt,payload,leng)){
+      return E_UNCONSISTENT;
+      /*
+       /!\ 3 erreur possible a tester !
+      */
     }
 
 
@@ -163,7 +196,24 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
-    /* Your code will be inserted here */
+  buf[0]=(char) pkt_get_type(pkt);
+  buf[1]=pkt_get_tr(pkt);
+  buf[2]=pkt_get_window(pkt);
+  buf[4]=pkt_get_length(pkt);
+  if(buf[4]<64){
+    buf[3]=0;
+  }
+  else{
+    buf[3]=1;
+  }
+  buf[5]=pkt_get_seqnum(pkt);
+  buf[6]=pkt_get_timestamp(pkt);
+  buf[7]=pkt_get_crc1(pkt);
+  buf[8]=pkt_get_payload(pkt);
+  buf[9]=pkt_set_crc2(pkt);
+
+
+  return PKT_OK;
 }
 
 ptypes_t pkt_get_type  (const pkt_t* pkt)
@@ -248,7 +298,7 @@ pkt_status_code pkt_set_window(pkt_t *pkt, const uint8_t window)
 
 pkt_status_code pkt_set_seqnum(pkt_t *pkt, const uint8_t seqnum) // /!\ sequnum erreur a coder
 {
-  pkt->sequnum = sequnum;
+  pkt->sequnum = seqnum;
   return PKT_OK;
 }
 
@@ -269,12 +319,14 @@ pkt_status_code pkt_set_timestamp(pkt_t *pkt, const uint32_t timestamp)
 
 pkt_status_code pkt_set_crc1(pkt_t *pkt, const uint32_t crc1)
 {
-    /* Your code will be inserted here */
+  pkt->crc1 = crc1; // /!\ A modif !!
+  return PKT_OK;
 }
 
 pkt_status_code pkt_set_crc2(pkt_t *pkt, const uint32_t crc2)
 {
-    /* Your code will be inserted here */
+  pkt->crc2 = ccr2; // /!\ A modif !!
+  return PKT_OK;
 }
 
 pkt_status_code pkt_set_payload(pkt_t *pkt,
@@ -287,46 +339,32 @@ pkt_status_code pkt_set_payload(pkt_t *pkt,
 ssize_t varuint_decode(const uint8_t *data, const size_t len, uint16_t *retval)
 {
     /* Your code will be inserted here */
+    return NULL;
 }
 
 
 ssize_t varuint_encode(uint16_t val, uint8_t *data, const size_t len)
 {
     /* Your code will be inserted here */
+    return NULL;
 }
 
 size_t varuint_len(const uint8_t *data)
 {
     /* Your code will be inserted here */
+    return NULL;
 }
 
 
 ssize_t varuint_predict_len(uint16_t val)
 {
     /* Your code will be inserted here */
+    return NULL;
 }
 
 
 ssize_t predict_header_length(const pkt_t *pkt)
 {
     /* Your code will be inserted here */
-}
-
-// convert a int buffer between begin and end into his int value
-int btoi(int* buffer, int begin, int end) {
-	int r = buffer[end];
-	for(int i = 1; i <= end-begin; i++) {
-		r += pow(buffer[end-i]*2,i);
-	}
-  return r;
-}
-
-void ctoi(char [] data,int * buffer, int  number)
-{
-  int i;
-  for (i=0;i<16*number;i++){
-    buff[i]=data[floor(i/16)]&1;
-    data[floor(i/16)]=data[floor(i/16)]>>1;
-  }
-
+    return NULL;
 }
