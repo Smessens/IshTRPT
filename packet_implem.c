@@ -1,6 +1,9 @@
 #include "packet_interface.h"
 #include <stdlib.h>
-#include <math.h>#include <string.h>
+#include <math.h>
+#include <string.h>
+#include <stdio.h>
+
 
 
 /* Extra #includes */
@@ -71,8 +74,9 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     pkt_status_code error;
 
     char * pdata = (char *) malloc(sizeof(char));
-    memcpy(pdata,data[0],2);
-    ctoi(pdata, buff,1); //take first two bytes and put it in binary in a char table
+    pdata=&data[0];
+
+    (pdata, buff,1); //take first two bytes and put it in binary in a char table
     free(pdata);
     // set type
     ptypes_t pt= (ptypes_t) btoi(buff,0,1);
@@ -111,12 +115,11 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(pkt_set_length(pkt,leng)!=PKT_OK){ // erreur si taille ilégale
       return E_LENGTH;
     }
-
     free(buffdata);
 
     //set Sequnum
     char * pdata2 =  malloc(sizeof(char));
-    pdata2 = &data[1];
+    pdata2  = data[1];
     ctoi(data[1],buff,1);
     free(pdata2);
     uint8_t seqnum;
