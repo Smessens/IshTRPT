@@ -74,9 +74,9 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     pkt_status_code error;
 
     char * pdata = (char *) malloc(sizeof(char));
-    pdata=&data[0];
+    memcpy((void *)&pdata,(const void *)&data[0],sizeof(pdata));
 
-    (pdata, buff,1); //take first two bytes and put it in binary in a char table
+    ctoi(pdata, buff,1); //take first two bytes and put it in binary in a char table
     free(pdata);
     // set type
     ptypes_t pt= (ptypes_t) btoi(buff,0,1);
