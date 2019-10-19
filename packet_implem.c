@@ -242,7 +242,6 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 
   size_t ish=*len;
   ish=1;
-  buf[8]=(char) malloc(sizeof(char));
   memcpy(&buf[8],pkt_get_payload(pkt),ish);//feels wrong + wrong lenght
   buf[9]=(char)pkt_get_crc2(pkt);
 
