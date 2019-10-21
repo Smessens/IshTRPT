@@ -20,6 +20,10 @@ int main (int argc, char **argv)
   int count=0;  // nombre d'arguments non-options
   int c;
   int i;
+  char delim[] = ":";
+  char *ptr;
+  char hostname;
+
   for (i=1;i<argc;i++){
     if(strcmp(argv[i],"-m")==0){
       if(i+1>=argc){
@@ -29,23 +33,27 @@ int main (int argc, char **argv)
       connexionconcurrente=atoi(argv[i+1]);
       i++;
     }
-    else{
-      if(strcmp(argv[i],"::")==0){
+    else if(strcmp(argv[i],"-o")==0){
         if(i+1>=argc){
           fprintf( stderr,"%s", "Incorrect arguments\n");
           return -1;
         }
+
+        format=argv[i+1];
+        i++;
+
+
+    }
+    else{
+      ptr  = strtok(argv[i], delim);
+      if(ptr==NULL){
         port=atoi(argv[i+1]);
         i++;
       }
       else{
-        if(strcmp(argv[i],"-o")==0){
-          if(i+1>=argc){
-            fprintf( stderr,"%s", "Incorrect arguments\n");
-            return -1;
-          }
-
-          format=argv[i+1];
+        if(strcmp(ptr,argv[1])!=0){
+          hostname=*ptr;
+          port=atoi(argv[i+1]);
           i++;
         }
         else{
@@ -65,9 +73,10 @@ int main (int argc, char **argv)
   printf("port : %d\n",port);
   printf("format :%s\n",format );
   printf("count :%d\n",count );
-  printf("argc :%d\n",argc );
+  printf("hostname :%c\n",hostname);
   printf("------------------------------------------------------------------------------\n");
   //print test a virer avant la soumission
+
 
 
   //open file
