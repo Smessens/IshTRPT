@@ -7,34 +7,90 @@
 #include <sys/select.h>
 #include <netdb.h>
 #include <errno.h>
+#include <stdbool.h>
+
+#include "read.h"
+#include "packet_implem.h"
 
 #define STDOUT 1
 #define TV 5
 
-int selective(int socket,int fd){
+int read_sock(const int sfd, char * buffer) {
+  int max_sfd = sfd+1;
+  fd_set fd_read;
+
+  struct timeval tv;
+  tv.tv_sec = TV;
+  tv.tv_usec = 0;
+
+  FD_ZERO(&fd_read);
+  FD_SET(sfd,&fd_read);
+  select(max_sfd, &fd_read, NULL, NULL, &tv);
+
+  if (FD_ISSET(sfd,&fd_read)) {
+    return read(sfd, buffer, 524);
+  }
+  return -1;
+}
+
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
+  pkt_t * pktack = pkt_new();
+  pkt_set_seqnum(pktack,seqnum);
+  pkt_set_window(pktack,window);
+  pkt_set_length(pktack,0);
+  if(tr==1) {
+    pkt_set_type(pktack,PTYPE_NACK);
+  }
+  else {
+    pkt_set_type(pktack,PTYPE_ACK);
+  }
+  size_t *len;
+  char buff[12];
+
+  pkt_status_code error = pkt_encode((const pkt_t *)pkt_new,buff,len);
+  if(error != PKT_OK){
+    fprintf(stderr, "PKT error \n"); // a completer
+    pkt_del(pktack);
+    return -1;
+  }
+  else {
+    send(sock,buff,sizeof(buff),0);
+  }
+  pkt_del(pktack);
+  return 0;
+}
+
+
+int selective(int socket,int filename){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
   uint32_t window = 32;
+  int i;
   for (i = 0; i < 32; i++) {
     databuff[i]=NULL;
   }
   uint8_t expected_seqnum = 0;
-  char buffer[524];
-  memset((void *)data, 0, 276);
-  int err;
-  pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t));
-  int place;
+  char data[524];
 
-  while(/** until HOST Disconnect **/){
+  int error;
+  pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t*));
+  int place;
+  bool disconnect = false;
+  while(!disconnect){
+    memset((void *)data, 0, 524); //524 ou 272 ???
     error = read_sock(socket, data);
     if (error < 0) {
       fprintf(stderr, "issue with read_sock\n");
     }
     pkt_status_code e = pkt_decode(data,error,new_pkt);
     if(e != PKT_OK) {
-      fprintf(stderr, e);
+      fprintf(stderr,"issue with pkt \n");
     }
     if(pkt_get_type(new_pkt) != PTYPE_DATA) {
       free(new_pkt);
+    }
+    //check of disconnection
+    else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum-1) {
+      disconnect = true;
     }
     else{
       if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
@@ -43,9 +99,8 @@ int selective(int socket,int fd){
           write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt));
           isnotlast=false;
           expected_seqnum++;
-          int i;
           for (i = 0; i < 32; i++){
-            if(databuff!=NULL&&!isnotlast){
+            if(databuff[i]!=NULL&&!isnotlast){
               if(expected_seqnum==pkt_get_seqnum(databuff[i])){
                 new_pkt=databuff[i];
                 databuff[i]=NULL;
@@ -62,7 +117,6 @@ int selective(int socket,int fd){
       else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+window) ||
           (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<(expected_seqnum+window)%256 && expected_seqnum+window>255)) {
         place = -1;
-        int i;
         for (i= 0; i < 32; i++) {
           if(databuff[i] == NULL) {
             place = i;
@@ -86,49 +140,7 @@ int selective(int socket,int fd){
     }
   }
   close(socket);
-  close(fd);
+  close(filename);
   free(new_pkt);
-}
-
-int read_sock(const int sfd, char * buffer) {
-  int max_sfd = sfd+1;
-  fd_set fd_read;
-
-  struct timeval tv;
-  tv.tv_sec = TV;
-  tv.tv_usec = 0;
-
-  FD_ZERO(&fd_read);
-  FD_SET(sfd,&fd_read);
-  select(max_sfd, &fd_read, NULL, NULL, &tv);
-
-  if (FD_ISSET(sfd,&fd_read)) {
-    return read(sfd, buffer, 524);
-  }
-}
-
-int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
-  pkt* pktack=pkt_new();
-  pkt_set_seqnum(pktack,seqnum);
-  pkt_set_window(pktack,window);
-  pkt_set_length(pktack,0);
-  if(tr==1) {
-    pkt_set_type(pktack,PTYPE_NACK);
-  }
-  else {
-    pkt_set_type(pktack,PTYPE_ACK);
-  }
-  size_t *len;
-  char buff[12];
-  pkt_status_code error = pkt_encode(pkt,buff,len)
-  if(error != PKT_OK){
-    fprintf(stderr, "PKT error %s\n"); // a completer
-    pkt_del(pktack);
-    return -1;
-  }
-  else {
-    send(sock,buff,sizeof(buff),0);
-  }
-  pkt_del(pktack);
   return 0;
 }

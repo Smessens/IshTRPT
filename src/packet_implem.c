@@ -1,4 +1,4 @@
-#include "packet_interface.h"
+#include "packet_implem.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
@@ -135,8 +135,8 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
   memcpy(&buffbyte, data+2+l, 1);
   pkt_set_seqnum(pkt,buffbyte);
   //set timestamp
-  memcpy(&buffbyte, data+3+l, 4);
-  pkt_set_timestamp(pkt,buffbyte);
+  memcpy(&buff4byte, data+3+l, 4);
+  pkt_set_timestamp(pkt,buff4byte);
 
   memcpy(&buff4byte, data+7+l, 4);  // get crc1
   pkt_set_crc1(pkt,buff4byte);
@@ -271,9 +271,7 @@ const char* pkt_get_payload(const pkt_t* pkt)
 
 pkt_status_code pkt_set_type(pkt_t *pkt, const ptypes_t type)
 {
-  if (type==4){ // illegal
-    return -1;
-  }
+
   if(type==1){
     pkt->type=PTYPE_DATA;
   }
@@ -282,6 +280,9 @@ pkt_status_code pkt_set_type(pkt_t *pkt, const ptypes_t type)
   }
   if(type==3){
     pkt->type=PTYPE_NACK;
+  }
+  if (type==0){ // illegal
+    return -1;
   }
   return PKT_OK;
 }

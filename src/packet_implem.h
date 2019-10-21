@@ -1,4 +1,4 @@
-i#ifndef __PACKET_IMPLEM_H_
+#ifndef __PACKET_IMPLEM_H_
 #define __PACKET_IMPLEM_H_
 
 #include <stddef.h> /* size_t */

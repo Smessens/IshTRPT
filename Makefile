@@ -13,10 +13,11 @@ CFLAGS += -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE # feature_test_macros for ge
 LDFLAGS= -rdynamic
 
 # Default target
-make:src/receiver.c
-	clean
-	gcc -o -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
-	./src/execu #add arguments
+make:
+	@rm -f src/receiver #change cleaned
+	@touch src/receiver
+	gcc -v -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
+	./src/receiver #add arguments
 
 test:
 	clean

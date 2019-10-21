@@ -10,6 +10,8 @@
 #include <math.h>
 #include <ctype.h>
 #include <string.h>
+#include "read.h"
+#include "selective.h"
 
 int main (int argc, char **argv)
 {
@@ -77,10 +79,10 @@ int main (int argc, char **argv)
   printf("------------------------------------------------------------------------------\n");
   //print test a virer avant la soumission
 
-  struct sockadrr_in6 addresse;
-  char error = real_address(hostname,&addresse);
+  struct sockaddr_in6 *rval;
 
-  int sfd = create_socket(&adresse,NULL);
+  const char * error = real_address(&hostname,rval);
+  int sfd = create_socket(rval,0,NULL,0);
 
   if (sfd>0&&wait_for_client(sfd)<0){
     close(sfd);
