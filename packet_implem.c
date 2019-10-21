@@ -25,7 +25,7 @@ struct __attribute__((__packed__)) pkt {
   uint32_t crc1 : 32;
   uint32_t crc2 : 32;
   char * payload;
-};
+}pk_t;
 
 /* Extra code */
 
@@ -119,6 +119,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     free(buffdata);
 
     //set Sequnum
+
     ctoi(data[1],buff);
     uint8_t seqnum;
     if (l==0){
@@ -134,127 +135,54 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
       }
     }
 
-
-    // set timestamp
-    /*                    // easier way
-    char databuff1;
-    char databuff2;
-    if (l==0){
-      databuff1=data[1]<<8;
-      databuff1+=data[2]>>8;
-      databuff2=data[2]<<8;
-      databuff2+=data[3]>>8;
-    } else {
-      databuff1 = data[2];
-      databuff2 = data[3];
-    }
-    int * buffTemp = (int *)malloc(sizeof(int)*16);
-    ctoi(databuff1,buffTemp);
-    int j;
-    for(j=0;j<16;j++) {
-      buff[j+16]=buffTemp[j];
-    }
-    ctoi(databuff2, buff);
-    uint32_t timestamp = (uint32_t) btoi(buff,0,31);
-    pkt_set_timestamp(pkt,timestamp);
-    */
-
-    uint32_t timestamp ;
-    memcpy(&timestamp, data+3+l, 4); // contient les bits 24 à 55
-
-    //set CRC1
-    /*                // stoppd it because too complex
-    if (l==0){
-      databuff1=data[3]<<8;
-      databuff1+=data[4]>>8;
-      databuff2=data[4]<<8;
-      databuff2+=data[5]>>8;
-    } else {
-      databuff1 = data[4];
-      databuff2 = data[5];
-    }
-    ctoi(databuff1,buffTemp);
-    for(j=0;j<16;j++) {
-      buff[j+16]=buffTemp[j];
-    }
-    ctoi(databuff2, buff);
-    free(buffTemp);
-
-    */
-    uint32_t crc1;
-    memcpy(&crc1,data+7+l,4); //ish
-    pkt_set_crc1(pkt,crc1);
-
+    uint8_t SEQNUM;
+    memcpy(&SEQNUM, data+2+L, 1); // contient les bits 16 à 23
+    pkt_set_seqnum(pkt, SEQNUM);
+    uint32_t TIMESTAMP;
+    memcpy(&TIMESTAMP, data+3+L, 4); // contient les bits 24 à 55
+    pkt_set_timestamp(pkt, TIMESTAMP);
+    uint32_t CRC1;
+    memcpy(&CRC1, data+7+L, 4);
+    pkt_set_crc1(pkt, CRC1);
+    char* PAYLOAD = (char*)malloc(pkt_get_length(pkt));
+    memcpy(PAYLOAD, data+11+L, pkt_get_length(pkt));
+    pkt_set_payload(pkt, PAYLOAD, pkt_get_length(pkt));
     uint32_t CRC2;
-    memcpy(&CRC2, data+11+l+pkt_get_length(pkt), 4);
+    memcpy(&CRC2, data+11+L+pkt_get_length(pkt), 4);
     pkt_set_crc2(pkt, CRC2);
-
-    /*
-
-    if(crc2 != crc1){
-      return E_CRC;
-    }
-    */
-
-
-    //set payload
-    /*                // stoppd it because too complex
-    char * payload = (char *)malloc(sizeof(char)*leng);
-    int i;
-
-    if (l==0){
-      memcpy(&buff[0],&data[5],2);
-      payload[0]=buff[0]<<8;
-      for (i=0;i<floor(leng/2);i++){
-        memcpy(&buff[0],&data[i+5],2);
-        memcpy(&buff[0],&data[i+6],2);
-        payload[i]=buff[0]<<8;
-        payload[i]=payload[i]+(buff[1]>>8);
-      }
-
-      if(leng%2==0){
-        memcpy(&buff[0],&data[(int)floor(len/2)],2);
-        buff[0]=buff[0]>>8;
-        buff[0]=buff[0]<<8;
-        payload[(int)floor(len/2)]=buff[0]; // efface le byte non nécessaire
+    // calcul du crc1 et du crc2
+    if(pkt_get_tr(pkt) == 0) {
+      uint32_t crc1 = crc32(0L, Z_NULL, 0);
+      crc1 = crc32(crc1, ( const Bytef *) data, 7+L);
+      if(crc1 != ntohl(pkt_get_crc1(pkt))) {
+        return E_CRC;
       }
     }
-
-    else{
-      for (i=0;i<(int)floor(len/2);i++){
-        payload[i]=data[i+6];
-      }
-      if(leng%2==1){ // si le nombre d'octets est impaire
-        memcpy(&buff[0],&data[(int)floor(len/2)],2);
-        buff[0]=buff[0]>>8;
-        payload[(int)floor(leng/2)] =buff[0]<<8; // efface le byte non nécessaire
+    if(pkt_get_length(pkt) != 0) {
+      uint32_t crc2 = crc32(0L, Z_NULL, 0);
+      crc2 = crc32(crc2, (Bytef *)(data+11+L), pkt_get_length(pkt));
+      if(crc2 != ntohl(pkt_get_crc2(pkt))) {
+        return E_CRC;
       }
     }
-    */
-
-    char* payload = (char*)malloc(leng);
-    memcpy(payload, data+l+11,leng);
-    error = pkt_set_payload(pkt,payload,leng);
-    if(PKT_OK!=error||(leng+15+l)>(int)len){
+    if (pkt_get_length(pkt)+15+L > (int)len) {
       return E_UNCONSISTENT;
-      /*
-       /!\ 3 erreur possible a tester !
-      */
     }
-
-
-
-  free(buff);
-  return PKT_OK;
+    if (pkt_get_length(pkt) > 512) {
+      return  E_LENGTH;
+    }
+    return PKT_OK;
 }
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
-  int l;
+  int l=0;
+  int L = l;
   uint8_t bytebuff= (pkt_get_tr(pkt) << 5) +((pkt_get_type(pkt) << 6) +  pkt_get_window(pkt));
   memcpy(buf, &bytebuff, 1);
   bytebuff=0;
   uint16_t leng=pkt_get_length(pkt);
+
   if(leng<=127){
     l=0;
     bytebuff=leng;
@@ -262,38 +190,36 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
   }
   else {
     l = 1;
-    uint16_t uleng= htons(leng)+32768;
+    uint16_t uleng= htons(leng+32768);
     memcpy(buf+1, &uleng, 2);
   }
-  if ((int)(* len)<leng+11+l){
+
+  if ((int)(* len)<(pkt->length)+11+l){
       return E_NOMEM;
   }
-  bytebuff=pkt_get_seqnum(pkt);
-  memcpy(buf+l+2, &bytebuff, 1);
-  bytebuff=  pkt_get_timestamp(pkt);
-  memcpy(buf+3+l, &bytebuff, 4);
 
-  uint32_t crc1;
-  if((pkt_get_tr(pkt) == 0)) {   // ish
-    crc1= crc32(0L, Z_NULL, 0);
+  L=l;
+  uint8_t seqnumByte = pkt_get_seqnum(pkt);
+  memcpy(buf+2+L, &seqnumByte, 1);
+  uint32_t timestampByte =  pkt_get_timestamp(pkt);
+  memcpy(buf+3+L, &timestampByte, 4);
+
+  if((pkt_get_tr(pkt) == 0)) {
+    uint32_t crc1 = crc32(0L, Z_NULL, 0);
     crc1 = crc32(crc1, ( const Bytef *) buf, 7+L);
-    uint32_t ncrc2 = htonl(crc1);
-    memcpy(buf+7+l, &ncrc2, 4);
+    uint32_t nCRC1 = htonl(crc1);
+    memcpy(buf+7+L, &nCRC1, 4);
   }
-
-  memcpy(buf+l+11, (const void*)pkt_get_payload(pkt),leng);
-  uint32_t crc2;
-  if(leng!= 0) {
-    crc2 = crc32(0L, Z_NULL, 0);
+  memcpy(buf+11+L, (const void*)pkt_get_payload(pkt), pkt_get_length(pkt));
+  if(pkt_get_length(pkt) != 0) {
+    uint32_t crc2 = crc32(0L, Z_NULL, 0);
     crc2 = crc32(crc2, (Bytef *)(buf+11+L), pkt_get_length(pkt));
     uint32_t nCRC2 = htonl(crc2);
-    memcpy(buf+11+l+leng, &nCRC2, 4);
+    memcpy(buf+11+L+pkt_get_length(pkt), &nCRC2, 4);
   }
-
-  *len = (size_t)(11+l+leng+4);
+  *len = (size_t)(11+L+pkt_get_length(pkt)+4);
   return PKT_OK;
 }
-
 ptypes_t pkt_get_type  (const pkt_t* pkt)
 {
   return pkt->type;
@@ -383,7 +309,7 @@ pkt_status_code pkt_set_seqnum(pkt_t *pkt, const uint8_t seqnum) // /!\ sequnum 
 pkt_status_code pkt_set_length(pkt_t *pkt, const uint16_t length)
 {
   if (length>512){
-    return -1;
+    return E_LENGTH;
   }
   pkt->length=length;
   return PKT_OK;
@@ -397,13 +323,13 @@ pkt_status_code pkt_set_timestamp(pkt_t *pkt, const uint32_t timestamp)
 
 pkt_status_code pkt_set_crc1(pkt_t *pkt, const uint32_t crc1)
 {
-  pkt->crc1 = crc1; // /!\ A modif !!
+  pkt->crc1 = crc1;
   return PKT_OK;
 }
 
 pkt_status_code pkt_set_crc2(pkt_t *pkt, const uint32_t crc2)
 {
-  pkt->crc2 = crc2; // /!\ A modif !!
+  pkt->crc2 = crc2;
   return PKT_OK;
 }
 
@@ -420,39 +346,65 @@ pkt_status_code pkt_set_payload(pkt_t *pkt,
   return PKT_OK;  // coder les différentes erreurs
 }
 
-/*
 
-ssize_t varuint_decode(const uint8_t *data, const size_t len, uint16_t *retval) // coder erreur
+
+ssize_t varuint_decode(const uint8_t *data, const size_t len, uint16_t *retval)
 {
-    return NULL;
-}
-
-
-ssize_t varuint_encode(uint16_t val, uint8_t *data, const size_t len) // coder erreur
-{
-    return NULL;
-}
-
-size_t varuint_len(const uint8_t *data) // coder erreur
-{
-    return NULL;
-}
-
-
-ssize_t varuint_predict_len(uint16_t val) // coder erreur
-{
-    return NULL;
-}
-
-
-ssize_t predict_header_length(const pkt_t *pkt)  // coder erreur
-{
-    int l =pkt_get_length(pkt);
-    if(l<64){
-      return 11;
+if(!data[0]){ // si le premier bit vaut 0
+        if(len < 7){ return -1;}
+        memcpy(retval,data+1,7);
+        return 1;
     }
-    else{
-      return 12;
+    else{ // si le premier bit vaut 1
+        if(len < 15){ return -1;}
+        memcpy(retval,data+1,15);
+        return 2;
     }
 }
-*/
+
+
+ssize_t varuint_encode(uint16_t val, uint8_t *data, const size_t len)
+{
+if((sizeof(val)+1) > len){ //si val plus le bit d indication est plus grand que la taille de data
+    return -1;
+}
+if(sizeof(val)==7){ //si val vaut 7 alors premier bit mis à 0
+    data[0] = 0;
+    memcpy(data+1,&val,7);
+    return 1;
+
+}
+
+if(sizeof(val)==15){
+    data[0] = 1;
+    memcpy(data+1,&val,15);
+    return 1;
+}
+
+return -1;
+}
+
+size_t varuint_len(const uint8_t *data)
+{
+    return (sizeof(*data)/8);
+}
+
+
+ssize_t varuint_predict_len(uint16_t val)
+{
+    if (val >= 0x8000)
+    {
+        return -1;
+    }
+    return (sizeof(val)/8);
+}
+
+
+ssize_t predict_header_length(const pkt_t *pkt)
+{
+    if (pkt->length >= 0x8000)
+    {
+        return -1;
+    }
+    return 2;
+}
