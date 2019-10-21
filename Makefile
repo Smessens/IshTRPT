@@ -14,6 +14,7 @@ LDFLAGS= -rdynamic
 
 # Default target
 make:src/packet_implem.c
+	clean
 	gcc -o -lz -lm src/execu src/packet_implem.c src/packet_implem.h
 	./src/execu #add arguments
 
