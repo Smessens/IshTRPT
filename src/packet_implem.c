@@ -115,7 +115,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
   else { // Length est encodé sur 15 bits
     memcpy(&buffbyte, data+1, 1);
     buffbyte-=-128; // enlève le l
-    uint16_t buff2byte=buffbyte;
+    buff2byte=buffbyte;
     buff2byte=buff2byte<<8;
     memcpy(&buffbyte, data+2, 1);
     buff2byte+=buffbyte;
@@ -126,7 +126,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
   if (leng+15+l > (int)len) {
     return E_UNCONSISTENT;
   }
-  if pleng> 512) {
+  if (leng> 512) {
     return  E_LENGTH;
   }
 
@@ -136,7 +136,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
   pkt_set_seqnum(pkt,buffbyte);
   //set timestamp
   memcpy(&buffbyte, data+3+l, 4);
-  pkt_set_timestamp(pkt,buffbyte;
+  pkt_set_timestamp(pkt,buffbyte);
 
   memcpy(&buff4byte, data+7+l, 4);  // get crc1
   pkt_set_crc1(pkt,buff4byte);
@@ -175,12 +175,13 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
   int l=0;
-  int L = l;
-  uint8_t bytebuff= (pkt_get_tr(pkt) << 5) +((pkt_get_type(pkt) << 6) +  pkt_get_window(pkt));
+  uint8_t bytebuff;
+  uint32_t buff4byte;
+
+  bytebuff= (pkt_get_tr(pkt) << 5) +((pkt_get_type(pkt) << 6) +  pkt_get_window(pkt));
   memcpy(buf, &bytebuff, 1);
   bytebuff=0;
   uint16_t leng=pkt_get_length(pkt);
-
   if(leng<=127){
     l=0;
     bytebuff=leng;
@@ -196,28 +197,31 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
     return E_NOMEM;
   }
 
-  L=l;
-  uint8_t seqnumByte = pkt_get_seqnum(pkt);
-  memcpy(buf+2+L, &seqnumByte, 1);
-  uint32_t timestampByte =  pkt_get_timestamp(pkt);
-  memcpy(buf+3+L, &timestampByte, 4);
+  bytebuff= pkt_get_seqnum(pkt);
+  memcpy(buf+2+l, &bytebuff, 1);
 
-  if((pkt_get_tr(pkt) == 0)) {
-    uint32_t crc1 = crc32(0L, Z_NULL, 0);
-    crc1 = crc32(crc1, ( const Bytef *) buf, 7+L);
-    uint32_t nCRC1 = htonl(crc1);
-    memcpy(buf+7+L, &nCRC1, 4);
+  buff4byte =  pkt_get_timestamp(pkt);
+  memcpy(buf+3+l, &buff4byte, 4);
+
+  if((pkt_get_tr(pkt) == 0)) { //crc1
+    buff4byte = crc32(0L, Z_NULL, 0);
+    buff4byte = crc32(buff4byte, ( const Bytef *) buf, 7+l);
+    buff4byte= htonl(buff4byte);
+    memcpy(buf+7+l, &buff4byte, 4);
   }
-  memcpy(buf+11+L, (const void*)pkt_get_payload(pkt), pkt_get_length(pkt));
-  if(pkt_get_length(pkt) != 0) {
-    uint32_t crc2 = crc32(0L, Z_NULL, 0);
-    crc2 = crc32(crc2, (Bytef *)(buf+11+L), pkt_get_length(pkt));
-    uint32_t nCRC2 = htonl(crc2);
-    memcpy(buf+11+L+pkt_get_length(pkt), &nCRC2, 4);
+
+  memcpy(buf+11+l, (const void*)pkt_get_payload(pkt), leng);
+  if(leng != 0) {  //crc2 //ish
+    buff4byte= crc32(0L, Z_NULL, 0);
+    buff4byte= crc32(buff4byte, (Bytef *)(buf+11+l),leng);
+    buff4byte= htonl(buff4byte);
+    memcpy(buf+11+l+leng, &buff4byte, 4);
   }
-  *len = (size_t)(11+L+pkt_get_length(pkt)+4);
+
+  *len = (size_t)(15+l+leng);
   return PKT_OK;
 }
+
 ptypes_t pkt_get_type  (const pkt_t* pkt)
 {
   return pkt->type;
