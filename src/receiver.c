@@ -14,7 +14,7 @@
 int main (int argc, char **argv)
 {
   int connexionconcurrente=-1;
-  int port;
+  uint16_t port;
   char * format;
   char index[argc];  //garde en memoire les arguments non options
   int count=0;  // nombre d'arguments non-options
@@ -77,10 +77,30 @@ int main (int argc, char **argv)
   printf("------------------------------------------------------------------------------\n");
   //print test a virer avant la soumission
 
+  struct sockadrr_in6 addresse;
+  char error = real_address(hostname,&addresse);
 
+  int sfd = create_socket(&adresse,NULL);
 
+  if (sfd>0&&wait_for_client(sfd)<0){
+    close(sfd);
+    fprintf(stderr, "Error connecting\n");
+    return -1;
 
-  //open file
+  }
 
+  if (sfd==-1){
+    fprintf(stderr, "Error connecting\n");
+    close(sfd);
+    return -1;
+  }
+
+  int fd;
+  fd =STDOUT_FILENO;
+  if(selective(sfd,fd)!=0){
+    fprintf(stderr, "Error in selective\n");
+  }
+
+  return 0;
 
 }

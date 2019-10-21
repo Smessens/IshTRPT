@@ -11,33 +11,6 @@
 #define STDOUT 1
 #define TV 5
 
-
-int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
-  pkt* pktack=pkt_new();
-  pkt_set_seqnum(pktack,seqnum);
-  pkt_set_window(pktack,window);
-  pkt_set_length(pktack,0);
-  if(tr==1) {
-    pkt_set_type(pktack,PTYPE_NACK);
-  }
-  else {
-    pkt_set_type(pktack,PTYPE_ACK);
-  }
-  size_t *len;
-  char buff[12];
-  pkt_status_code error = pkt_encode(pkt,buff,len)
-  if(error != PKT_OK){
-    fprintf(stderr, "PKT error %s\n"); // a completer
-    pkt_del(pktack);
-    return -1;
-  }
-  else {
-    send(sock,buff,sizeof(buff),0);
-  }
-  pkt_del(pktack);
-  return 0;
-}
-
 int selective(int socket,int fd){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
   uint32_t window = 32;
@@ -112,6 +85,8 @@ int selective(int socket,int fd){
       }
     }
   }
+  close(socket);
+  close(fd);
   free(new_pkt);
 }
 
@@ -130,5 +105,30 @@ int read_sock(const int sfd, char * buffer) {
   if (FD_ISSET(sfd,&fd_read)) {
     return read(sfd, buffer, 524);
   }
-  close(sfd);
+}
+
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
+  pkt* pktack=pkt_new();
+  pkt_set_seqnum(pktack,seqnum);
+  pkt_set_window(pktack,window);
+  pkt_set_length(pktack,0);
+  if(tr==1) {
+    pkt_set_type(pktack,PTYPE_NACK);
+  }
+  else {
+    pkt_set_type(pktack,PTYPE_ACK);
+  }
+  size_t *len;
+  char buff[12];
+  pkt_status_code error = pkt_encode(pkt,buff,len)
+  if(error != PKT_OK){
+    fprintf(stderr, "PKT error %s\n"); // a completer
+    pkt_del(pktack);
+    return -1;
+  }
+  else {
+    send(sock,buff,sizeof(buff),0);
+  }
+  pkt_del(pktack);
+  return 0;
 }
