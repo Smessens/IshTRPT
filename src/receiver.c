@@ -90,6 +90,9 @@ int main (int argc, char **argv)
 
   int fd;
   fd =STDOUT_FILENO;
+  fd = 0; //test
+
+  printf("%s préselective\n");
 
   if(selective(sfd,fd)!=0){
     fprintf(stderr, "Error in selective\n");

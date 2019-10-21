@@ -1,6 +1,7 @@
 #include "read.h"
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval) {
+    printf("real_address\n");
     struct addrinfo new;
     memset(&new,0,sizeof(new));
 
@@ -20,6 +21,7 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
 }
 
 int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockaddr_in6 *dest_addr, int dst_port) {
+  printf("create_socket\n");
   int sock = socket(PF_INET6, SOCK_DGRAM, IPPROTO_UDP);
   if (sock == -1) { // error in the creation of the socket
     printf("error 1\n");
@@ -55,6 +57,7 @@ int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockadd
 }
 
 int wait_for_client(int sfd) {
+  printf("wait_for_client\n");
   char buff[1024];
   struct sockaddr_in6 source_addr;
   socklen_t len = sizeof(struct sockaddr_in6);
@@ -64,5 +67,7 @@ int wait_for_client(int sfd) {
     return -1;
   }
   err = connect(sfd, (struct sockaddr *) &source_addr, len);
+  printf("wait_for_client fin \n");
+
   return err;
 }

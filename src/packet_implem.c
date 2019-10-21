@@ -18,7 +18,7 @@ struct __attribute__((__packed__)) pkt {
   uint32_t crc1 : 32;
   uint32_t crc2 : 32;
   char * payload;
-}pk_t;
+};
 
 /* Extra code */
 

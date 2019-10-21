@@ -97,7 +97,7 @@ int selective(int socket,int filename){
       if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
         bool isnotlast=true;
         while(isnotlast){
-          write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt));
+          write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt)); ///
           isnotlast=false;
           expected_seqnum++;
           for (i = 0; i < 32; i++){
@@ -143,5 +143,6 @@ int selective(int socket,int filename){
   close(socket);
   close(filename);
   free(new_pkt);
+  printf("fin de selective\n");
   return 0;
 }
