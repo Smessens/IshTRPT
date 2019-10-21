@@ -15,12 +15,15 @@ CFLAGS += -lm
 # the symbols for debugging
 LDFLAGS= -rdynamic
 
+#	gcc -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
+
 # Default target
 make:
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
-	gcc  -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
-	./src/receiver #add arguments
+	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
+	./src/receiver -o "fichier_%02d.dat" :: 12345
+	./src/receiver -m 4 ::3 12345 2> log.txt
 
 test:
 	clean
