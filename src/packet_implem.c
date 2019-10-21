@@ -8,13 +8,6 @@
 #include <zlib.h>
 
 
-
-
-
-/* Extra #includes */
-/* Your code will be inserted here */
-
-
 struct __attribute__((__packed__)) pkt {
   uint8_t type : 2;
   uint8_t tr : 1;

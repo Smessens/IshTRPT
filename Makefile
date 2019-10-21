@@ -7,6 +7,9 @@ CFLAGS += -Wextra # Enable additional warnings
 CFLAGS += -O2 -D_FORTIFY_SOURCE=2 # Add canary code, i.e. detect buffer overflows
 CFLAGS += -fstack-protector-all # Add canary code to detect stack smashing
 CFLAGS += -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE # feature_test_macros for getpot and getaddrinfo
+CFLAGS += -lz
+CFLAGS += -lm
+
 
 # We have no libraries to link against except libc, but we want to keep
 # the symbols for debugging
@@ -16,7 +19,7 @@ LDFLAGS= -rdynamic
 make:
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
-	gcc -v -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
+	gcc  -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
 	./src/receiver #add arguments
 
 test:

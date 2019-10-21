@@ -11,6 +11,7 @@
 
 #include "read.h"
 #include "packet_implem.h"
+#include "selective.h"
 
 #define STDOUT 1
 #define TV 5

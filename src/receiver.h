@@ -10,10 +10,9 @@
 #include <sys/select.h>
 #include <netdb.h>
 #include <errno.h>
+#include <math.h>
 
-#include "packet_implem.h"
-#include "selective.h"
-#include "read.h"
+
 
 int main (int argc, char **argv);
 

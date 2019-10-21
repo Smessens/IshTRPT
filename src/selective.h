@@ -11,10 +11,12 @@
 #include <netdb.h>
 #include <errno.h>
 
-int selective(int socket,int fd);
 
 int read_sock(const int sfd, char * buffer);
 
 int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr);
+
+int selective(int socket,int fd);
+
 
 #endif
