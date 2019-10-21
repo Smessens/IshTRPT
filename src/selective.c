@@ -38,8 +38,9 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
   return 0;
 }
 
-int selective(int socket){
+int selective(int socket,int fd){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
+  uint32_t window = 32;
   for (i = 0; i < 32; i++) {
     databuff[i]=NULL;
   }
@@ -48,7 +49,9 @@ int selective(int socket){
   memset((void *)data, 0, 276);
   int err;
   pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t));
-  while(/** TODO **/){
+  int place;
+
+  while(/** until HOST Disconnect **/){
     error = read_sock(socket, data);
     if (error < 0) {
       fprintf(stderr, "issue with read_sock\n");
@@ -58,25 +61,56 @@ int selective(int socket){
       fprintf(stderr, e);
     }
     if(pkt_get_type(new_pkt) != PTYPE_DATA) {
-      return -1;
+      free(new_pkt);
     }
-    if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
-      for (int i = 0; i < 32 && databuff[i]!=NULL; i++) { // ignore a 32
-        /* code */
+    else{
+      if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
+        bool isnotlast=true;
+        while(isnotlast){
+          write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt));
+          isnotlast=false;
+          expected_seqnum++;
+          int i;
+          for (i = 0; i < 32; i++){
+            if(databuff!=NULL&&!isnotlast){
+              if(expected_seqnum==pkt_get_seqnum(databuff[i])){
+                new_pkt=databuff[i];
+                databuff[i]=NULL;
+                window--;
+                isnotlast =true;
+              }
+            }
+          }
+        }
+        send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt));
+        }
+
+      // le paquet est en desordre
+      else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+window) ||
+          (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<(expected_seqnum+window)%256 && expected_seqnum+window>255)) {
+        place = -1;
+        int i;
+        for (i= 0; i < 32; i++) {
+          if(databuff[i] == NULL) {
+            place = i;
+          }
+          else if (pkt_get_seqnum(databuff[i])==pkt_get_seqnum(new_pkt)){
+            break;
+          }
+          if(i==31){
+            if(place!=-1){
+              databuff[place]=new_pkt;
+              window++;
+            }
+          }
+        }
+        send_ack(socket,expected_seqnum-1,window,0);
+      } // paquet pas dans window
+      else {
+        send_ack(socket,expected_seqnum-1,window,0);
+        fprintf(stderr, "paquet pas dans window\n");
       }
-      // TODO insert dans buffer etc
-      send_ack(socket,expected_seqnum,pkt_get_window(new_pkt),pkt_get_tr(new_pkt));
-      expected_seqnum++;
     }
-    else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+pkt_get_window(new_pkt)) ||
-        (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<expected_seqnum+pkt_get_window(new_pkt)%256)) { // le paquet en desordre
-
-    }
-    else(pkt_get_seqnum(new_pkt) < expected_seqnum){
-
-
-    }
-
   }
   free(new_pkt);
 }
