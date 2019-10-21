@@ -68,7 +68,8 @@ int selective(int socket){
       send_ack(socket,expected_seqnum,pkt_get_window(new_pkt),pkt_get_tr(new_pkt));
       expected_seqnum++;
     }
-    else if(pkt_get_seqnum(new_pkt) > expected_seqnum) { // le paquet en desordre
+    else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+pkt_get_window(new_pkt)) ||
+        (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<expected_seqnum+pkt_get_window(new_pkt)%256)) { // le paquet en desordre
 
     }
     else(pkt_get_seqnum(new_pkt) < expected_seqnum){
