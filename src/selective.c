@@ -64,6 +64,7 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
 
 int selective(int socket,int filename){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
+  printf("selective start \n");
   uint32_t window = 32;
   int i;
   for (i = 0; i < 32; i++) {

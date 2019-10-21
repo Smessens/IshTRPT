@@ -22,8 +22,8 @@ make:
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./src/receiver -o "fichier_%02d.dat" :: 12345
-	./src/receiver -m 4 ::3 12345 2> log.txt
+	./senderprof -f file.dat ::1 12345
+	./src/receiver :: 12345
 
 test:
 	clean

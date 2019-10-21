@@ -74,14 +74,14 @@ int main (int argc, char **argv)
 
   const char * error = real_address(&hostname,adresse);
   int sfd = create_socket(adresse,0,NULL,0);
-
+/*
   if (sfd>0&&wait_for_client(sfd)<0){
     close(sfd);
     fprintf(stderr, "Error connecting\n");
     return -1;
 
   }
-
+*/
   if (sfd==-1){
     fprintf(stderr, "Error connecting\n");
     close(sfd);
@@ -89,10 +89,9 @@ int main (int argc, char **argv)
   }
 
   int fd;
-  fd =STDOUT_FILENO;
   fd = 0; //test
 
-  printf("%s préselective\n");
+  printf(" préselective\n");
 
   if(selective(sfd,fd)!=0){
     fprintf(stderr, "Error in selective\n");
