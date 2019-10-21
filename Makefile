@@ -14,7 +14,6 @@ LDFLAGS= -rdynamic
 
 # Default target
 make:src/packet_implem.c
-	clean
 	gcc -o -lz -lm src/execu src/packet_implem.c src/packet_implem.h
 	./src/execu #add arguments
 
@@ -25,7 +24,7 @@ test:
 
 receiver:src/receiver.c
 	gcc -o src/receiver src/receiver.c
-	./src/receiver -m 4 :: 12345 2> log.txt
+	./src/receiver -m 4 ::3 12345 2> log.txt
 	./src/receiver -o "fichier_%02d.dat" :: 12345
 
 # If we run `make debug` instead, keep the debug symbols for gdb

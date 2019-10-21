@@ -8,54 +8,92 @@
 #include <netdb.h>
 #include <errno.h>
 
-void read_write_loop(const int sfd) {
-  printf("welcome in read_write_loop\n");
-  int retval = sfd+1;
+#define STDOUT 1
+#define TV 5
+
+
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
+  pkt* pktack=pkt_new();
+  pkt_set_seqnum(pktack,seqnum);
+  pkt_set_window(pktack,window);
+  pkt_set_length(pktack,0);
+  if(tr==1) {
+    pkt_set_type(pktack,PTYPE_NACK);
+  }
+  else {
+    pkt_set_type(pktack,PTYPE_ACK);
+  }
+  size_t *len;
+  char buff[12];
+  pkt_status_code error = pkt_encode(pkt,buff,len)
+  if(error != PKT_OK){
+    fprintf(stderr, "PKT error %s\n"); // a completer
+    pkt_del(pktack);
+    return -1;
+  }
+  else {
+    send(sock,buff,sizeof(buff),0);
+  }
+  pkt_del(pktack);
+  return 0;
+}
+
+int selective(int socket){
+  pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
+  for (i = 0; i < 32; i++) {
+    databuff[i]=NULL;
+  }
+  uint8_t expected_seqnum = 0;
+  char buffer[524];
+  memset((void *)data, 0, 276);
+  int err;
+  pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t));
+  while(/** TODO **/){
+    error = read_sock(socket, data);
+    if (error < 0) {
+      fprintf(stderr, "issue with read_sock\n");
+    }
+    pkt_status_code e = pkt_decode(data,error,new_pkt);
+    if(e != PKT_OK) {
+      fprintf(stderr, e);
+    }
+    if(pkt_get_type(new_pkt) != PTYPE_DATA) {
+      return -1;
+    }
+    if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
+      for (int i = 0; i < 32 && databuff[i]!=NULL; i++) { // ignore a 32
+        /* code */
+      }
+      // TODO insert dans buffer etc
+      send_ack(socket,expected_seqnum,pkt_get_window(new_pkt),pkt_get_tr(new_pkt));
+      expected_seqnum++;
+    }
+    else if(pkt_get_seqnum(new_pkt) > expected_seqnum) { // le paquet en desordre
+
+    }
+    else(pkt_get_seqnum(new_pkt) < expected_seqnum){
+
+
+    }
+
+  }
+  free(new_pkt);
+}
+
+int read_sock(const int sfd, char * buffer) {
+  int max_sfd = sfd+1;
   fd_set fd_read;
-  int error;
-  char buffIn[1024];
-  char buffOut[1024];
-  int finished = 0;
 
   struct timeval tv;
-  tv.tv_sec = 5;
+  tv.tv_sec = TV;
   tv.tv_usec = 0;
 
-  while (finished==0) {
-    printf("coucou\n");
-    memset((void *)buffIn, 0, 1024);
-    memset((void *)buffOut, 0 , 1024);
+  FD_ZERO(&fd_read);
+  FD_SET(sfd,&fd_read);
+  select(max_sfd, &fd_read, NULL, NULL, &tv);
 
-    FD_ZERO(&fd_read);
-    FD_SET(0,&fd_read); //0 is stdin
-    FD_SET(sfd,&fd_read);
-    retval = select(retval, &fd_read, NULL, NULL, &tv);
-    if (retval == -1) {
-      fprintf(stderr, "issue with select\n");
-      break;
-    }
-    // from STDIN to sfd
-    if (FD_ISSET(0,&fd_read)) { //0 is stdin
-      error = read(0, buffIn, 1024); //0 is stdin
-      if (error > 0) {
-        error = write(sfd,buffIn,error);
-        if (error < 0) {
-          fprintf(stderr, "issue in writing in the socket from STDIN\n");
-        }
-      }
-    }
-
-    // from sfd to STDOUT
-    if (FD_ISSET(sfd,&fd_read)) {
-      error = read(sfd, buffOut, 1024);
-      if (error > 0) {
-        error = write(1,buffOut,error); //1 is stdout
-        if (error < 0) {
-          fprintf(stderr, "issue in writing in STDOUT from the socket\n");
-        }
-      }
-    }
-    finished = feof(stdin);
+  if (FD_ISSET(sfd,&fd_read)) {
+    return read(sfd, buffer, 524);
   }
-  printf("GB from read_write_loop\n");
+  close(sfd);
 }
