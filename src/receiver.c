@@ -15,7 +15,7 @@ int main (int argc, char **argv)
   int i;
   char delim[] = ":";
   char *ptr;
-  char hostname;
+  char *hostname=NULL;
 
   for (i=1;i<argc;i++){
     if(strcmp(argv[i],"-m")==0){
@@ -44,8 +44,8 @@ int main (int argc, char **argv)
         i++;
       }
       else{
-        if(strcmp(ptr,argv[1])!=0){
-          hostname=*ptr;
+        if(strcmp(ptr,argv[i])!=0){
+          hostname=argv[i];
           port=atoi(argv[i+1]);
           i++;
         }
@@ -70,20 +70,25 @@ int main (int argc, char **argv)
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
     struct sockaddr_in6 *dest_adresse;
-    const char * error2 = real_address("::1",dest_adresse);
+    const char * error2 = real_address("::1",dest_adresse); // le 1 c'est nous
+    if(error2!=NULL){
+       printf("errooooooor 2 %s\n",error2);
+    }
     int sfd;
-    if (&hostname != "") {
+    if (hostname != NULL) {
       
-      struct sockaddr_in6 *source_adresse;
+      struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
 
-      const char * error1 = real_address(&hostname,source_adresse);
+      const char * error1 = real_address(hostname,source_adresse);
+      printf("real adresss post-call\n");
       if (port != 0) {
         sfd = create_socket(source_adresse,port,dest_adresse,0);
       } else {
         sfd = create_socket(source_adresse,0,dest_adresse,0);
       }
+      free (source_adresse);
     }
-    if (&hostname == "") {
+    if (&hostname == NULL) {
       sfd = create_socket(NULL,0,dest_adresse,0);
       if (sfd>0&&wait_for_client(sfd)<0){
         close(sfd);
@@ -107,7 +112,6 @@ int main (int argc, char **argv)
     if(selective(sfd,fd)!=0){
       fprintf(stderr, "Error in selective\n");
     }
-
     return 0;
 
   }

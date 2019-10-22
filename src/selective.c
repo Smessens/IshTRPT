@@ -19,19 +19,25 @@
 int read_sock(const int sfd, char * buffer) {
   int max_sfd = sfd+1;
   fd_set fd_read;
-
+  int err;
   struct timeval tv;
   tv.tv_sec = TV;
   tv.tv_usec = 0;
 
   FD_ZERO(&fd_read);
   FD_SET(sfd,&fd_read);
-  select(max_sfd, &fd_read, NULL, NULL, &tv);
-
+  err = select(max_sfd, &fd_read, NULL, NULL, &tv);
   if (FD_ISSET(sfd,&fd_read)) {
+    printf("FD_isset\n");
     return read(sfd, buffer, 524);
   }
-  return -1;
+  if(err == -1) {
+    printf("%s\n",strerror(errno));	
+  }
+  else if(err == 0) {
+    printf("nothing read on the socket avec the %d seconds\n",TV);
+  }
+  return err;
 }
 
 int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
@@ -73,19 +79,30 @@ int selective(int socket,int filename){
   uint8_t expected_seqnum = 0;
   char data[524];
 
-  int error;
+  int error=0;
   pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t*));
   int place;
   bool disconnect = false;
   while(!disconnect){
     memset((void *)data, 0, 524); //524 ou 272 ???
     error = read_sock(socket, data);
+    printf("data[0] %d\n",data[0]);
     if (error < 0) {
       fprintf(stderr, "issue with read_sock\n");
+      error=0;
+    
+    }
+    else if(error==0){
+      printf("rien lu\n");
+    }
+    else{
+    if(data ==NULL){
+      printf("data null \n");
     }
     pkt_status_code e = pkt_decode(data,error,new_pkt);
     if(e != PKT_OK) {
       fprintf(stderr,"issue with pkt \n");
+      error=0;
     }
     if(pkt_get_type(new_pkt) != PTYPE_DATA) {
       free(new_pkt);
@@ -139,7 +156,7 @@ int selective(int socket,int filename){
         send_ack(socket,expected_seqnum-1,window,0);
         fprintf(stderr, "paquet pas dans window\n");
       }
-    }
+    }}
   }
   close(socket);
   close(filename);

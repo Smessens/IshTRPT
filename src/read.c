@@ -15,10 +15,18 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
     if (error != 0) {
         return gai_strerror(error);
     }
-    printf("goal->ai_adrr %s\n",goal->ai_addr);
-    printf("sizeof rval %d\n",sizeof(struct sockaddr_in6));
+    struct sockaddr_in6 * saddr = (struct sockaddr_in6 *) goal->ai_addr;
+    printf("goal->ai_adrr %d, %d\n",goal->ai_addr, saddr);
+    printf("sizeof rval %d, %d\n",sizeof(goal->ai_addr),sizeof( saddr));
     printf("millieu 2  real adressse\n");
-    memcpy((void *)rval,(const void *)goal->ai_addr,sizeof(struct sockaddr_in6));
+/*
+    int i;
+    for (i=0;i<16;i++){
+       printf("%d bytes cpy \n",i);
+       memcpy((void *)rval,(const void *)saddr,i);// adresse?:wq
+    }
+*/
+    rval=saddr;  
     printf("millieu 3  real adressse\n");
     freeaddrinfo(goal);
     printf("fin real adressse \n");
@@ -37,8 +45,13 @@ int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockadd
   int error;
   // binding with source
   if (source_addr != NULL && src_port > 0) {
+    printf("source adresse %d \n",source_addr);
     source_addr->sin6_family = AF_INET6;
     source_addr->sin6_port = htons(src_port);
+    int yes = 1;
+    if(setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
+	printf("error 2b : \n");
+    }
     error = bind(sock,(struct sockaddr *) source_addr, sizeof(struct sockaddr_in6));
     if (error != 0) {
       printf("error 2 : %d\n", error);
