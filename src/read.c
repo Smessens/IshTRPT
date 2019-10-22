@@ -9,14 +9,19 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
     new.ai_family = AF_INET6; // IPv6
     new.ai_protocol = IPPROTO_UDP; //protocol UDP
     struct addrinfo *goal;
-
+    printf("millieu real adresse\n");
     int error;
     error = getaddrinfo(address, NULL, &new, &goal);
     if (error != 0) {
         return gai_strerror(error);
     }
+    printf("goal->ai_adrr %s\n",goal->ai_addr);
+    printf("sizeof rval %d\n",sizeof(struct sockaddr_in6));
+    printf("millieu 2  real adressse\n");
     memcpy((void *)rval,(const void *)goal->ai_addr,sizeof(struct sockaddr_in6));
+    printf("millieu 3  real adressse\n");
     freeaddrinfo(goal);
+    printf("fin real adressse \n");
     return NULL;
 }
 
