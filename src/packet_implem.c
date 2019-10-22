@@ -1,4 +1,4 @@
-#include "packet_implem.h"
+//#include "packet_implem.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <zlib.h>
+//#include "packet_interface.h"
+
 
 
 struct __attribute__((__packed__)) pkt {
@@ -142,20 +144,20 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
   memcpy(&buff4byte, data+11+l+leng, 4); //get crc2
   pkt_set_crc2(pkt,buff4byte);
 
+  uint32_t crc1 ;
+  uint32_t crc2;
   if(pkt_get_tr(pkt) == 0) {
-    buff4byte = crc32(0L, Z_NULL, 0);
-    buff4byte  = crc32(buff4byte , ( const Bytef *) data, 7+l);
-
-    if(buff4byte  != ntohl(pkt_get_crc1(pkt))) {
+    crc1 = crc32(0L, Z_NULL, 0);
+    crc1 = crc32(crc1, ( const Bytef *) data, 7+l);
+    if(crc1 != ntohl(pkt_get_crc1(pkt))) {
       return E_CRC;
     }
   }
 
-  if(leng!= 0) {
-
-    buff4byte= crc32(0L, Z_NULL, 0);
-    buff4byte = crc32(buff4byte, (Bytef *)(data+11+l),leng);
-    if(buff4byte != ntohl(pkt_get_crc2(pkt))) {
+  if(pkt_get_length(pkt) != 0) {
+    crc2 = crc32(0L, Z_NULL, 0);
+    crc2 = crc32(crc2, (Bytef *)(data+11+l), pkt_get_length(pkt));
+    if(crc2 != ntohl(pkt_get_crc2(pkt))) {
       return E_CRC;
     }
   }
