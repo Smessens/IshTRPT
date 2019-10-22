@@ -25,6 +25,12 @@ make:
 	./senderprof -f fichier.dat :::22 12346
 	./src/receiver :::22 12346
 
+prof:
+	./senderprof 130:104:78:14 64345 
+	./receiverprof 130:104:78:14 64345
+
+
+
 test:
 	clean
 	gcc -o tests/test tests/test.c
@@ -32,8 +38,8 @@ test:
 
 receiver:src/receiver.c
 	gcc -o src/receiver src/receiver.c
-	./src/receiver -m 4 ::3 12345 2> log.txt
-	./src/receiver -o "fichier_%02d.dat" :: 12345
+	./src/receiver -m 4 ::1 63345 2> log.txt
+	./src/receiver -o "fichier_%02d.dat" ::1 63345
 
 # If we run `make debug` instead, keep the debug symbols for gdb
 # and define the DEBUG macro.
