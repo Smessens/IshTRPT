@@ -1,4 +1,4 @@
-//#include "packet_implem.h"
+#include "packet_implem.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
@@ -15,7 +15,7 @@ struct __attribute__((__packed__)) pkt {
   uint8_t tr : 1;
   uint8_t window : 5;
   uint16_t length : 15;
-  uint8_t seqnum : 8;
+  uint16_t seqnum : 8;
   uint32_t timestamp : 32;
   uint32_t crc1 : 32;
   uint32_t crc2 : 32;
