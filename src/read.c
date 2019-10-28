@@ -16,9 +16,9 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
         return gai_strerror(error);
     }
     struct sockaddr_in6 * saddr = (struct sockaddr_in6 *) goal->ai_addr;
-    printf("goal->ai_adrr %d, %d\n",goal->ai_addr, saddr);
-    printf("sizeof rval %d, %d\n",sizeof(goal->ai_addr),sizeof( saddr));
-    printf("millieu 2  real adressse\n");
+//    printf("goal->ai_adrr %d, %d\n",goal->ai_addr, saddr);
+//    printf("sizeof rval %d, %d\n",sizeof(goal->ai_addr),sizeof( saddr));
+//    printf("millieu 2  real adressse\n");
 /*
     int i;
     for (i=0;i<16;i++){
@@ -27,7 +27,7 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
     }
 */
     rval=saddr;  
-    printf("millieu 3  real adressse\n");
+//    printf("millieu 3  real adressse\n");
     freeaddrinfo(goal);
     printf("fin real adressse \n");
     return NULL;

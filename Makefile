@@ -22,24 +22,31 @@ make:
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./sender -f fichier.dat ::1 64346
 	./src/receiver ::1 64346
 
+sender:
+	 ./senderbis -f file.dat ::1 64341
+
+receiver:
+	./receiverprof -o out  :: 64341
+
+
 prof:
-	./sender -f file.dat ::1 64500 
-	./receiverprof :: 64500
+	./receiverprof :: 64341
+	./senderbis -f file.dat ::1 64341
 
-
-
+closer:
+	gcc closer.c -o closer
+	./closer ::1
 test:
 	clean
 	gcc -o tests/test tests/test.c
 	./tests/test  #add arguments
 
-receiver:src/receiver.c
-	gcc -o src/receiver src/receiver.c
-	./src/receiver -m 4 ::1 63345 2> log.txt
-	./src/receiver -o "fichier_%02d.dat" ::1 63345
+#receiver:src/receiver.c
+#	gcc -o src/receiver src/receiver.c
+#	./src/receiver -m 4 ::1 63345 2> log.txt
+#	./src/receiver -o "fichier_%02d.dat" ::1 63345
 
 # If we run `make debug` instead, keep the debug symbols for gdb
 # and define the DEBUG macro.

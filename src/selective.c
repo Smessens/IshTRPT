@@ -14,7 +14,7 @@
 #include "selective.h"
 
 #define STDOUT 1
-#define TV 5
+#define TV 15
 
 int read_sock(const int sfd, char * buffer) {
   int max_sfd = sfd+1;
@@ -85,6 +85,7 @@ int selective(int socket,int filename){
   bool disconnect = false;
   while(!disconnect){
     memset((void *)data, 0, 524); //524 ou 272 ???
+    printf("while!disconnect\n");
     error = read_sock(socket, data);
     printf("data[0] %d\n",data[0]);
     if (error < 0) {
