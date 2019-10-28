@@ -70,97 +70,70 @@ void pkt_del(pkt_t *pkt)
   free(pkt);
 }
 
-pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
-{
-  uint8_t buffbyte;
-  uint16_t buff2byte;
-  uint32_t buff4byte;
-  int leng;
-
-
-  int * buff = (int *)malloc(sizeof(int)*32);
-  ctoi(data[0], buff); //take first two bytes and put it in binary in a char table
-  // set type
-  ptypes_t pt= (ptypes_t) btoi(buff,0,1);
-  if(PKT_OK!=pkt_set_type(pkt,pt)){//check if type is legal
-    free(buff);
-    return E_TYPE; //send type error
-  }
-  // set TR
-  uint8_t tr = (uint8_t) buff[2];
-  if(PKT_OK!=pkt_set_tr(pkt,tr)){//check if tr is ok
-    free(buff);
-    return E_TR; //send type error
-  }
-  // set window
-  memcpy(&buffbyte, data, 1);
-  buffbyte= buffbyte<<3;
-  buffbyte= buffbyte>>3;
-  pkt_set_window(pkt, buffbyte);
-
-  // set length
-  uint8_t l=buff[8];                        // finding L
-  memcpy(&buffbyte, data+1, 1);
-  buffbyte= buffbyte>> 7 ;
-
-  if (l == 0) { // petite lenght
-    memcpy(&buffbyte, data+1, 1);
-    pkt_set_length(pkt,buffbyte);
+pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
+  uint8_t firstByte;
+  memcpy(&firstByte, data, 1); // contient les 8 premiers bits de data : 0 1 type, 2 tr, 3 4 5 6 7 window
+  uint8_t WINDOW = (firstByte & (uint8_t)31); // Les 5 derniers bits
+  pkt_set_window(pkt, WINDOW);
+  uint8_t byteType = firstByte >> 6 ; // Sert juste au décallage
+  uint8_t TYPE = (byteType & (uint8_t)3); // les 2 premiers bits
+  pkt_set_type(pkt, TYPE);
+  uint8_t byteTr = firstByte >> 5 ; // Sert juste au décallage
+  uint8_t TR = (byteTr & (uint8_t)1); // Le 3e bit
+  pkt_set_tr(pkt, TR);
+  uint8_t secondByte;
+  memcpy(&secondByte, data+1, 1); // contient les bits 8 à 15 de data
+  uint8_t byteL = secondByte >> 7 ; // sert juste au décallage
+  uint8_t L = (byteL & 00000001); // le 8e bit
+  if (L == 0) { // Length est encodé sur 7 bits
+    uint8_t LENGTH = (secondByte & (uint8_t)127); // les bit 9 à 15
+    pkt_set_length(pkt, LENGTH);
   }
   else { // Length est encodé sur 15 bits
-    memcpy(&buffbyte, data+1, 1);
-    buffbyte-=-128; // enlève le l
-    buff2byte=buffbyte;
-    buff2byte=buff2byte<<8;
-    memcpy(&buffbyte, data+2, 1);
-    buff2byte+=buffbyte;
-    pkt_set_length(pkt,buff2byte);
+    uint16_t secNthirdByte;
+    memcpy(&secNthirdByte, data+1, 2);
+    uint16_t hLENGTH = ntohs(secNthirdByte);
+    uint16_t LENGTH = (hLENGTH & (uint16_t)32767); // contient les bits de 9 à 23 ! En network byte order
+    pkt_set_length(pkt, LENGTH);
   }
-  leng=pkt_get_length(pkt);
-
-  if (leng+15+l > (int)len) {
-    return E_UNCONSISTENT;
-  }
-  if (leng> 512) {
-    return  E_LENGTH;
-  }
-
-
-  //set seqnum
-  memcpy(&buffbyte, data+2+l, 1);
-  pkt_set_seqnum(pkt,buffbyte);
-  //set timestamp
-  memcpy(&buff4byte, data+3+l, 4);
-  pkt_set_timestamp(pkt,buff4byte);
-
-  memcpy(&buff4byte, data+7+l, 4);  // get crc1
-  pkt_set_crc1(pkt,buff4byte);
-
-  char*  payload= (char*)malloc(leng);
-
-  memcpy(payload, data+11+l, leng);
-  pkt_set_payload(pkt,payload,leng);
-
-  memcpy(&buff4byte, data+11+l+leng, 4); //get crc2
-  pkt_set_crc2(pkt,buff4byte);
-
-  uint32_t crc1 ;
-  uint32_t crc2;
+  uint8_t SEQNUM;
+  memcpy(&SEQNUM, data+2+L, 1); // contient les bits 16 à 23
+  pkt_set_seqnum(pkt, SEQNUM);
+  uint32_t TIMESTAMP;
+  memcpy(&TIMESTAMP, data+3+L, 4); // contient les bits 24 à 55
+  pkt_set_timestamp(pkt, TIMESTAMP);
+  uint32_t CRC1;
+  memcpy(&CRC1, data+7+L, 4);
+  pkt_set_crc1(pkt, CRC1);
+  char* PAYLOAD = (char*)malloc(pkt_get_length(pkt));
+  memcpy(PAYLOAD, data+11+L, pkt_get_length(pkt));
+  pkt_set_payload(pkt, PAYLOAD, pkt_get_length(pkt));
+  uint32_t CRC2;
+  memcpy(&CRC2, data+11+L+pkt_get_length(pkt), 4);
+  pkt_set_crc2(pkt, CRC2);
+  // calcul du crc1 et du crc2
   if(pkt_get_tr(pkt) == 0) {
-    crc1 = crc32(0L, Z_NULL, 0);
-    crc1 = crc32(crc1, ( const Bytef *) data, 7+l);
+    uint32_t crc1 = crc32(0L, Z_NULL, 0);
+    crc1 = crc32(crc1, ( const Bytef *) data, 7+L);
     if(crc1 != ntohl(pkt_get_crc1(pkt))) {
       return E_CRC;
     }
   }
-
   if(pkt_get_length(pkt) != 0) {
-    crc2 = crc32(0L, Z_NULL, 0);
-    crc2 = crc32(crc2, (Bytef *)(data+11+l), pkt_get_length(pkt));
+    uint32_t crc2 = crc32(0L, Z_NULL, 0);
+    crc2 = crc32(crc2, (Bytef *)(data+11+L), pkt_get_length(pkt));
     if(crc2 != ntohl(pkt_get_crc2(pkt))) {
       return E_CRC;
     }
   }
+  if (pkt_get_length(pkt)+15+L > (int)len) {
+    return E_UNCONSISTENT;
+  }
+  if (pkt_get_length(pkt) > 512) {
+    return  E_LENGTH;
+  }
+  return PKT_OK;
+}
 
 
 
