@@ -1,7 +1,6 @@
 #include "read.h"
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval) {
-    printf("real_address\n");
     struct addrinfo new;
     memset(&new,0,sizeof(new));
 
@@ -9,27 +8,14 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval) {
     new.ai_family = AF_INET6; // IPv6
     new.ai_protocol = IPPROTO_UDP; //protocol UDP
     struct addrinfo *goal;
-    printf("millieu real adresse\n");
+
     int error;
     error = getaddrinfo(address, NULL, &new, &goal);
     if (error != 0) {
         return gai_strerror(error);
     }
-    struct sockaddr_in6 * saddr = (struct sockaddr_in6 *) goal->ai_addr;
-//    printf("goal->ai_adrr %d, %d\n",goal->ai_addr, saddr);
-//    printf("sizeof rval %d, %d\n",sizeof(goal->ai_addr),sizeof( saddr));
-//    printf("millieu 2  real adressse\n");
-/*
-    int i;
-    for (i=0;i<16;i++){
-       printf("%d bytes cpy \n",i);
-       memcpy((void *)rval,(const void *)saddr,i);// adresse?:wq
-    }
-*/
-    rval=saddr;  
-//    printf("millieu 3  real adressse\n");
+    memcpy((void *)rval,(const void *)goal->ai_addr,sizeof(struct sockaddr_in6));
     freeaddrinfo(goal);
-    printf("fin real adressse \n");
     return NULL;
 }
 
@@ -79,19 +65,18 @@ int wait_for_client(int sfd) {
   printf("wait_for_client\n");
   char buff[1024];
   struct sockaddr_in6 source_addr;
-  socklen_t len = sizeof(struct sockaddr_in6);
-  memset(&source_addr, 0, len);
+  socklen_t len =(socklen_t) sizeof(struct sockaddr_in6);
+  memset(&source_addr, 0,len);
   int err = recvfrom(sfd, buff, (size_t) 1024, MSG_PEEK, (struct sockaddr *) &source_addr, &len);
-  //listen(sfd,10);
-  // printf("post-listen\n");
-  //int addr_size=sizeof(source_addr);
-  // int err = accept(sfd,(struct sockaddr *)&source_addr , &addr_size);
   if (err == -1) {
     printf("erreur accept %s\n",strerror(errno));
     return -1;
   }
   printf("recvfrom fin \n");
   err = connect(sfd, (struct sockaddr *) &source_addr, len);
+  if (err == -1) {
+    return -1;
+  }
   printf("wait_for_client fin \n");
 
   return err;

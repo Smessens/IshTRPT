@@ -32,7 +32,7 @@ int read_sock(const int sfd, char * buffer) {
     return read(sfd, buffer, 524);
   }
   if(err == -1) {
-    printf("%s\n",strerror(errno));	
+    printf("%s\n",strerror(errno));
   }
   else if(err == 0) {
     printf("nothing read on the socket avec the %d seconds\n",TV);
@@ -91,7 +91,7 @@ int selective(int socket,int filename){
     if (error < 0) {
       fprintf(stderr, "issue with read_sock\n");
       error=0;
-    
+
     }
     else if(error==0){
       printf("rien lu\n");

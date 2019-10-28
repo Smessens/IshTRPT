@@ -45,9 +45,9 @@ int main (int argc, char **argv)
       }
       else{
         if(strcmp(ptr,argv[i])!=0){
-         
+
           hostname=argv[i];
-          
+
 	  port=atoi(argv[i+1]);
           i++;
         }
@@ -71,28 +71,28 @@ int main (int argc, char **argv)
   printf("hostname :%s\n",hostname);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
-    struct sockaddr_in6 *dest_adresse;
-    const char * error2 = real_address("localhost",dest_adresse); // le 1 c'est nous
+    struct sockaddr_in6 dest_adresse;
+    const char * error2 = real_address("localhost",&dest_adresse); // le 1 c'est nous
     if(error2!=NULL){
        printf("errooooooor 2 %s\n",error2);
     }
     int sfd;
     if (hostname != NULL) {
-      
+
       struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
 
       const char * error1 = real_address(hostname,source_adresse);
       printf("real adresss post-call\n");
       if (port != 0) {
-        sfd = create_socket(source_adresse,port,dest_adresse,port);
+        sfd = create_socket(source_adresse,port,&dest_adresse,port);
       } else {
-        sfd = create_socket(source_adresse,port,dest_adresse,port);
+        sfd = create_socket(source_adresse,port,&dest_adresse,port);
       }
       free (source_adresse);
     }
     if (hostname ==NULL) {
       printf("adresse = ::\n");
-      sfd = create_socket(dest_adresse,port,NULL,port);
+      sfd = create_socket(&dest_adresse,port,NULL,port);
    //   char hostnamebis[50];
    //   struct sockaddr * addr;
   //    int *adlen;
@@ -123,4 +123,3 @@ int main (int argc, char **argv)
     return 0;
 
   }
-
