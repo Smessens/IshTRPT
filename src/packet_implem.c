@@ -135,11 +135,6 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
   return PKT_OK;
 }
 
-
-
-  return PKT_OK;
-}
-
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
   int l=0;

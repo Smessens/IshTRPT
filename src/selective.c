@@ -14,7 +14,7 @@
 #include "selective.h"
 
 #define STDOUT 1
-#define TV 15
+#define TV 5
 
 int read_sock(const int sfd, char * buffer) {
   int max_sfd = sfd+1;

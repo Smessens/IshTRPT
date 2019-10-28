@@ -64,7 +64,8 @@ int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockadd
   if (dest_addr != NULL && dst_port > 0) {
     dest_addr->sin6_family = AF_INET6;
     dest_addr->sin6_port = htons(dst_port);
-    error = connect(sock,(struct sockaddr *) dest_addr, sizeof(struct sockaddr_in6));
+
+    error = bind(sock,(struct sockaddr *) dest_addr, sizeof(struct sockaddr_in6));
     if(error != 0) {
       printf("error 3 : %d\n", error);
       printf("%s\n", strerror(errno));
@@ -81,9 +82,15 @@ int wait_for_client(int sfd) {
   socklen_t len = sizeof(struct sockaddr_in6);
   memset(&source_addr, 0, len);
   int err = recvfrom(sfd, buff, (size_t) 1024, MSG_PEEK, (struct sockaddr *) &source_addr, &len);
+  //listen(sfd,10);
+  // printf("post-listen\n");
+  //int addr_size=sizeof(source_addr);
+  // int err = accept(sfd,(struct sockaddr *)&source_addr , &addr_size);
   if (err == -1) {
+    printf("erreur accept %s\n",strerror(errno));
     return -1;
   }
+  printf("recvfrom fin \n");
   err = connect(sfd, (struct sockaddr *) &source_addr, len);
   printf("wait_for_client fin \n");
 

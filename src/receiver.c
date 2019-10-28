@@ -45,8 +45,10 @@ int main (int argc, char **argv)
       }
       else{
         if(strcmp(ptr,argv[i])!=0){
+         
           hostname=argv[i];
-          port=atoi(argv[i+1]);
+          
+	  port=atoi(argv[i+1]);
           i++;
         }
         else{
@@ -66,11 +68,11 @@ int main (int argc, char **argv)
   printf("port : %d\n",port);
   printf("format :%s\n",format );
   printf("count :%d\n",count );
-  printf("hostname :%c\n",hostname);
+  printf("hostname :%s\n",hostname);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
     struct sockaddr_in6 *dest_adresse;
-    const char * error2 = real_address("::1",dest_adresse); // le 1 c'est nous
+    const char * error2 = real_address("localhost",dest_adresse); // le 1 c'est nous
     if(error2!=NULL){
        printf("errooooooor 2 %s\n",error2);
     }
@@ -82,20 +84,26 @@ int main (int argc, char **argv)
       const char * error1 = real_address(hostname,source_adresse);
       printf("real adresss post-call\n");
       if (port != 0) {
-        sfd = create_socket(source_adresse,port,dest_adresse,0);
+        sfd = create_socket(source_adresse,port,dest_adresse,port);
       } else {
-        sfd = create_socket(source_adresse,0,dest_adresse,0);
+        sfd = create_socket(source_adresse,port,dest_adresse,port);
       }
       free (source_adresse);
     }
-    if (&hostname == NULL) {
-      sfd = create_socket(NULL,0,dest_adresse,0);
+    if (hostname ==NULL) {
+      printf("adresse = ::\n");
+      sfd = create_socket(dest_adresse,port,NULL,port);
+   //   char hostnamebis[50];
+   //   struct sockaddr * addr;
+  //    int *adlen;
+ //     getpeername(sfd,addr,adlen);
+//      printf("hostnamebis%d\n ", addr->sin_addr);
       if (sfd>0&&wait_for_client(sfd)<0){
         close(sfd);
         fprintf(stderr, "Error connecting\n");
         return -1;
-    }
-}
+        }
+      }
 
     if (sfd==-1){
       fprintf(stderr, "Error connecting\n");
