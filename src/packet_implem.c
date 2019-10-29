@@ -137,6 +137,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
+//  printf("pkt encode \n" );
   int l=0;
   uint8_t bytebuff;
   uint32_t buff4byte;
@@ -155,10 +156,12 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
     uint16_t uleng= htons(leng+32768);
     memcpy(buf+1, &uleng, 2);
   }
+//  printf("pkt encode pkt -> length\n" );
 
   if ((int)(* len)<(pkt->length)+11+l){
     return E_NOMEM;
   }
+//  printf("pkt encode post e_nomemi\n" );
 
   bytebuff= pkt_get_seqnum(pkt);
   memcpy(buf+2+l, &bytebuff, 1);

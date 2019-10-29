@@ -29,7 +29,7 @@ int read_sock(const int sfd, char * buffer) {
   err = select(max_sfd, &fd_read, NULL, NULL, &tv);
   if (FD_ISSET(sfd,&fd_read)) {
     printf("FD_isset\n");
-    return read(sfd, buffer, 524);
+    return read(sfd, buffer, 528);
   }
   if(err == -1) {
     printf("%s\n",strerror(errno));
@@ -51,15 +51,17 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
   else {
     pkt_set_type(pktack,PTYPE_ACK);
   }
-  size_t *len;
+  size_t len=12;
   char buff[12];
-
-  pkt_status_code error = pkt_encode((const pkt_t *)pkt_new,buff,len);
+//  printf("ack pre-encode\n");
+  pkt_status_code error = pkt_encode((const pkt_t *)pkt_new,buff,&len);
+//  printf("ack posst-encode\n");
   if(error != PKT_OK){
     fprintf(stderr, "PKT error \n"); // a completer
     pkt_del(pktack);
     return -1;
   }
+  
   else {
     send(sock,buff,sizeof(buff),0);
   }
@@ -77,17 +79,17 @@ int selective(int socket,int filename){
     databuff[i]=NULL;
   }
   uint8_t expected_seqnum = 0;
-  char data[524];
+  char data[528];
 
   int error=0;
   pkt_t * new_pkt = (pkt_t *) malloc(sizeof(struct pkt_t*));
   int place;
   bool disconnect = false;
   while(!disconnect){
-    memset((void *)data, 0, 524); //524 ou 272 ???
+    memset((void *)data, 0, 528); //524 ou 272 ???
     printf("while!disconnect\n");
     error = read_sock(socket, data);
-    printf("data[0] %d\n",data[0]);
+//    printf("data[0] %d\n",data[0]);
     if (error < 0) {
       fprintf(stderr, "issue with read_sock\n");
       error=0;
@@ -102,6 +104,7 @@ int selective(int socket,int filename){
     }
     pkt_status_code e = pkt_decode(data,error,new_pkt);
     if(e != PKT_OK) {
+      printf("error pkt = %d\n",e);
       fprintf(stderr,"issue with pkt \n");
       error=0;
     }
@@ -110,15 +113,18 @@ int selective(int socket,int filename){
     }
     //check of disconnection
     else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum-1) {
-      disconnect = true;
+       printf("disconnect = true\n");
+       disconnect = true;
     }
     else{
       if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
+        printf("packet est dans l'odre \n");
         bool isnotlast=true;
         while(isnotlast){
           write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt)); ///
+//          printf("just writed \n");
           isnotlast=false;
-          expected_seqnum++;
+          expected_seqnum=expected_seqnum+1;
           for (i = 0; i < 32; i++){
             if(databuff[i]!=NULL&&!isnotlast){
               if(expected_seqnum==pkt_get_seqnum(databuff[i])){
@@ -130,13 +136,16 @@ int selective(int socket,int filename){
             }
           }
         }
+      //    printf("fin while is not last \n");
         send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt));
+      //  printf("post send ack\n");
         }
 
       // le paquet est en desordre
       else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+window) ||
           (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<(expected_seqnum+window)%256 && expected_seqnum+window>255)) {
         place = -1;
+        printf("packet en désordre \n");
         for (i= 0; i < 32; i++) {
           if(databuff[i] == NULL) {
             place = i;

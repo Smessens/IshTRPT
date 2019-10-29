@@ -25,7 +25,7 @@ make:
 	./src/receiver :: 64341
 
 sender:
-	 ./senderbis -f file.dat ::1 64341
+	 ./senderbis -f fichier.dat ::1 64341
 
 receiver:
 	./receiverprof -o out  :: 64341
