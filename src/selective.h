@@ -12,11 +12,11 @@
 #include <errno.h>
 
 
-int read_sock(const int sfd, char * buffer);
+int read_sock(const int sfd, char * buffer, FILE * log);
 
-int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp);
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp, FILE * log);
 
-int selective(int socket,int fd);
+int selective(int socket,int fd,FILE * log);
 
 
 #endif

@@ -17,25 +17,25 @@ int main (int argc, char **argv)
   char *ptr;
   char *hostname=NULL;
 
+  FILE * log;
+  log = fopen ("log.txt", "w");
+
   for (i=1;i<argc;i++){
-    if(strcmp(argv[i],"-m")==0){
+    if(strcmp(argv[i],"-m")==0){ // test connexion concurrente
       if(i+1>=argc){
-        fprintf( stderr,"%s", "Incorrect arguments\n");
+        fprintf(log,"%s", "Incorrect arguments with -m (receiver)\n");
         return -1;
       }
       connexionconcurrente=atoi(argv[i+1]);
       i++;
     }
-    else if(strcmp(argv[i],"-o")==0){
-        if(i+1>=argc){
-          fprintf( stderr,"%s", "Incorrect arguments\n");
-          return -1;
-        }
-
-        format=argv[i+1];
-        i++;
-
-
+    else if(strcmp(argv[i],"-o")==0){ // test format
+      if(i+1>=argc){
+        fprintf(log,"%s", "Incorrect arguments with -o (receiver)\n");
+        return -1;
+      }
+      format=argv[i+1];
+      i++;
     }
     else{
       ptr  = strtok(argv[i], delim);
@@ -45,10 +45,8 @@ int main (int argc, char **argv)
       }
       else{
         if(strcmp(ptr,argv[i])!=0){
-
           hostname=argv[i];
-
-	  port=atoi(argv[i+1]);
+          port=atoi(argv[i+1]);
           i++;
         }
         else{
@@ -60,7 +58,7 @@ int main (int argc, char **argv)
   }
 
   for (i=0; i<count; i++){
-    fprintf (stderr,"Non-option argument %s\n", argv[index[i]]);
+    fprintf (log,"Non-option argument %s (receiver)\n", argv[index[i]]);
   }
 
   printf("connexion concurrente  :%d\n",connexionconcurrente );   //print test a virer avant la soumission
@@ -71,55 +69,64 @@ int main (int argc, char **argv)
   printf("hostname :%s\n",hostname);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
-    struct sockaddr_in6 dest_adresse;
-    const char * error2 = real_address("localhost",&dest_adresse); // le 1 c'est nous
+  //get true format
+  delim="%";
+  ptr=strtok(format,delim);
+  if (0!=strcmp(format,ptr){
+  }
+
+  struct sockaddr_in6 *dest_adresse;
+  const char * error1 = real_address("localhost",&dest_adresse); // le 1 c'est nous
+  if(error1!=NULL){
+    fprintf(log,"first real_address issue : %s (receiver)\n",error1);
+  }
+  int sfd;
+  if (hostname != NULL) {
+
+    struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
+
+    const char * error2 = real_address(hostname,&source_adresse);
     if(error2!=NULL){
-       printf("errooooooor 2 %s\n",error2);
+      fprintf(log,"second real_address issue : %s (receiver)\n",error2);
     }
-    int sfd;
-    if (hostname != NULL) {
-
-      struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
-
-      const char * error1 = real_address(hostname,source_adresse);
-      printf("real adresss post-call\n");
-      if (port != 0) {
-        sfd = create_socket(source_adresse,port,&dest_adresse,port);
-      } else {
-        sfd = create_socket(source_adresse,port,&dest_adresse,port);
-      }
-      free (source_adresse);
+    if (port != 0) {
+      sfd = create_socket(source_adresse,port,&dest_adresse,port);
+    } else {
+      sfd = create_socket(source_adresse,port,&dest_adresse,port);
     }
-    if (hostname ==NULL) {
-      printf("adresse = ::\n");
-      sfd = create_socket(&dest_adresse,port,NULL,port);
-   //   char hostnamebis[50];
-   //   struct sockaddr * addr;
-  //    int *adlen;
- //     getpeername(sfd,addr,adlen);
-//      printf("hostnamebis%d\n ", addr->sin_addr);
-      if (sfd>0&&wait_for_client(sfd)<0){
-        close(sfd);
-        fprintf(stderr, "Error connecting\n");
-        return -1;
-        }
-      }
-
-    if (sfd==-1){
-      fprintf(stderr, "Error connecting\n");
+    free (source_adresse);
+  }
+  if (hostname ==NULL) {
+    printf("adresse = ::\n");
+    sfd = create_socket(&dest_adresse,port,NULL,port);
+    //   char hostnamebis[50];
+    //   struct sockaddr * addr;
+    //    int *adlen;
+    //     getpeername(sfd,addr,adlen);
+    //      printf("hostnamebis%d\n ", addr->sin_addr);
+    if (sfd>0&&wait_for_client(sfd)<0){
+      fprintf(log,"%s","Error connecting (receiver)\n");
+      fclose(log);
       close(sfd);
       return -1;
     }
-
-    int fd;    //fd =STDOUT_FILENO;
-
-    fd = 0; //test
-
-    printf(" préselective\n");
-
-    if(selective(sfd,fd)!=0){
-      fprintf(stderr, "Error in selective\n");
-    }
-    return 0;
-
   }
+
+  if (sfd==-1){
+    fprintf(log,"%s","Error connecting (receiver)\n");
+    fclose(log);
+    close(sfd);
+    return -1;
+  }
+
+  int fd;    //fd =STDOUT_FILENO;
+  // fileno(FILE *) -> give us de file descriptor of the FILE* got from fopen
+
+  fd = 0; //test
+
+  if(selective(sfd,fd,log)!=0){
+    fprintf(log,"Error in selective (receiver)\n");
+  }
+  fclose(log);
+  return 0;
+}
