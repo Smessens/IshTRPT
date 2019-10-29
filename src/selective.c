@@ -41,7 +41,7 @@ int read_sock(const int sfd, char * buffer) {
 }
 
 int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp ){
-  printf("Sended ack with sequnum %d\n",seqnum);
+  printf("Sended ack with sequnum %d   window : %d\n",seqnum,window);
   pkt_t * pktack = pkt_new();
   pkt_set_seqnum(pktack,seqnum);
   pkt_set_window(pktack,window);
@@ -76,7 +76,7 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
 int selective(int socket,int filename){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
   printf("selective start \n");
-  uint32_t window = 32;
+  uint32_t window = 31;
   int i;
   for (i = 0; i < 32; i++) {
     databuff[i]=NULL;
@@ -112,7 +112,7 @@ int selective(int socket,int filename){
       fprintf(stderr,"issue with pkt \n");
       error=0;
     }
-    printf("pkt recu length %d\n",pkt_get_length(new_pkt));
+    printf("pkt recu length :%d  seqnum : %d\n",pkt_get_length(new_pkt),pkt_get_seqnum(new_pkt));
     if(pkt_get_type(new_pkt) != PTYPE_DATA) {
       free(new_pkt);
     }
@@ -173,7 +173,7 @@ int selective(int socket,int filename){
       } // paquet pas dans window
       else {
         printf("pkt seqnum : %d   expected seqnum %d\n",pkt_get_seqnum(new_pkt),expected_seqnum);
-        send_ack(socket,expected_seqnum-1,window,0,last_time);
+        send_ack(socket,expected_seqnum,window,0,last_time);
         fprintf(stderr, "paquet pas dans window\n");
       }
     }}

@@ -143,6 +143,7 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
   uint32_t buff4byte;
 
   bytebuff= (pkt_get_tr(pkt) << 5) +((pkt_get_type(pkt) << 6) +  pkt_get_window(pkt));
+ // printf("bytebuff %d\n",bytebuff);
   memcpy(buf, &bytebuff, 1);
   bytebuff=0;
   uint16_t leng=pkt_get_length(pkt);
@@ -190,7 +191,7 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
   else{
       *len = 11;
   }
-  printf("len: %d \n ",*len);
+  //printf("window: %d \n ",buf[0]);
   return PKT_OK;
 }
 
