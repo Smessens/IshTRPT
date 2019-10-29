@@ -16,7 +16,7 @@
 #define STDOUT 1
 #define TV 5
 
-int read_sock(const int sfd, char * buffer) {
+int read_sock(const int sfd, char * buffer, FILE * log) {
   int max_sfd = sfd+1;
   fd_set fd_read;
   int err;
@@ -28,11 +28,10 @@ int read_sock(const int sfd, char * buffer) {
   FD_SET(sfd,&fd_read);
   err = select(max_sfd, &fd_read, NULL, NULL, &tv);
   if (FD_ISSET(sfd,&fd_read)) {
-    printf("FD_isset\n");
     return read(sfd, buffer, 528);
   }
   if(err == -1) {
-    printf("%s\n",strerror(errno));
+    fprintf(log, "issue : %s (read_sock)\n",strerror(errno));
   }
   else if(err == 0) {
     printf("nothing read on the socket avec the %d seconds\n",TV);
@@ -40,7 +39,7 @@ int read_sock(const int sfd, char * buffer) {
   return err;
 }
 
-int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp ){
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp, FILE * log){
   printf("Sended ack with sequnum %d   window : %d\n",seqnum,window);
   pkt_t * pktack = pkt_new();
   pkt_set_seqnum(pktack,seqnum);
@@ -59,7 +58,7 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
   pkt_status_code error = pkt_encode((const pkt_t *)pktack,buff,len);
 //  printf("ack posst-encode\n");
   if(error != PKT_OK){
-    fprintf(stderr, "PKT error %d\n",error); // a completer
+    fprintf(log, "PKT error with number : %d (send_ack)\n",error); // a completer
     pkt_del(pktack);
     return -1;
   }
@@ -73,9 +72,8 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
 }
 
 
-int selective(int socket,int filename){
+int selective(int socket,int filename, FILE * log){
   pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
-  printf("selective start \n");
   uint32_t window = 31;
   int i;
   for (i = 0; i < 32; i++) {
@@ -92,10 +90,10 @@ int selective(int socket,int filename){
   while(!disconnect){
     memset((void *)data, 0, 528); //524 ou 272 ???
 //    printf("while!disconnect\n");
-    error = read_sock(socket, data);
+    error = read_sock(socket, data,log);
 //    printf("data[0] %d\n",data[0]);
     if (error < 0) {
-      fprintf(stderr, "issue with read_sock\n");
+      fprintf(log, "issue with read_sock (selective)\n");
       error=0;
 
     }
@@ -109,7 +107,7 @@ int selective(int socket,int filename){
     pkt_status_code e = pkt_decode(data,error,new_pkt);
     if(e != PKT_OK) {
       printf("error pkt = %d\n",e);
-      fprintf(stderr,"issue with pkt \n");
+      fprintf(log,"issue with pkt_decode (selective)\n");
       error=0;
     }
     printf("pkt recu length :%d  seqnum : %d\n",pkt_get_length(new_pkt),pkt_get_seqnum(new_pkt));
@@ -144,12 +142,8 @@ int selective(int socket,int filename){
             }
           }
         }
-      //    printf("fin while is not last \n");
-        printf("window : %d\n",window);
-        send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt),last_time);
-      //  printf("post send ack\n");
+        send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt),last_time,log);
         }
-
       // le paquet est en desordre
       else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+window) ||
           (pkt_get_seqnum(new_pkt)>0 && pkt_get_seqnum(new_pkt)<(expected_seqnum+window)%256 && expected_seqnum+window>255)) {
@@ -169,17 +163,18 @@ int selective(int socket,int filename){
             }
           }
         }
-        send_ack(socket,expected_seqnum,window,0,last_time);
+        send_ack(socket,expected_seqnum,window,0,last_time,log);
       } // paquet pas dans window
       else {
         printf("pkt seqnum : %d   expected seqnum %d\n",pkt_get_seqnum(new_pkt),expected_seqnum);
-        send_ack(socket,expected_seqnum,window,0,last_time);
-        fprintf(stderr, "paquet pas dans window\n");
+        send_ack(socket,expected_seqnum,window,0,last_time,log);
+        fprintf(log, "paquet pas dans window (selective)\n");
       }
     }}
   }
   close(socket);
   close(filename);
+  fclose(log);
   free(new_pkt);
   printf("fin de selective\n");
   return 0;
