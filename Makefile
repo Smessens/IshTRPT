@@ -18,22 +18,32 @@ LDFLAGS= -rdynamic
 #	gcc -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
 
 # Default target
-make:
+make:   
+	@touch file00.dat
+	@touch recu.jpg
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
+	@rm file00.dat
+	@rm recu.jpg
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./src/receiver -o "file%00d.dat" :: 64342
+	./src/receiver -o "file%00d.dat" :: 64341
+	@cat log.txt 
+	sha
+#	@display recu.jpg
+sha:
+	sha512sum file00.dat
+	sha512sum file.dat
 
 sender:
-	 ./senderprof -f fichier.dat ::1 64342
+	 ./senderprof -f file.dat ::1 64342
 
 receiver:
 	./receiverprof -o out  :: 64341
 
 
-prof:
-	./receiverprof :: 64341
-	./senderbis -f file.dat ::1 64341
+link:    # e=err -d délai -j écart -l lost
+	./link_sim -p 64342 -P 64341 -e 20 -l 20  -d 30
+	./senderbis -f file.dat ::1 64342
 
 closer:
 	gcc closer.c -o closer

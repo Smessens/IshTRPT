@@ -126,8 +126,13 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
       return E_CRC;
     }
   }
+  if(pkt_get_length(pkt)!=0){
   if (pkt_get_length(pkt)+15+L > (int)len) {
     return E_UNCONSISTENT;
+  }
+  }
+  else{
+     if(11>(int) len){return E_UNCONSISTENT;} 
   }
   if (pkt_get_length(pkt) > 512) {
     return  E_LENGTH;

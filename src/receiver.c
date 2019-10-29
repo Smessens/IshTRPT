@@ -70,7 +70,7 @@ int main (int argc, char **argv)
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
   //get real format
-  if(format!=NULL){
+  if(format!=NULL&&strcmp(format,strtok(format,"%"))!=0){
     int formatsize =strlen(format);
     char formatbuffer[formatsize];
     char formatbuffer2[formatsize];

@@ -109,17 +109,20 @@ int selective(int socket,int filename, FILE * log){
       pkt_status_code e = pkt_decode(data,error,new_pkt);
       if(e != PKT_OK) {
         printf("error pkt = %d\n",e);
-        fprintf(log,"issue with pkt_decode (selective)\n");
-        error=0;
+
+        fprintf(log,"issue with pkt_decode (selective)%d\n",e);
+        error=0; // est ce qu'on enverait un acjk pour jump start
       }
+      else{
       printf("pkt recu length :%d  seqnum : %d\n",pkt_get_length(new_pkt),pkt_get_seqnum(new_pkt));
       if(pkt_get_type(new_pkt) != PTYPE_DATA) {
         free(new_pkt);
       }
       //printf("pkt recu length %d\n",pkt_get_length(new_pkt));
       //check of disconnection
-      else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum-1) {
-        printf("disconnect = true\n");
+      else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum) {
+        send_ack(socket,expected_seqnum+1,window,0,last_time,log);
+	printf("disconnect = true\n");
         disconnect = true;
       }
       else{
@@ -172,7 +175,9 @@ int selective(int socket,int filename, FILE * log){
           send_ack(socket,expected_seqnum,window,0,last_time,log);
           fprintf(log, "paquet pas dans window (selective)\n");
         }
-      }}
+      }
+      }
+    }
       fclose(log);
     }
     close(socket);
