@@ -8,7 +8,7 @@ int main (int argc, char **argv)
 {
   int connexionconcurrente=-1;
   uint16_t port;
-  char * format;
+  char * format=NULL;
   char index[argc];  //garde en memoire les arguments non options
   int count=0;  // nombre d'arguments non-options
   int c;
@@ -70,7 +70,30 @@ int main (int argc, char **argv)
   printf("count :%d\n",count );
   printf("hostname :%s\n",hostname);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
+  
+  //get real format
+  if(format!=NULL){
+       int formatsize =strlen(format);
+   char formatbuffer[formatsize];
+   char formatbuffer2[formatsize];
+   char *token;
+   uint16_t formatnumber=0;
 
+   token = strtok(format, "%");
+
+   strcpy(formatbuffer,token); //premiere partie
+
+   token=strtok(NULL, "%");
+
+   token = strtok(token,"d");
+   token=strtok(NULL," ");
+
+   strcat(formatbuffer,"00");
+   strcpy(formatbuffer2,token);
+   strcat(formatbuffer,formatbuffer2);
+   strcpy(format,formatbuffer);
+    }
+    printf("realformat :%s\n",format );
     struct sockaddr_in6 dest_adresse;
     const char * error2 = real_address("localhost",&dest_adresse); // le 1 c'est nous
     if(error2!=NULL){
