@@ -16,11 +16,14 @@ int main (int argc, char **argv)
   char delim[] = ":";
   char *ptr;
   char *hostname=NULL;
+  FILE * log;
+
+  log = fopen("log.txt", "w");
 
   for (i=1;i<argc;i++){
     if(strcmp(argv[i],"-m")==0){
       if(i+1>=argc){
-        fprintf( stderr,"%s", "Incorrect arguments\n");
+        fprintf(log,"%s", "Incorrect arguments with -m (receiver)\n");
         return -1;
       }
       connexionconcurrente=atoi(argv[i+1]);
@@ -28,7 +31,7 @@ int main (int argc, char **argv)
     }
     else if(strcmp(argv[i],"-o")==0){
         if(i+1>=argc){
-          fprintf( stderr,"%s", "Incorrect arguments\n");
+          fprintf(log,"%s", "Incorrect arguments with -o (receiver)\n");
           return -1;
         }
 
@@ -60,7 +63,7 @@ int main (int argc, char **argv)
   }
 
   for (i=0; i<count; i++){
-    fprintf (stderr,"Non-option argument %s\n", argv[index[i]]);
+    fprintf (log,"Non-option argument (receiver) : %s\n", argv[index[i]]);
   }
 
   printf("connexion concurrente  :%d\n",connexionconcurrente );   //print test a virer avant la soumission
@@ -74,7 +77,7 @@ int main (int argc, char **argv)
     struct sockaddr_in6 dest_adresse;
     const char * error2 = real_address("localhost",&dest_adresse); // le 1 c'est nous
     if(error2!=NULL){
-       printf("errooooooor 2 %s\n",error2);
+       fprintf(log,"first real_address issue (receiver): %s\n",error2);
     }
     int sfd;
     if (hostname != NULL) {
@@ -82,7 +85,9 @@ int main (int argc, char **argv)
       struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
 
       const char * error1 = real_address(hostname,source_adresse);
-      printf("real adresss post-call\n");
+      if(error1!=NULL){
+         fprintf(log,"second real_address issue (receiver): %s\n",error1);
+      }
       if (port != 0) {
         sfd = create_socket(source_adresse,port,&dest_adresse,port);
       } else {
@@ -100,13 +105,13 @@ int main (int argc, char **argv)
 //      printf("hostnamebis%d\n ", addr->sin_addr);
       if (sfd>0&&wait_for_client(sfd)<0){
         close(sfd);
-        fprintf(stderr, "Error connecting\n");
+        fprintf(log, "Error connecting (receiver)\n");
         return -1;
         }
       }
 
     if (sfd==-1){
-      fprintf(stderr, "Error connecting\n");
+      fprintf(log, "Error connecting (receiver)\n");
       close(sfd);
       return -1;
     }
@@ -115,10 +120,8 @@ int main (int argc, char **argv)
 
     fd = 0; //test
 
-    printf(" préselective\n");
-
-    if(selective(sfd,fd)!=0){
-      fprintf(stderr, "Error in selective\n");
+    if(selective(sfd,fd,log)!=0){
+      fprintf(log, "Error in selective (receiver)\n");
     }
     return 0;
 
