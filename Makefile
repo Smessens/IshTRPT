@@ -22,10 +22,10 @@ make:
 	@rm -f src/receiver #change cleaned
 	@touch src/receiver
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./src/receiver :: 64341
+	./src/receiver :: 64342
 
 sender:
-	 ./senderbis -f fichier.dat ::1 64341
+	 ./senderbis -f fichier.dat ::1 64342
 
 receiver:
 	./receiverprof -o out  :: 64341

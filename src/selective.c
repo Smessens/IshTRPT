@@ -40,30 +40,33 @@ int read_sock(const int sfd, char * buffer) {
   return err;
 }
 
-int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr){
+int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp ){
+  printf("Sended ack with sequnum %d\n",seqnum);
   pkt_t * pktack = pkt_new();
   pkt_set_seqnum(pktack,seqnum);
   pkt_set_window(pktack,window);
-  pkt_set_length(pktack,0);
+  pkt_set_timestamp(pktack,timestamp);
   if(tr==1) {
     pkt_set_type(pktack,PTYPE_NACK);
   }
   else {
     pkt_set_type(pktack,PTYPE_ACK);
   }
-  size_t len=12;
+  size_t var =12;
+  size_t *  len = &var; 
   char buff[12];
 //  printf("ack pre-encode\n");
-  pkt_status_code error = pkt_encode((const pkt_t *)pkt_new,buff,&len);
+  pkt_status_code error = pkt_encode((const pkt_t *)pktack,buff,len);
 //  printf("ack posst-encode\n");
   if(error != PKT_OK){
-    fprintf(stderr, "PKT error \n"); // a completer
+    fprintf(stderr, "PKT error %d\n",error); // a completer
     pkt_del(pktack);
     return -1;
   }
   
   else {
-    send(sock,buff,sizeof(buff),0);
+    
+    send(sock,buff,*len,0);
   }
   pkt_del(pktack);
   return 0;
@@ -79,6 +82,7 @@ int selective(int socket,int filename){
     databuff[i]=NULL;
   }
   uint8_t expected_seqnum = 0;
+  uint32_t last_time;
   char data[528];
 
   int error=0;
@@ -87,7 +91,7 @@ int selective(int socket,int filename){
   bool disconnect = false;
   while(!disconnect){
     memset((void *)data, 0, 528); //524 ou 272 ???
-    printf("while!disconnect\n");
+//    printf("while!disconnect\n");
     error = read_sock(socket, data);
 //    printf("data[0] %d\n",data[0]);
     if (error < 0) {
@@ -108,9 +112,11 @@ int selective(int socket,int filename){
       fprintf(stderr,"issue with pkt \n");
       error=0;
     }
+    printf("pkt recu length %d\n",pkt_get_length(new_pkt));
     if(pkt_get_type(new_pkt) != PTYPE_DATA) {
       free(new_pkt);
     }
+    //printf("pkt recu length %d\n",pkt_get_length(new_pkt));
     //check of disconnection
     else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum-1) {
        printf("disconnect = true\n");
@@ -125,6 +131,8 @@ int selective(int socket,int filename){
 //          printf("just writed \n");
           isnotlast=false;
           expected_seqnum=expected_seqnum+1;
+          last_time=pkt_get_timestamp(new_pkt);
+
           for (i = 0; i < 32; i++){
             if(databuff[i]!=NULL&&!isnotlast){
               if(expected_seqnum==pkt_get_seqnum(databuff[i])){
@@ -137,7 +145,8 @@ int selective(int socket,int filename){
           }
         }
       //    printf("fin while is not last \n");
-        send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt));
+        printf("window : %d\n",window);
+        send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt),last_time);
       //  printf("post send ack\n");
         }
 
@@ -160,10 +169,11 @@ int selective(int socket,int filename){
             }
           }
         }
-        send_ack(socket,expected_seqnum-1,window,0);
+        send_ack(socket,expected_seqnum,window,0,last_time);
       } // paquet pas dans window
       else {
-        send_ack(socket,expected_seqnum-1,window,0);
+        printf("pkt seqnum : %d   expected seqnum %d\n",pkt_get_seqnum(new_pkt),expected_seqnum);
+        send_ack(socket,expected_seqnum-1,window,0,last_time);
         fprintf(stderr, "paquet pas dans window\n");
       }
     }}
