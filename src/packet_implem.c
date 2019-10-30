@@ -65,11 +65,12 @@ pkt_t* pkt_new()
 }
 
 void pkt_del(pkt_t *pkt)
-{  
-  if (pkt->payload!=NULL){
-  free(pkt->payload);
+{ if (pkt!=NULL){ 
+    if (pkt->payload!=NULL){
+      free(pkt->payload);
+    }
+    free(pkt);
   }
-  free(pkt);
 }
 
 pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
