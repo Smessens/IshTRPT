@@ -70,7 +70,7 @@ int main (int argc, char **argv)
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
   //get real format
-  if(format!=NULL&&strcmp(format,strtok(format,"%"))!=0){
+  if(format!=NULL){
     int formatsize =strlen(format);
     char formatbuffer[formatsize];
     char formatbuffer2[formatsize];
@@ -122,11 +122,6 @@ int main (int argc, char **argv)
   if (hostname ==NULL) {
     printf("adresse = ::\n");
     sfd = create_socket(&dest_adresse,port,NULL,port);
-    //   char hostnamebis[50];
-    //   struct sockaddr * addr;
-    //    int *adlen;
-    //     getpeername(sfd,addr,adlen);
-    //      printf("hostnamebis%d\n ", addr->sin_addr);
     if (sfd>0&&wait_for_client(sfd)<0){
       close(sfd);
       fprintf(log, "Error connecting (receiver)\n");
