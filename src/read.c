@@ -1,22 +1,22 @@
 #include "read.h"
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval) {
-    struct addrinfo new;
-    memset(&new,0,sizeof(new));
+  struct addrinfo new;
+  memset(&new,0,sizeof(new));
 
-    new.ai_socktype = SOCK_DGRAM; //socket
-    new.ai_family = AF_INET6; // IPv6
-    new.ai_protocol = IPPROTO_UDP; //protocol UDP
-    struct addrinfo *goal;
+  new.ai_socktype = SOCK_DGRAM; //socket
+  new.ai_family = AF_INET6; // IPv6
+  new.ai_protocol = IPPROTO_UDP; //protocol UDP
+  struct addrinfo *goal;
 
-    int error;
-    error = getaddrinfo(address, NULL, &new, &goal);
-    if (error != 0) {
-        return gai_strerror(error);
-    }
-    memcpy((void *)rval,(const void *)goal->ai_addr,sizeof(struct sockaddr_in6));
-    freeaddrinfo(goal);
-    return NULL;
+  int error;
+  error = getaddrinfo(address, NULL, &new, &goal);
+  if (error != 0) {
+    return gai_strerror(error);
+  }
+  memcpy((void *)rval,(const void *)goal->ai_addr,sizeof(struct sockaddr_in6));
+  freeaddrinfo(goal);
+  return NULL;
 }
 
 int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockaddr_in6 *dest_addr, int dst_port) {
@@ -36,7 +36,7 @@ int create_socket(struct sockaddr_in6 *source_addr, int src_port, struct sockadd
     source_addr->sin6_port = htons(src_port);
     int yes = 1;
     if(setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
-	printf("error 2b : \n");
+      printf("error 2b : \n");
     }
     error = bind(sock,(struct sockaddr *) source_addr, sizeof(struct sockaddr_in6));
     if (error != 0) {
