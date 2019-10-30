@@ -65,8 +65,10 @@ pkt_t* pkt_new()
 }
 
 void pkt_del(pkt_t *pkt)
-{
+{  
+  if (pkt->payload!=NULL){
   free(pkt->payload);
+  }
   free(pkt);
 }
 
@@ -108,6 +110,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
   char* PAYLOAD = (char*)malloc(pkt_get_length(pkt));
   memcpy(PAYLOAD, data+11+L, pkt_get_length(pkt));
   pkt_set_payload(pkt, PAYLOAD, pkt_get_length(pkt));
+  free (PAYLOAD);
   uint32_t CRC2;
   memcpy(&CRC2, data+11+L+pkt_get_length(pkt), 4);
   pkt_set_crc2(pkt, CRC2);
@@ -316,10 +319,16 @@ pkt_status_code pkt_set_crc2(pkt_t *pkt, const uint32_t crc2)
 pkt_status_code pkt_set_payload(pkt_t *pkt,
   const char *data,
   const uint16_t length){
-
-    pkt->payload = (char *)malloc(sizeof(char)*length);
-
-    if(pkt->payload == NULL){return E_NOMEM;}
+     printf("set payload length  %d\n",length);   
+     if (length==0){
+	     pkt->payload=NULL;
+     }
+     else{
+     pkt->payload = (char *)malloc(sizeof(char)*length);
+     }
+    if(pkt->payload == NULL&&length!=0){
+       return E_NOMEM;
+    }
 
     memcpy(pkt->payload,data,length);
     pkt_set_length(pkt,length);

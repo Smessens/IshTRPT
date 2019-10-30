@@ -34,6 +34,10 @@ sha:
 	sha512sum file00.dat
 	sha512sum file.dat
 
+valg:
+	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
+	valgrind --leak-check=yes --show-leak-kinds=all ./src/receiver -o "file%00d.dat" :: 64342
+
 sender:
 	 ./senderprof -f file.dat ::1 64342
 
@@ -42,19 +46,17 @@ receiver:
 
 
 link:    # e=err -d délai -j écart -l lost
-	./link_sim -p 64342 -P 64341 -e 20 -l 20  -d 30
-	./senderbis -f file.dat ::1 64342
+	./link_sim -p 64342 -P 64341 -e 10 -l 10 
 
 closer:
 	gcc closer.c -o closer
 	./closer ::1
 	
 test:
-	clean
 	@touch test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
 	@rm test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
-	gcc -o tests/test tests/test.c
-	./tests/test  #add arguments
+	gcc -o tests/tests tests/tests.c
+	./tests/tests  #add arguments
 
 #receiver:src/receiver.c
 #	gcc -o src/receiver src/receiver.c
@@ -69,5 +71,5 @@ debug: clean chat
 .PHONY: clean
 
 clean:
-	@rm -f src/receiver #change cleaned
+	@rm  src/receiver #change cleaned
 	@touch src/receiver
