@@ -16,14 +16,16 @@ int main (int argc, char **argv)
   char delim[] = ":";
   char *ptr;
   char *hostname=NULL;
-  FILE * log;
+  char *log_name=NULL;
 
-  log = fopen("log.txt", "w");
-
+  for (i=1;i<=argc;i++){
+    printf("%s ", argv[i]);
+  }
+  printf("\n argc : %d\n", argc);
   for (i=1;i<argc;i++){
     if(strcmp(argv[i],"-m")==0){
       if(i+1>=argc){
-        fprintf(log,"%s", "Incorrect arguments with -m (receiver)\n");
+        fprintf(stderr,"%s", "Incorrect arguments with -m (receiver)\n");
         return -1;
       }
       connexionconcurrente=atoi(argv[i+1]);
@@ -31,10 +33,18 @@ int main (int argc, char **argv)
     }
     else if(strcmp(argv[i],"-o")==0){
       if(i+1>=argc){
-        fprintf(log,"%s", "Incorrect arguments with -o (receiver)\n");
+        fprintf(stderr,"%s", "Incorrect arguments with -o (receiver)\n");
         return -1;
       }
       format=argv[i+1];
+      i++;
+    }
+    else if(strcmp(argv[i],"2>")==0) {
+      printf("found 2> \n");
+      if(i+1>=argc) {
+        fprintf(stderr,"%s", "Incorrect arguments with 2> (receiver)\n");
+      }
+      log_name=argv[i+1];
       i++;
     }
     else{
@@ -58,7 +68,7 @@ int main (int argc, char **argv)
   }
 
   for (i=0; i<count; i++){
-    fprintf (log,"Non-option argument (receiver) : %s\n", argv[index[i]]);
+    fprintf (stderr,"Non-option argument (receiver) : %s\n", argv[index[i]]);
   }
 
   printf("connexion concurrente  :%d\n",connexionconcurrente );   //print test a virer avant la soumission
@@ -67,7 +77,15 @@ int main (int argc, char **argv)
   printf("format :%s\n",format );
   printf("count :%d\n",count );
   printf("hostname :%s\n",hostname);
+  printf("log_name :%s\n",log_name);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
+
+  // log
+  FILE * log = stderr;
+
+  if(log_name != NULL) {
+    log = fopen(log_name, "w");
+  }
 
   //get real format
   if(format!=NULL){
@@ -95,6 +113,11 @@ int main (int argc, char **argv)
   int fdo = 1;
   if(format != NULL) {
     FILE * fileout = fopen(format,"w");
+    fdo = fileno(fileout);
+  }
+  else {
+    printf("no format file");
+    FILE * fileout = fopen("fileout.dat","w");
     fdo = fileno(fileout);
   }
 
