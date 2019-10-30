@@ -74,7 +74,7 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
 
 
 int selective(int socket,int filename, FILE * log){
-  pkt_t *  databuff [32];// 32=MAX_WINDOW_SIZE
+  pkt_t * databuff [32];// 32=MAX_WINDOW_SIZE
 
   uint32_t window = 31;
   int i;
@@ -137,21 +137,21 @@ int selective(int socket,int filename, FILE * log){
             expected_seqnum=expected_seqnum+1;
             last_time=pkt_get_timestamp(new_pkt);
             last_tr=pkt_get_tr(new_pkt);
-            pkt_del(new_pkt);
+  //          pkt_del(new_pkt);
             bool isnotlast=true;
             while(isnotlast) {
               isnotlast=false;
               int j;
-              for(j = 0; j < 31, j++) {
+              for(j = 0; j < 31; j++) {
                 if(databuff[j]!=NULL && !isnotlast) {
-                  printf("%d\n", pkt_get_seqnum(databuff[j]));
+                  printf("---------------------------------sequnum db j %d\n", pkt_get_seqnum(databuff[j]));
                   if(pkt_get_seqnum(databuff[j])==expected_seqnum) {
                     printf("Trouvé un autre paquet en %d\n",j);
                     write(filename,pkt_get_payload(databuff[j]),pkt_get_length(databuff[j]));
                     expected_seqnum = expected_seqnum+1;
                     last_time=pkt_get_timestamp(databuff[j]);
                     last_tr=pkt_get_tr(databuff[j]);
-                    pkt_del(*databuff[j]);
+//                    pkt_del(*databuff[j]);
                     databuff[j]=NULL;
                   }
                 }
@@ -166,12 +166,12 @@ int selective(int socket,int filename, FILE * log){
             bool flag=true;
             printf("packet en désordre \n");
             for (i= 0; i < 31; i++) {
-              if(databuff[i] == NULL) {
+              if(&databuff[i] == NULL) {
                 place = i;
               }
-              else if (pkt_get_seqnum(databuff[i])==pkt_get_seqnum(new_pkt)){
+              else if (pkt_get_seqnum(&databuff[i])==pkt_get_seqnum(new_pkt)){
                 printf("flag seq dat %d ,seq new %d\n ",databuff[i],pkt_get_seqnum(new_pkt));
-                pkt_del(new_pkt);
+                //pkt_del(new_pkt);
                 flag=false;
                 break;
               }
@@ -179,11 +179,28 @@ int selective(int socket,int filename, FILE * log){
             printf("flag %d , place %d \n",flag,place);
             if(flag){
               if(place!=-1){
-                printf("rajouté au buf , window,   :%d,   size buff/new   %d %d\n",window,sizeof(databuff[place]),sizeof(new_pkt));
-                databuff[place]=&new_pkt;
-
-                printf("post mem\n");
+                printf("rajouté au buf , window,   :%d,   size buff/new   %d %d\n",window,sizeof(&databuff[place]),sizeof(new_pkt));
+                /*
+                char  charbuf [528];
+                size_t  var=528;
+                size_t * len = &var;
+                printf("endcode : %d\n",pkt_encode(new_pkt,charbuf,len));
+                printf("len : %d", *len);
+                printf("decode : %d\n",pkt_decode(charbuf,*len,databuff[place]));
+                */
+                //pkt_t * pktbuf;
+                pkt_decode(data,error,&databuff[place]);
+                //databuff[place] = pktbuf;
+                
+                //atabuff[place]=new_pkt;
+                printf("data %d  & new_pkt %d \n",databuff[place],new_pkt);
+                
+                printf("new pkt sequnum%d\n",pkt_get_seqnum(new_pkt));
+                printf("post mem sequnum%d\n",pkt_get_seqnum(&databuff[place]));
                 window--;
+              //  databuff[0]=NULL;
+                printf("new pkt sequnum%d\n",pkt_get_seqnum(new_pkt));
+                printf("post mem sequnum%d\n-----------------------------------------------------------------------------------------",pkt_get_seqnum(&databuff[place]));
               }
             }
 
