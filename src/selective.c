@@ -130,31 +130,34 @@ int selective(int socket,int filename, FILE * log){
           disconnect = true;
         }
         else{
-          if(pkt_get_seqnum(new_pkt) == expected_seqnum) { // le paquet attendu
-            printf("packet est dans l'ordre \n");
+          if (pkt_get_seqnum(new_pkt) == expected_seqnum) {
+            uint8_t last_tr = 0;
+            printf("packet est dans l'order\n");
+            write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt));
+            expected_seqnum=expected_seqnum+1;
+            last_time=pkt_get_timestamp(new_pkt);
+            last_tr=pkt_get_tr(new_pkt);
+            pkt_del(new_pkt);
             bool isnotlast=true;
-            while(isnotlast){
-              write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt)); ///
+            while(isnotlast) {
               isnotlast=false;
-              expected_seqnum=expected_seqnum+1;
-              last_time=pkt_get_timestamp(new_pkt);
-              //    pkt_del(new_pkt);
-              printf("last time %d get %d \n",last_time,pkt_get_timestamp(new_pkt));
-              for (i = 0; i < 31; i++){
-                if(databuff[i]!=NULL&&!isnotlast){
-                  if(expected_seqnum==pkt_get_seqnum(&databuff[i])){
-                    printf("un de plus de trouvé a %d\n", i);
-                    new_pkt=&databuff[i];
-                    databuff[i]=NULL;
-                    window++;
-                    isnotlast =true;
-                    last_time=pkt_get_timestamp(new_pkt);
-                    printf("un de plus trouvé \n");
+              int j;
+              for(j = 0; j < 31, j++) {
+                if(databuff[j]!=NULL && !isnotlast) {
+                  printf("%d\n", pkt_get_seqnum(databuff[j]));
+                  if(pkt_get_seqnum(databuff[j])==expected_seqnum) {
+                    printf("Trouvé un autre paquet en %d\n",j);
+                    write(filename,pkt_get_payload(databuff[j]),pkt_get_length(databuff[j]));
+                    expected_seqnum = expected_seqnum+1;
+                    last_time=pkt_get_timestamp(databuff[j]);
+                    last_tr=pkt_get_tr(databuff[j]);
+                    pkt_del(*databuff[j]);
+                    databuff[j]=NULL;
                   }
                 }
               }
             }
-            send_ack(socket,expected_seqnum,window,pkt_get_tr(new_pkt),last_time,log);
+            send_ack(socket,expected_seqnum,window,last_tr,last_time,log);
           }
           // le paquet est en desordre
           else if((pkt_get_seqnum(new_pkt)>expected_seqnum && pkt_get_seqnum(new_pkt)<expected_seqnum+window) ||
