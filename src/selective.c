@@ -34,11 +34,12 @@ int read_sock(const int sfd, char * buffer, FILE * log) {
     fprintf(log, "issue : %s (read_sock)\n",strerror(errno));
   }
   else if(err == 0) {
-    printf("nothing read on the socket avec the %d seconds\n",TV);
+    fprintf(log,"nothing read on the socket with %d seconds\n",TV);
   }
   return err;
 }
 
+//fonction permettant d'envoyer des ack
 int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp, FILE * log){
   printf("Sended ack with sequnum %d   window : %d  and timestamp%d\n",seqnum,window,timestamp);
   pkt_t * pktack = pkt_new();
@@ -54,9 +55,7 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
   size_t var =12;
   size_t *  len = &var;
   char buff[12];
-  // printf("ack pre-encode\n");
   pkt_status_code error = pkt_encode((const pkt_t *)pktack,buff,len);
-  //  printf("ack posst-encode\n");
   if(error != PKT_OK){
     fprintf(log, "PKT error with number : %d (send_ack)\n",error); // a completer
     pkt_del(pktack);
@@ -68,7 +67,6 @@ int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timest
     send(sock,buff,*len,0);
   }
   pkt_del(pktack);
-  printf("ack ok \n");
   return 0;
 }
 
@@ -79,7 +77,6 @@ int selective(int socket,int filename, FILE * log){
   uint32_t window = 31;
   int i;
   for (i = 0; i < 31; i++) {
-    //    databuff[i]=(pkt_t *) malloc(sizeof(struct pkt_t*));
     databuff[i]=NULL;
   }
   uint8_t expected_seqnum = 0;
@@ -92,22 +89,23 @@ int selective(int socket,int filename, FILE * log){
   bool disconnect = false;
   fclose(log);
   while(!disconnect){
-    log = fopen("log.txt","a");  //set to *log
-    memset((void *)data, 0, 528); //524 ou 272 ???
-    printf("while!disconnect\n");
+    log = fopen("log.txt","a");
+    memset((void *)data, 0, 528);
     error = read_sock(socket, data,log);
-    //    printf("data[0] %d\n",data[0]);
+
     if (error < 0) {
       fprintf(log, "issue with read_sock (selective)\n");
       error=0;
 
     }
+
     else if(error==0){
-      printf("rien lu\n");
+      fprintf(log,"rien lu\n");
     }
+
     else{
       if(data ==NULL){
-        printf("data null \n");
+        fprintf(log,"data null \n");
       }
       pkt_status_code e = pkt_decode(data,error,new_pkt);
       if(e != PKT_OK) {
@@ -126,7 +124,7 @@ int selective(int socket,int filename, FILE * log){
         else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum) {
           send_ack(socket,expected_seqnum+1,window,0,last_time,log);
           printf("disconnect = true\n");
-          pkt_del(new_pkt);
+          //pkt_del(new_pkt);
           disconnect = true;
         }
         else{
