@@ -1,0 +1,608 @@
+@@ Using random seed: 1572533813
+@@ Using parameters:
+.. port: 64342
+.. forward_port: 64341
+.. delay: 25
+.. jitter: 0
+.. err_rate: 15
+.. cut_rate: 0
+.. loss_rate: 15
+.. seed: 1572533813
+.. link_direction: Forward
+@@ Remote host is ::1 [38908]
+[SEQ   0] Delayed packet by 25 ms
+[SEQ   0] Sent packet (Forward).
+[SEQ   1] Sent packet (Reverse).
+[SEQ   1] Delayed packet by 25 ms
+[SEQ   2] Corrupting packet: inverted byte #295
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   3] Dropping packet
+[SEQ   4] Delayed packet by 25 ms
+[SEQ   5] Delayed packet by 25 ms
+[SEQ   6] Dropping packet
+[SEQ   7] Dropping packet
+[SEQ   8] Delayed packet by 25 ms
+[SEQ   9] Delayed packet by 25 ms
+[SEQ  10] Dropping packet
+[SEQ  11] Delayed packet by 25 ms
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  14] Delayed packet by 25 ms
+[SEQ  15] Corrupting packet: inverted byte #115
+[SEQ  15] Delayed packet by 25 ms
+[SEQ  16] Delayed packet by 25 ms
+[SEQ  17] Delayed packet by 25 ms
+[SEQ  18] Delayed packet by 25 ms
+[SEQ  19] Delayed packet by 25 ms
+[SEQ  20] Delayed packet by 25 ms
+[SEQ  21] Corrupting packet: inverted byte #364
+[SEQ  21] Delayed packet by 25 ms
+[SEQ  22] Corrupting packet: inverted byte #224
+[SEQ  22] Delayed packet by 25 ms
+[SEQ  23] Delayed packet by 25 ms
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Corrupting packet: inverted byte #286
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Delayed packet by 25 ms
+[SEQ  29] Dropping packet
+[SEQ  30] Delayed packet by 25 ms
+[SEQ  31] Delayed packet by 25 ms
+[SEQ   1] Sent packet (Forward).
+[SEQ   2] Sent packet (Forward).
+[SEQ   4] Sent packet (Forward).
+[SEQ   5] Sent packet (Forward).
+[SEQ   8] Sent packet (Forward).
+[SEQ   9] Sent packet (Forward).
+[SEQ  11] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  14] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  21] Sent packet (Forward).
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ   2] Sent packet (Reverse).
+[SEQ  32] Delayed packet by 25 ms
+[SEQ  32] Sent packet (Forward).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Corrupting packet: inverted byte #385
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Forward).
+[SEQ   2] Sent packet (Forward).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Corrupting packet: inverted byte #221
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Dropping packet
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Forward).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Forward).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Delayed packet by 25 ms
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Sent packet (Reverse).
+[SEQ   2] Dropping packet
+[SEQ   2] Sent packet (Forward).
+[SEQ   3] Sent packet (Reverse).
+[SEQ   3] Sent packet (Reverse).
+[SEQ   3] Sent packet (Reverse).
+[SEQ   3] Delayed packet by 25 ms
+[SEQ   4] Delayed packet by 25 ms
+[SEQ   5] Delayed packet by 25 ms
+[SEQ   6] Dropping packet
+[SEQ   7] Delayed packet by 25 ms
+[SEQ   8] Corrupting packet: inverted byte #323
+[SEQ   8] Delayed packet by 25 ms
+[SEQ   9] Corrupting packet: inverted byte #374
+[SEQ   9] Delayed packet by 25 ms
+[SEQ  10] Corrupting packet: inverted byte #360
+[SEQ  10] Delayed packet by 25 ms
+[SEQ  11] Delayed packet by 25 ms
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  14] Delayed packet by 25 ms
+[SEQ  15] Dropping packet
+[SEQ  16] Delayed packet by 25 ms
+[SEQ  17] Dropping packet
+[SEQ  18] Delayed packet by 25 ms
+[SEQ  19] Delayed packet by 25 ms
+[SEQ  20] Delayed packet by 25 ms
+[SEQ  21] Dropping packet
+[SEQ  22] Delayed packet by 25 ms
+[SEQ  23] Delayed packet by 25 ms
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Delayed packet by 25 ms
+[SEQ  29] Delayed packet by 25 ms
+[SEQ  30] Delayed packet by 25 ms
+[SEQ  31] Dropping packet
+[SEQ  32] Delayed packet by 25 ms
+[SEQ   3] Sent packet (Forward).
+[SEQ   4] Sent packet (Forward).
+[SEQ   5] Sent packet (Forward).
+[SEQ   7] Sent packet (Forward).
+[SEQ   8] Sent packet (Forward).
+[SEQ   9] Sent packet (Forward).
+[SEQ  10] Sent packet (Forward).
+[SEQ  11] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  14] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ   4] Sent packet (Reverse).
+[SEQ  33] Delayed packet by 25 ms
+[SEQ   5] Sent packet (Reverse).
+[SEQ  34] Delayed packet by 25 ms
+[SEQ   6] Sent packet (Reverse).
+[SEQ  35] Delayed packet by 25 ms
+[SEQ   6] Sent packet (Reverse).
+[SEQ  33] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  35] Sent packet (Forward).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Dropping packet
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Corrupting packet: inverted byte #304
+[SEQ   6] Delayed packet by 25 ms
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Dropping packet
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Dropping packet
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Dropping packet
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Delayed packet by 25 ms
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Forward).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Delayed packet by 25 ms
+[SEQ   6] Sent packet (Reverse).
+[SEQ   6] Sent packet (Forward).
+[SEQ   6] Sent packet (Forward).
+[SEQ   7] Sent packet (Reverse).
+[SEQ  36] Delayed packet by 25 ms
+[SEQ   7] Sent packet (Reverse).
+[SEQ  36] Sent packet (Forward).
+[SEQ   7] Sent packet (Reverse).
+[SEQ   7] Delayed packet by 25 ms
+[SEQ   8] Delayed packet by 25 ms
+[SEQ   9] Delayed packet by 25 ms
+[SEQ  10] Delayed packet by 25 ms
+[SEQ  11] Delayed packet by 25 ms
+[SEQ  12] Dropping packet
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  14] Delayed packet by 25 ms
+[SEQ  15] Delayed packet by 25 ms
+[SEQ  16] Delayed packet by 25 ms
+[SEQ  17] Delayed packet by 25 ms
+[SEQ  18] Delayed packet by 25 ms
+[SEQ  19] Delayed packet by 25 ms
+[SEQ  20] Corrupting packet: inverted byte #483
+[SEQ  20] Delayed packet by 25 ms
+[SEQ  21] Corrupting packet: inverted byte #275
+[SEQ  21] Delayed packet by 25 ms
+[SEQ  22] Corrupting packet: inverted byte #283
+[SEQ  22] Delayed packet by 25 ms
+[SEQ  23] Delayed packet by 25 ms
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Corrupting packet: inverted byte #28
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Dropping packet
+[SEQ  29] Delayed packet by 25 ms
+[SEQ  30] Delayed packet by 25 ms
+[SEQ  31] Delayed packet by 25 ms
+[SEQ  32] Corrupting packet: inverted byte #474
+[SEQ  32] Delayed packet by 25 ms
+[SEQ  33] Corrupting packet: inverted byte #328
+[SEQ  33] Delayed packet by 25 ms
+[SEQ  34] Delayed packet by 25 ms
+[SEQ  35] Delayed packet by 25 ms
+[SEQ  36] Corrupting packet: inverted byte #198
+[SEQ  36] Delayed packet by 25 ms
+[SEQ   7] Sent packet (Forward).
+[SEQ   8] Sent packet (Forward).
+[SEQ   9] Sent packet (Forward).
+[SEQ  10] Sent packet (Forward).
+[SEQ  11] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  14] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  21] Sent packet (Forward).
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ  33] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  35] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ   8] Sent packet (Reverse).
+[SEQ  37] Delayed packet by 25 ms
+[SEQ   9] Sent packet (Reverse).
+[SEQ  38] Delayed packet by 25 ms
+[SEQ  10] Sent packet (Reverse).
+[SEQ  39] Delayed packet by 25 ms
+[SEQ  11] Sent packet (Reverse).
+[SEQ  40] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  41] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  37] Sent packet (Forward).
+[SEQ  38] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  40] Sent packet (Forward).
+[SEQ  41] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Forward).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Dropping packet
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Dropping packet
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Sent packet (Reverse).
+[SEQ  12] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  42] Corrupting packet: inverted byte #444
+[SEQ  42] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  12] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  42] Sent packet (Forward).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Corrupting packet: inverted byte #423
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Forward).
+[SEQ  13] Dropping packet
+[SEQ  14] Dropping packet
+[SEQ  15] Dropping packet
+[SEQ  16] Delayed packet by 25 ms
+[SEQ  17] Corrupting packet: inverted byte #310
+[SEQ  17] Delayed packet by 25 ms
+[SEQ  18] Delayed packet by 25 ms
+[SEQ  19] Dropping packet
+[SEQ  20] Corrupting packet: inverted byte #1
+[SEQ   0] Delayed packet by 25 ms
+[SEQ  21] Dropping packet
+[SEQ  22] Delayed packet by 25 ms
+[SEQ  23] Corrupting packet: inverted byte #28
+[SEQ  23] Delayed packet by 25 ms
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Dropping packet
+[SEQ  29] Corrupting packet: inverted byte #219
+[SEQ  29] Delayed packet by 25 ms
+[SEQ  30] Delayed packet by 25 ms
+[SEQ  31] Corrupting packet: inverted byte #167
+[SEQ  31] Delayed packet by 25 ms
+[SEQ  32] Delayed packet by 25 ms
+[SEQ  33] Delayed packet by 25 ms
+[SEQ  34] Dropping packet
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 25 ms
+[SEQ  37] Delayed packet by 25 ms
+[SEQ  38] Dropping packet
+[SEQ  39] Delayed packet by 25 ms
+[SEQ  40] Delayed packet by 25 ms
+[SEQ  41] Dropping packet
+[SEQ  42] Delayed packet by 25 ms
+[SEQ  16] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ   0] Sent packet (Forward).
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ  33] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  37] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  40] Sent packet (Forward).
+[SEQ  42] Sent packet (Forward).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Forward).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Forward).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Sent packet (Reverse).
+[SEQ  13] Delayed packet by 25 ms
+[SEQ  14] Sent packet (Reverse).
+[SEQ  43] Delayed packet by 25 ms
+[SEQ  14] Sent packet (Reverse).
+[SEQ  13] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  14] Sent packet (Reverse).
+[SEQ  13] Sent packet (Forward).
+[SEQ  43] Sent packet (Forward).
+[SEQ  14] Sent packet (Reverse).
+[SEQ  14] Dropping packet
+[SEQ  14] Sent packet (Reverse).
+[SEQ  14] Sent packet (Reverse).
+[SEQ  14] Delayed packet by 25 ms
+[SEQ  15] Delayed packet by 25 ms
+[SEQ  16] Delayed packet by 25 ms
+[SEQ  17] Delayed packet by 25 ms
+[SEQ  18] Delayed packet by 25 ms
+[SEQ  19] Delayed packet by 25 ms
+[SEQ  20] Delayed packet by 25 ms
+[SEQ  21] Delayed packet by 25 ms
+[SEQ  22] Delayed packet by 25 ms
+[SEQ  23] Delayed packet by 25 ms
+[SEQ  24] Dropping packet
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Delayed packet by 25 ms
+[SEQ  29] Delayed packet by 25 ms
+[SEQ  30] Dropping packet
+[SEQ  31] Delayed packet by 25 ms
+[SEQ  32] Corrupting packet: inverted byte #242
+[SEQ  32] Delayed packet by 25 ms
+[SEQ  33] Dropping packet
+[SEQ  34] Delayed packet by 25 ms
+[SEQ  35] Corrupting packet: inverted byte #31
+[SEQ  35] Delayed packet by 25 ms
+[SEQ  36] Delayed packet by 25 ms
+[SEQ  37] Dropping packet
+[SEQ  38] Delayed packet by 25 ms
+[SEQ  39] Delayed packet by 25 ms
+[SEQ  40] Delayed packet by 25 ms
+[SEQ  41] Delayed packet by 25 ms
+[SEQ  42] Delayed packet by 25 ms
+[SEQ  43] Corrupting packet: inverted byte #126
+[SEQ  43] Delayed packet by 25 ms
+[SEQ  14] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  21] Sent packet (Forward).
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  35] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  38] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  40] Sent packet (Forward).
+[SEQ  41] Sent packet (Forward).
+[SEQ  42] Sent packet (Forward).
+[SEQ  43] Sent packet (Forward).
+[SEQ  15] Sent packet (Reverse).
+[SEQ  44] Delayed packet by 25 ms
+[SEQ  16] Sent packet (Reverse).
+[SEQ  45] Delayed packet by 25 ms
+[SEQ  17] Sent packet (Reverse).
+[SEQ  18] Sent packet (Reverse).
+[SEQ  19] Sent packet (Reverse).
+[SEQ  20] Sent packet (Reverse).
+[SEQ  21] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  23] Sent packet (Reverse).
+[SEQ  44] Sent packet (Forward).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  45] Sent packet (Forward).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Dropping packet
+[SEQ  24] Sent packet (Forward).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Forward).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Corrupting packet: inverted byte #2
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Sent packet (Forward).
+[SEQ  24] Sent packet (Reverse).
+[SEQ  24] Corrupting packet: inverted byte #98
+[SEQ  24] Delayed packet by 25 ms
+[SEQ  25] Sent packet (Reverse).
+[SEQ  25] Sent packet (Reverse).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Delayed packet by 25 ms
+[SEQ  26] Delayed packet by 25 ms
+[SEQ  27] Corrupting packet: inverted byte #476
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  28] Delayed packet by 25 ms
+[SEQ  29] Corrupting packet: inverted byte #142
+[SEQ  29] Delayed packet by 25 ms
+[SEQ  30] Corrupting packet: inverted byte #165
+[SEQ  30] Delayed packet by 25 ms
+[SEQ  31] Delayed packet by 25 ms
+[SEQ  32] Corrupting packet: inverted byte #135
+[SEQ  32] Delayed packet by 25 ms
+[SEQ  33] Delayed packet by 25 ms
+[SEQ  34] Delayed packet by 25 ms
+[SEQ  35] Delayed packet by 25 ms
+[SEQ  36] Delayed packet by 25 ms
+[SEQ  37] Delayed packet by 25 ms
+[SEQ  38] Delayed packet by 25 ms
+[SEQ  39] Delayed packet by 25 ms
+[SEQ  40] Delayed packet by 25 ms
+[SEQ  41] Dropping packet
+[SEQ  42] Corrupting packet: inverted byte #429
+[SEQ  42] Delayed packet by 25 ms
+[SEQ  43] Delayed packet by 25 ms
+[SEQ  44] Delayed packet by 25 ms
+[SEQ  45] Delayed packet by 25 ms
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ  33] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  35] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  37] Sent packet (Forward).
+[SEQ  38] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  40] Sent packet (Forward).
+[SEQ  42] Sent packet (Forward).
+[SEQ  43] Sent packet (Forward).
+[SEQ  44] Sent packet (Forward).
+[SEQ  45] Sent packet (Forward).
+[SEQ  26] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Dropping packet
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Sent packet (Reverse).
+[SEQ  27] Delayed packet by 25 ms
+[SEQ  27] Sent packet (Reverse).
+[SEQ  28] Sent packet (Reverse).
+[SEQ  28] Sent packet (Reverse).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Reverse).

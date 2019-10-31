@@ -1,0 +1,14 @@
+
+Bonjour,
+
+Après avoir réussi à installer CUnit sur mon ordinateur, gcc me retourne des erreurs à la compilation.
+
+En effet, il reconnait bien CUnit et je peux exécuter des fonctions telles que "CU_initialize_registry()", mais il ne reconnait pas certaines fonctions telles que "CU_basic_show_failures()" (il y en a d'autres).
+
+Vu que CUnit est installé sur les machines de la salle intel, nous avons testé notre code sur celles-ci, mais rien n'y fait, nous avons exactement les mêmes messages d'erreurs.
+
+La version à laquelle vous faites référence dans le syllabus est la 2.1.2, hors la version disponible actuelle est la 2.1.3. Est-ce possible que les fonctions auxquelles vous faites référence n'existent plus ?
+
+Lorsque l'on exécute "man CUnit" sur les machines de la salle intel, la page man nous propose d'utiliser la fonction "CU_console_run_tests()" pour exéctuer les tests. Hors, cette même machine ne reconnais pas cette fonction à la compilation gcc.
+
+Dans notre Makefile, au moment de créer no
