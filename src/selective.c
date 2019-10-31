@@ -126,7 +126,7 @@ int selective(int socket,int filename, FILE * log){
         else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum) {
           send_ack(socket,expected_seqnum+1,window,0,last_time,log);
           printf("disconnect = true\n");
-          // pkt_del(new_pkt);
+          pkt_del(new_pkt);
           disconnect = true;
         }
         else{
@@ -137,7 +137,7 @@ int selective(int socket,int filename, FILE * log){
             expected_seqnum=expected_seqnum+1;
             last_time=pkt_get_timestamp(new_pkt);
             last_tr=pkt_get_tr(new_pkt);
-            // pkt_del(new_pkt);
+            pkt_del(new_pkt);
             bool isnotlast=true;
             while(isnotlast) {
               isnotlast=false;
@@ -150,7 +150,7 @@ int selective(int socket,int filename, FILE * log){
                     expected_seqnum = expected_seqnum+1;
                     last_time=pkt_get_timestamp(databuff[j]);
                     last_tr=pkt_get_tr(databuff[j]);
-                    //  pkt_del(*databuff[j]);
+                     pkt_del(databuff[j]);
                     databuff[j]=NULL;
                   }
                 }
@@ -169,7 +169,7 @@ int selective(int socket,int filename, FILE * log){
                 place = i;
               }
               else if (pkt_get_seqnum(databuff[i])==pkt_get_seqnum(new_pkt)){
-                //pkt_del(new_pkt);
+                pkt_del(new_pkt);
                 flag=false;
                 break;
               }
@@ -186,13 +186,18 @@ int selective(int socket,int filename, FILE * log){
           else {
             printf("pkt seqnum : %d   expected seqnum %d\n",pkt_get_seqnum(new_pkt),expected_seqnum);
             send_ack(socket,expected_seqnum,window,0,last_time,log);
-            // pkt_del(new_pkt);
+            pkt_del(new_pkt);
             fprintf(log, "paquet pas dans window (selective)\n");
           }
         }
       }
     }
     fclose(log);
+  }
+  for(i=0;i<32;i++){
+	 if(databuff[i]!=NULL){
+	   pkt_del(databuff[i]);
+	 }
   }
   close(socket);
   close(filename);
