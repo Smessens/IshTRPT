@@ -21,7 +21,7 @@ trap cleanup SIGINT  # Kill les process en arrière plan en cas de ^-C
 # On démarre le transfert
 ./../senderprof localhost 64342 < test_in.txt ;
 
-sleep 15 # On attend 8 seconde que le receiver finisse
+sleep 3 # On attend 8 seconde que le receiver finisse
 
 if kill -0 $receiver_pid &> /dev/null ; then
   echo "Le receiver ne s'est pas arreté à la fin du transfert!"

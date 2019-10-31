@@ -1,5 +1,5 @@
 # On lance le simulateur de lien avec un taux d'erreur de 30%
-./../link_sim -p 64342 -P 64341 -e 30 &> link.log &
+./../link_sim -p 64342 -P 64341 -e 15 &> link.log &
 link_pid=$!
 
 # On lance le receiver et capture sa sortie standard
@@ -17,7 +17,7 @@ trap cleanup SIGINT  # Kill les process en arrière plan en cas de ^-C
 # On démarre le transfert
 ./../senderprof localhost 64342 < test_in.txt ;
 
-sleep 10 # On attend 8 seconde que le receiver finisse
+sleep 3 # On attend 8 seconde que le receiver finisse
 
 if kill -0 $receiver_pid &> /dev/null ; then
   echo "Le receiver ne s'est pas arreté à la fin du transfert!"

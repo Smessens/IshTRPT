@@ -190,7 +190,6 @@ int selective(int socket,int filename, FILE * log){
     fclose(log);
   }
 
-  }
   close(socket);
   close(filename);
 
