@@ -179,13 +179,11 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 {
-  //  printf("pkt encode \n" );
   int l=0;
   uint8_t bytebuff;
   uint32_t buff4byte;
 
   bytebuff= (pkt_get_tr(pkt) << 5) +((pkt_get_type(pkt) << 6) +  pkt_get_window(pkt));
-  // printf("bytebuff %d\n",bytebuff);
   memcpy(buf, &bytebuff, 1);
   bytebuff=0;
   uint16_t leng=pkt_get_length(pkt);
@@ -193,19 +191,16 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
     l=0;
     bytebuff=leng;
     memcpy(buf+1, &bytebuff, 1);
-    printf( "buf [1] %d\n",buf[1]);
   }
   else {
     l = 1;
     uint16_t uleng= htons(leng+32768);
     memcpy(buf+1, &uleng, 2);
   }
-  //  printf("pkt encode pkt -> length%d\n",pkt->length );
 
   if ((int)*len<leng+11+l){
     return E_NOMEM;
   }
-  //  printf("pkt encode post e_nomemi\n" );
 
   bytebuff= pkt_get_seqnum(pkt);
   memcpy(buf+2+l, &bytebuff, 1);
@@ -233,7 +228,6 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
   else{
     *len = 11;
   }
-  //printf("window: %d \n ",buf[0]);
   return PKT_OK;
 }
 
@@ -353,7 +347,6 @@ pkt_status_code pkt_set_crc2(pkt_t *pkt, const uint32_t crc2)
 pkt_status_code pkt_set_payload(pkt_t *pkt,
   const char *data,
   const uint16_t length){
-    printf("set payload length  %d\n",length);
     if (length==0){
       pkt->payload=NULL;
     }

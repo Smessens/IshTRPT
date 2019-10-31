@@ -1111,3 +1111,4 @@
 ==1679294== 
 ==1679294== For counts of detected and suppressed errors, rerun with: -v
 ==1679294== ERROR SUMMARY: 1242 errors from 83 contexts (suppressed: 0 from 0)
+double free or corruption (fasttop)

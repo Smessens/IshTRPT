@@ -3,7 +3,7 @@
  #link_pid=$!
 
 # On lance le receiver
-valgrind --log-file=valgrind.txt ./../receiver -o "test_basique_out.txt" :: 64342 &
+valgrind --log-file=valgrind.txt ./../receiver -o "test_basique_out.txt" :: 64341 &
 receiver_pid=$!
 
 cleanup()
@@ -15,7 +15,7 @@ cleanup()
 trap cleanup SIGINT  # Kill les process en arrière plan en cas de ^-C
 
 # On démarre le transfert
-./../senderprof -f test_in.txt ::1 64342 ;
+./../senderprof -f test_in.txt ::1 64341 ;
 
 sleep 3 # On attend 8 seconde que le receiver finisse
 
