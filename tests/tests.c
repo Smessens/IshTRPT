@@ -11,10 +11,10 @@ void test_basic(void)
 {
   printf("FIRST TEST : test basique\n");
   system("./test_basique.sh");
-  //system("../src/receiver -o test_basique_out.dat :: 64342");
-  //system("../senderprof localhost 64342 < test_in.dat");
+  //system("../src/receiver -o test_basique_out.dat :: 64342 &");
+  //system("../senderprof localhost 64342 < test_in.dat &");
 
-  CU_ASSERT_EQUAL(system("sha512sum test_basique_out.dat"),system("sha512sum test_in.txt"));
+  CU_ASSERT_EQUAL(system("sha512sum test_basique_out.txt"),system("sha512sum test_in.txt"));
 }
 
 void test_erreur(void)
@@ -25,7 +25,7 @@ void test_erreur(void)
   //system(".././link_sim -p 64342 -P 64341 -e 30");
   //system("../senderprof localhost 64342 < test_in.dat");
 
-  CU_ASSERT_EQUAL(system("sha512sum test_erreur_out.dat"),system("sha512sum test_in.txt"));
+  CU_ASSERT_EQUAL(system("sha512sum test_erreur_out.txt"),system("sha512sum test_in.txt"));
 }
 
 void test_delay(void)
@@ -36,7 +36,7 @@ void test_delay(void)
   // system(".././link_sim -p 64342 -P 64341 -d 50");
   // system("../senderprof localhost 64342 < test_in.dat");
 
-  CU_ASSERT_EQUAL(system("sha512sum test_delay_out.dat"),system("sha512sum test_in.txt"));
+  CU_ASSERT_EQUAL(system("sha512sum test_delay_out.txt"),system("sha512sum test_in.txt"));
 }
 
 void test_loss(void)
@@ -47,7 +47,7 @@ void test_loss(void)
   // system(".././link_sim -p 64342 -P 64341 -l 30");
   // system("../senderprof localhost 64342 < test_in.dat");
 
-  CU_ASSERT_EQUAL(system("sha512sum test_loss_out.dat"),system("sha512sum test_in.txt"));
+  CU_ASSERT_EQUAL(system("sha512sum test_lost_out.txt"),system("sha512sum test_in.txt"));
 }
 
 void test_all(void)
@@ -58,7 +58,7 @@ void test_all(void)
   // system(".././link_sim -p 64342 -P 64341 -e 15 -l 15  -d 25");
   // system("../senderprof localhost 64342 < test_in.dat");
 
-  CU_ASSERT_EQUAL(system("sha512sum test_all_out.dat"),system("sha512sum test_in.txt"));
+  CU_ASSERT_EQUAL(system("sha512sum test_all_out.txt"),system("sha512sum test_in.txt"));
 }
 int main(int argc, char const *argv[]) {
   CU_pSuite pSuite = NULL;

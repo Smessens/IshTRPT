@@ -3,11 +3,11 @@
 # un taux d'erreur de 15%
 # un taux de perte de 15%
 # dans les deux sens
-./link_sim -p 64342 -P 64341 -d 25 -l 15 -e 15 -R &
+./../link_sim -p 64342 -P 64341 -d 25 -l 15 -e 15 &> link.log &
 link_pid=$!
 
 # On lance le receiver et capture sa sortie standard
-./../src/receiver -f test_all_out.txt :: 64341 &
+./../receiver -f "test_all_out.txt" :: 64341 &
 receiver_pid=$!
 
 cleanup()
@@ -21,7 +21,7 @@ trap cleanup SIGINT  # Kill les process en arrière plan en cas de ^-C
 # On démarre le transfert
 ./../senderprof localhost 64342 < test_in.txt ;
 
-sleep 8 # On attend 8 seconde que le receiver finisse
+sleep 15 # On attend 8 seconde que le receiver finisse
 
 if kill -0 $receiver_pid &> /dev/null ; then
   echo "Le receiver ne s'est pas arreté à la fin du transfert!"

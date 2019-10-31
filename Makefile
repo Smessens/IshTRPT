@@ -29,7 +29,7 @@ make:
 	@touch src/receiver
 	@rm file00.dat
 	@rm recu.jpg
-	gcc  -o receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
+	gcc  -o receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
 
 #	@display recu.jpg
 sha:
@@ -37,8 +37,8 @@ sha:
 	sha512sum file.dat
 
 valg:
-	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
-	valgrind --leak-check=yes --track-origins=yes --show-leak-kinds=all ./src/receiver -o "file%00d.dat" :: 64341
+	gcc  -o receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
+	valgrind --log-file=log.txt ./receiver -o "file%00d.dat" :: 64341 #--leak-check=yes --track-origins=yes --show-leak-kinds=all ./receiver -o "file%00d.dat" :: 64341
 
 sender:
 	./senderprof -f file.dat ::1  64342

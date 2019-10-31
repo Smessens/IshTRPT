@@ -1,206 +1,1174 @@
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-paquet pas dans window (selective)
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
-issue with pkt_decode (selective)4
+==1677431== Memcheck, a memory error detector
+==1677431== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1677431== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1677431== Command: ./receiver -o file%00d.dat :: 64341
+==1677431== Parent PID: 1677419
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C9A: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a8 is 0 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401CB1: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a9 is 1 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401CCA: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8aa is 2 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401CDB: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401CE4: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 8
+==1677431==    at 0x401DD2: pkt_set_payload (packet_implem.c:361)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x401DDA: pkt_set_payload (packet_implem.c:363)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x401DF9: pkt_set_payload (packet_implem.c:367)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401D09: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401D12: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401D2B: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ac is 4 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401D42: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ad is 5 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401D5B: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ae is 6 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401D6C: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8af is 7 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401D75: pkt_set_crc2 (packet_implem.c:349)
+==1677431==    by 0x401525: pkt_decode (packet_implem.c:147)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8af is 7 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019B7: pkt_get_crc1 (packet_implem.c:273)
+==1677431==    by 0x401578: pkt_decode (packet_implem.c:152)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a8 is 0 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019C1: pkt_get_crc1 (packet_implem.c:273)
+==1677431==    by 0x401578: pkt_decode (packet_implem.c:152)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a9 is 1 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019CC: pkt_get_crc1 (packet_implem.c:273)
+==1677431==    by 0x401578: pkt_decode (packet_implem.c:152)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8aa is 2 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019D7: pkt_get_crc1 (packet_implem.c:273)
+==1677431==    by 0x401578: pkt_decode (packet_implem.c:152)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019F3: pkt_get_crc2 (packet_implem.c:278)
+==1677431==    by 0x4015EA: pkt_decode (packet_implem.c:160)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ab is 3 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019FD: pkt_get_crc2 (packet_implem.c:278)
+==1677431==    by 0x4015EA: pkt_decode (packet_implem.c:160)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ac is 4 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401A07: pkt_get_crc2 (packet_implem.c:278)
+==1677431==    by 0x4015EA: pkt_decode (packet_implem.c:160)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ad is 5 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401A12: pkt_get_crc2 (packet_implem.c:278)
+==1677431==    by 0x4015EA: pkt_decode (packet_implem.c:160)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8ae is 6 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401A1D: pkt_get_crc2 (packet_implem.c:278)
+==1677431==    by 0x4015EA: pkt_decode (packet_implem.c:160)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8af is 7 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x401A39: pkt_get_payload (packet_implem.c:283)
+==1677431==    by 0x403024: selective (selective.c:136)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x4012F7: pkt_del (packet_implem.c:69)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x401304: pkt_del (packet_implem.c:70)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 alloc'd
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401A54: pkt_set_type (packet_implem.c:291)
+==1677431==    by 0x40135B: pkt_decode (packet_implem.c:91)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401A5D: pkt_set_type (packet_implem.c:291)
+==1677431==    by 0x40135B: pkt_decode (packet_implem.c:91)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4018E0: pkt_get_type (packet_implem.c:242)
+==1677431==    by 0x401AB6: pkt_set_tr (packet_implem.c:307)
+==1677431==    by 0x40137B: pkt_decode (packet_implem.c:97)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401AE0: pkt_set_tr (packet_implem.c:310)
+==1677431==    by 0x40137B: pkt_decode (packet_implem.c:97)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401AE8: pkt_set_tr (packet_implem.c:310)
+==1677431==    by 0x40137B: pkt_decode (packet_implem.c:97)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401B12: pkt_set_window (packet_implem.c:316)
+==1677431==    by 0x401397: pkt_decode (packet_implem.c:101)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401B1A: pkt_set_window (packet_implem.c:316)
+==1677431==    by 0x401397: pkt_decode (packet_implem.c:101)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BA7: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401420: pkt_decode (packet_implem.c:120)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401BB9: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401420: pkt_decode (packet_implem.c:120)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BC2: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401420: pkt_decode (packet_implem.c:120)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401947: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x40142C: pkt_decode (packet_implem.c:123)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40194B: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x40142C: pkt_decode (packet_implem.c:123)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401B40: pkt_set_seqnum (packet_implem.c:322)
+==1677431==    by 0x40145A: pkt_decode (packet_implem.c:129)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401B49: pkt_set_seqnum (packet_implem.c:322)
+==1677431==    by 0x40145A: pkt_decode (packet_implem.c:129)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401B5A: pkt_set_seqnum (packet_implem.c:322)
+==1677431==    by 0x40145A: pkt_decode (packet_implem.c:129)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401B63: pkt_set_seqnum (packet_implem.c:322)
+==1677431==    by 0x40145A: pkt_decode (packet_implem.c:129)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401BE7: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BF0: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C09: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a4 is 4 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C20: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a5 is 5 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C39: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a6 is 6 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401C4A: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C53: pkt_set_timestamp (packet_implem.c:337)
+==1677431==    by 0x40147F: pkt_decode (packet_implem.c:133)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401C78: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401C81: pkt_set_crc1 (packet_implem.c:343)
+==1677431==    by 0x4014A4: pkt_decode (packet_implem.c:137)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BA7: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401E1D: pkt_set_payload (packet_implem.c:368)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401BB9: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401E1D: pkt_set_payload (packet_implem.c:368)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BC2: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x401E1D: pkt_set_payload (packet_implem.c:368)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4018F7: pkt_get_tr (packet_implem.c:247)
+==1677431==    by 0x401531: pkt_decode (packet_implem.c:149)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4019AD: pkt_get_crc1 (packet_implem.c:273)
+==1677431==    by 0x401578: pkt_decode (packet_implem.c:152)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401947: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x40159C: pkt_decode (packet_implem.c:157)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40194B: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x40159C: pkt_decode (packet_implem.c:157)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401922: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402F2F: selective (selective.c:120)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40192C: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402F2F: selective (selective.c:120)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401947: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x402F3E: selective (selective.c:120)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40194B: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x402F3E: selective (selective.c:120)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4018E0: pkt_get_type (packet_implem.c:242)
+==1677431==    by 0x402F60: selective (selective.c:121)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401947: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x402F82: selective (selective.c:126)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40194B: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x402F82: selective (selective.c:126)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401922: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402FF2: selective (selective.c:133)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40192C: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402FF2: selective (selective.c:133)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401947: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x403015: selective (selective.c:136)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40194B: pkt_get_length (packet_implem.c:262)
+==1677431==    by 0x403015: selective (selective.c:136)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401967: pkt_get_timestamp (packet_implem.c:268)
+==1677431==    by 0x40304A: selective (selective.c:138)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401971: pkt_get_timestamp (packet_implem.c:268)
+==1677431==    by 0x40304A: selective (selective.c:138)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a4 is 4 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40197B: pkt_get_timestamp (packet_implem.c:268)
+==1677431==    by 0x40304A: selective (selective.c:138)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a5 is 5 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401986: pkt_get_timestamp (packet_implem.c:268)
+==1677431==    by 0x40304A: selective (selective.c:138)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a6 is 6 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401991: pkt_get_timestamp (packet_implem.c:268)
+==1677431==    by 0x40304A: selective (selective.c:138)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a7 is 7 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x4018F7: pkt_get_tr (packet_implem.c:247)
+==1677431==    by 0x403059: selective (selective.c:139)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid free() / delete / delete[] / realloc()
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BA7: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x4013DC: pkt_decode (packet_implem.c:112)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a1 is 1 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401BB9: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x4013DC: pkt_decode (packet_implem.c:112)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 1
+==1677431==    at 0x401BC2: pkt_set_length (packet_implem.c:331)
+==1677431==    by 0x4013DC: pkt_decode (packet_implem.c:112)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid write of size 8
+==1677431==    at 0x401DB5: pkt_set_payload (packet_implem.c:358)
+==1677431==    by 0x4014ED: pkt_decode (packet_implem.c:142)
+==1677431==    by 0x402ED2: selective (selective.c:112)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x401922: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402F93: selective (selective.c:126)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a2 is 2 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 1
+==1677431==    at 0x40192C: pkt_get_seqnum (packet_implem.c:257)
+==1677431==    by 0x402F93: selective (selective.c:126)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a3 is 3 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x4012F7: pkt_del (packet_implem.c:69)
+==1677431==    by 0x402FDD: selective (selective.c:129)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8b0 is 8 bytes after a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid free() / delete / delete[] / realloc()
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x402FDD: selective (selective.c:129)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x570e8a0 is 0 bytes inside a block of size 8 free'd
+==1677431==    at 0x4C28CDD: free (vg_replace_malloc.c:530)
+==1677431==    by 0x40131B: pkt_del (packet_implem.c:72)
+==1677431==    by 0x403068: selective (selective.c:140)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Block was alloc'd at
+==1677431==    at 0x4C27BE3: malloc (vg_replace_malloc.c:299)
+==1677431==    by 0x402DFB: selective (selective.c:90)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Conditional jump or move depends on uninitialised value(s)
+==1677431==    at 0x4033AA: selective (selective.c:198)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Conditional jump or move depends on uninitialised value(s)
+==1677431==    at 0x4012F1: pkt_del (packet_implem.c:68)
+==1677431==    by 0x4033C0: selective (selective.c:199)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Use of uninitialised value of size 8
+==1677431==    at 0x4012F7: pkt_del (packet_implem.c:69)
+==1677431==    by 0x4033C0: selective (selective.c:199)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431== 
+==1677431== Invalid read of size 8
+==1677431==    at 0x4012F7: pkt_del (packet_implem.c:69)
+==1677431==    by 0x4033C0: selective (selective.c:199)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  Address 0x14 is not stack'd, malloc'd or (recently) free'd
+==1677431== 
+==1677431== 
+==1677431== Process terminating with default action of signal 11 (SIGSEGV)
+==1677431==  Access not within mapped region at address 0x14
+==1677431==    at 0x4012F7: pkt_del (packet_implem.c:69)
+==1677431==    by 0x4033C0: selective (selective.c:199)
+==1677431==    by 0x402A88: main (receiver.c:165)
+==1677431==  If you believe this happened as a result of a stack
+==1677431==  overflow in your program's main thread (unlikely but
+==1677431==  possible), you can try to increase the size of the
+==1677431==  main thread stack using the --main-stacksize= flag.
+==1677431==  The main thread stack size used in this run was 8388608.
+==1677431== 
+==1677431== HEAP SUMMARY:
+==1677431==     in use at exit: 568 bytes in 1 blocks
+==1677431==   total heap usage: 124 allocs, 139 frees, 31,773 bytes allocated
+==1677431== 
+==1677431== LEAK SUMMARY:
+==1677431==    definitely lost: 0 bytes in 0 blocks
+==1677431==    indirectly lost: 0 bytes in 0 blocks
+==1677431==      possibly lost: 0 bytes in 0 blocks
+==1677431==    still reachable: 568 bytes in 1 blocks
+==1677431==         suppressed: 0 bytes in 0 blocks
+==1677431== Rerun with --leak-check=full to see details of leaked memory
+==1677431== 
+==1677431== For counts of detected and suppressed errors, rerun with: -v
+==1677431== Use --track-origins=yes to see where uninitialised values come from
+==1677431== ERROR SUMMARY: 1248 errors from 89 contexts (suppressed: 0 from 0)
