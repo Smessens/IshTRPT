@@ -10,7 +10,7 @@
 void test_basic(void)
 {
   printf("FIRST TEST : test basique\n");
-  system("./test_fiable.sh");
+  system("./test_basique.sh");
   //system("../src/receiver -o test_basique_out.dat :: 64342");
   //system("../senderprof localhost 64342 < test_in.dat");
 
@@ -20,9 +20,10 @@ void test_basic(void)
 void test_erreur(void)
 {
   printf("SECOND TEST : test avec erreur\n");
-  system("../src/receiver -o test_erreur_out.dat :: 64341");
-  system(".././link_sim -p 64342 -P 64341 -e 30");
-  system("../senderprof localhost 64342 < test_in.dat");
+  system("./test_erreur.sh");
+  //system("../src/receiver -o test_erreur_out.dat :: 64341");
+  //system(".././link_sim -p 64342 -P 64341 -e 30");
+  //system("../senderprof localhost 64342 < test_in.dat");
 
   CU_ASSERT_EQUAL(system("sha512sum test_erreur_out.dat"),system("sha512sum test_in.txt"));
 }
@@ -30,9 +31,10 @@ void test_erreur(void)
 void test_delay(void)
 {
   printf("THIRD TEST : test avec delay\n");
-  system("../src/receiver -o test_delay_out.dat :: 64341");
-  system(".././link_sim -p 64342 -P 64341 -d 50");
-  system("../senderprof localhost 64342 < test_in.dat");
+  system("./test_delay.sh");
+  // system("../src/receiver -o test_delay_out.dat :: 64341");
+  // system(".././link_sim -p 64342 -P 64341 -d 50");
+  // system("../senderprof localhost 64342 < test_in.dat");
 
   CU_ASSERT_EQUAL(system("sha512sum test_delay_out.dat"),system("sha512sum test_in.txt"));
 }
@@ -40,9 +42,10 @@ void test_delay(void)
 void test_loss(void)
 {
   printf("FOURTH TEST : test avec des pertes\n");
-  system("../src/receiver -o test_loss_out.dat :: 64341");
-  system(".././link_sim -p 64342 -P 64341 -l 30");
-  system("../senderprof localhost 64342 < test_in.dat");
+  system("./test_lost.sh");
+  // system("../src/receiver -o test_loss_out.dat :: 64341");
+  // system(".././link_sim -p 64342 -P 64341 -l 30");
+  // system("../senderprof localhost 64342 < test_in.dat");
 
   CU_ASSERT_EQUAL(system("sha512sum test_loss_out.dat"),system("sha512sum test_in.txt"));
 }
@@ -50,9 +53,10 @@ void test_loss(void)
 void test_all(void)
 {
   printf("FIFTH TEST : test avec un peu de tout\n");
-  system("../src/receiver -o test_all_out.dat :: 64341");
-  system(".././link_sim -p 64342 -P 64341 -e 15 -l 15  -d 25");
-  system("../senderprof localhost 64342 < test_in.dat");
+  system("./test_all.sh");
+  // system("../src/receiver -o test_all_out.dat :: 64341");
+  // system(".././link_sim -p 64342 -P 64341 -e 15 -l 15  -d 25");
+  // system("../senderprof localhost 64342 < test_in.dat");
 
   CU_ASSERT_EQUAL(system("sha512sum test_all_out.dat"),system("sha512sum test_in.txt"));
 }

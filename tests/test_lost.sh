@@ -1,9 +1,9 @@
-# On lance le simulateur de lien. Lien fiable
-./link_sim -p 64342 -P 64341  &> link.log &
+# On lance le simulateur de lien avec 30% de pertes
+./link_sim -p 64342 -P 64341 -l 30 &
 link_pid=$!
 
-# On lance le receiver
-./../src/receiver -o test_out_fiable.dat :: 64341 &
+# On lance le receiver et capture sa sortie standard
+./../src/receiver -f test_lost_out.txt :: 64341 &
 receiver_pid=$!
 
 cleanup()
