@@ -32,7 +32,6 @@ make:
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
 	./src/receiver -o "file%00d.dat" :: 64341 2> log.txt
 	@cat log.txt
-	sha
 #	@display recu.jpg
 sha:
 	sha512sum file00.dat
@@ -40,13 +39,13 @@ sha:
 
 valg:
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
-	valgrind --leak-check=yes --show-leak-kinds=all ./src/receiver -o "file%00d.dat" :: 64342
+	valgrind --leak-check=yes --track-origins=yes --show-leak-kinds=all ./src/receiver -o "file%00d.dat" :: 64341
 
 sender:
-	 ./senderprof -f file.dat ::1 64342
+	./senderprof -f file.dat ::1  64342
 
 receiver:
-	./receiverprof -o out  :: 64341
+	./receiverprof -o out 2001:6a8:308f:5:f68e:38ff:fe74:5f0a  64341
 
 
 link:    # e=err -d délai -j écart -l lost
