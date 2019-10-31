@@ -19,11 +19,8 @@ int main (int argc, char **argv)
   char *hostname=NULL;
   char *log_name=NULL;
 
-  for (i=1;i<=argc;i++){
-    printf("%s ", argv[i]);
-  }
-  printf("\n argc : %d\n", argc);
-  for (i=1;i<argc;i++){
+
+  for (i=1;i<argc;i++){      // récuperation des arguments
     if(strcmp(argv[i],"-m")==0){
       if(i+1>=argc){
         fprintf(stderr,"%s", "Incorrect arguments with -m (receiver)\n");
@@ -72,16 +69,6 @@ int main (int argc, char **argv)
     fprintf (stderr,"Non-option argument (receiver) : %s\n", argv[index[i]]);
   }
 
-  printf("connexion concurrente  :%d\n",connexionconcurrente );   //print test a virer avant la soumission
-
-  printf("port : %d\n",port);
-  printf("format :%s\n",format );
-  printf("count :%d\n",count );
-  printf("hostname :%s\n",hostname);
-  printf("log_name :%s\n",log_name);
-  printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
-
-
   // log
   FILE * log = stderr;
 
@@ -90,8 +77,7 @@ int main (int argc, char **argv)
   }
 
   //get real format
-  if(format!=NULL&&0!=strcmp(format,strtok(format,"%"))){
-    printf("yooo\n");
+  if(format!=NULL&&0!=strcmp(format,strtok(format,"%"))){ //modifie le format si nécessaire
     int formatsize =strlen(format);
     char formatbuffer[formatsize];
     char formatbuffer2[formatsize];
@@ -112,8 +98,9 @@ int main (int argc, char **argv)
     strcpy(format,formatbuffer);
 
   }
-  printf("realformat :%s\n",format);
 
+
+  //création du filedescriptor
   int fdo = 1;
   if(format != NULL) {
     FILE * fileout = fopen(format,"w");
@@ -129,9 +116,10 @@ int main (int argc, char **argv)
   if(error2!=NULL){
     fprintf(log,"first real_address issue (receiver): %s\n",error2);
   }
+
   int sfd;
   if (hostname != NULL) {
-
+    
     struct sockaddr_in6 *source_adresse=malloc(sizeof( struct sockaddr_in6));
 
     const char * error1 = real_address(hostname,source_adresse);

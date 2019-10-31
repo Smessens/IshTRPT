@@ -13,7 +13,7 @@
 #include <math.h>
 
 
-
+//fonction principale, lit les arguments et appels les fonctions adéquate
 int main (int argc, char **argv);
 
 #endif

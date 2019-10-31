@@ -108,27 +108,24 @@ int selective(int socket,int filename, FILE * log){
         fprintf(log,"data null \n");
       }
       pkt_status_code e = pkt_decode(data,error,new_pkt);
-      if(e != PKT_OK) {
-        printf("error pkt = %d\n",e);
+      if(e != PKT_OK) {  // pkt est invalide , abandon
         pkt_del(new_pkt);
         fprintf(log,"issue with pkt_decode (selective)%d\n",e);
-        error=0; // est ce qu'on enverait un acjk pour jump start
+        error=0;
       }
-      else{
+      else{// le pkt est valide , vérification de seqnum
         printf("pkt recu length :%d  seqnum : %d\n",pkt_get_length(new_pkt),pkt_get_seqnum(new_pkt));
         if(pkt_get_type(new_pkt) != PTYPE_DATA) {
           pkt_del(new_pkt);
         }
-        //printf("pkt recu length %d\n",pkt_get_length(new_pkt));
         //check of disconnection
         else if(pkt_get_length(new_pkt)==0 && pkt_get_seqnum(new_pkt) == expected_seqnum) {
           send_ack(socket,expected_seqnum+1,window,0,last_time,log);
           printf("disconnect = true\n");
-          //pkt_del(new_pkt);
           disconnect = true;
         }
         else{
-          if (pkt_get_seqnum(new_pkt) == expected_seqnum) {
+          if (pkt_get_seqnum(new_pkt) == expected_seqnum) { //c'est le seqnum qu'on attendait
             uint8_t last_tr = 0;
             printf("packet est dans l'order\n");
             write(filename,pkt_get_payload(new_pkt),pkt_get_length(new_pkt));
@@ -137,7 +134,7 @@ int selective(int socket,int filename, FILE * log){
             last_tr=pkt_get_tr(new_pkt);
             pkt_del(new_pkt);
             bool isnotlast=true;
-            while(isnotlast) {
+            while(isnotlast) { // vérification dans le buffer si le seqnum suivant est présent
               isnotlast=false;
               int j;
               for(j = 0; j < 31; j++) {
@@ -192,14 +189,10 @@ int selective(int socket,int filename, FILE * log){
     }
     fclose(log);
   }
-  for(i=0;i<32;i++){
-	 if(databuff[i]!=NULL){
-	   pkt_del(databuff[i]);
-	 }
+
   }
   close(socket);
   close(filename);
 
-  printf("fin de selective\n");
   return 0;
 }

@@ -11,7 +11,7 @@
 #include <netdb.h>
 #include <errno.h>
 
-
+//prend une socket déja ouverte et écris son contenu dans un buffer, tout erreur est
 int read_sock(const int sfd, char * buffer, FILE * log);
 
 int send_ack(int sock,uint8_t seqnum,uint32_t window, uint8_t tr,uint32_t timestamp, FILE * log);
