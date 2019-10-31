@@ -10,8 +10,9 @@
 void test_basic(void)
 {
   printf("FIRST TEST : test basique\n");
-  system("../src/receiver -o test_basique_out.dat :: 64342");
-  system("../senderprof localhost 64342 < test_in.dat");
+  system("./test_fiable.sh");
+  //system("../src/receiver -o test_basique_out.dat :: 64342");
+  //system("../senderprof localhost 64342 < test_in.dat");
 
   CU_ASSERT_EQUAL(system("sha512sum test_basique_out.dat"),system("sha512sum test_in.txt"));
 }
