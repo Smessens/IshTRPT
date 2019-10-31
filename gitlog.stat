@@ -1,3 +1,88 @@
+commit 39e0fa02fe7af1e6ee7cdcbef1cfaef58027dcc1
+Author: smessens <smessens@mustafar.info.ucl.ac.be>
+Date:   Thu Oct 31 16:35:03 2019 +0100
+
+    ALL 2
+
+commit c53401809bfad424536e9b18bb54144fe7d7a6e3
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Thu Oct 31 15:59:27 2019 +0100
+
+    ALL
+
+commit ef2ced893bad79f8e4c66ac2649ae35fc5007108
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Thu Oct 31 15:57:59 2019 +0100
+
+    finishing test
+
+commit a956bb05d0840e9a2e33d01cb157f0f376a5e369
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 15:33:21 2019 +0100
+
+    sans printf
+
+commit ac88201a9878089015fa17df6d5f8d78ad7d0336
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 15:12:09 2019 +0100
+
+    slective 2.0
+
+commit 2d526f4790eb7e5201a68a2cd4c545aba44f3435
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 15:00:19 2019 +0100
+
+    fixing cunit
+
+commit 5ed3a16a559829604a51277f81d8e96f173c4988
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Thu Oct 31 14:57:53 2019 +0100
+
+    ssh
+
+commit c85a09905d9ca1b60e4cc99f8a9102d308a44931
+Author: Smessens <messenssim@gmail.com>
+Date:   Thu Oct 31 14:17:24 2019 +0100
+
+    MAJ
+
+commit b61ee4e8b6020c6f0f5a4230e13b6f9c5435cb55
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 13:49:22 2019 +0100
+
+    adding other .sh test
+
+commit 4d173f9f21ea4e01d513d24d206f4173630d8bf1
+Author: smessens <smessens@yoda.info.ucl.ac.be>
+Date:   Thu Oct 31 10:48:31 2019 +0100
+
+    advance in cunit
+
+commit 369dc2054e62b00b37cb0fa68cd730a0554b4085
+Author: Smessens <messenssim@gmail.com>
+Date:   Thu Oct 31 10:29:11 2019 +0100
+
+    saved
+
+commit c8f19c5acdc82d0a17cc70f270bafb98b938f681
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 10:28:28 2019 +0100
+
+    adding a .sh for tests
+
+commit e6451d2643c4a158fd0a9511aa83e14c40fad810
+Merge: f2f7bbd e98ae4a
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 10:14:56 2019 +0100
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit f2f7bbd8d4935fa17648d8ba05f1678352d8f346
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 10:10:52 2019 +0100
+
+    CUnit advancement
+
 commit e98ae4a3717862fce7c09574636f934745e5a9e9
 Author: smessens <smessens@chewbacca.info.ucl.ac.be>
 Date:   Thu Oct 31 09:26:39 2019 +0100

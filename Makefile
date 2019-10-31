@@ -19,8 +19,6 @@ LDFLAGS= -rdynamic
 LDFLAGS = -L$(CUNIT)/lib
 LIBS    = -lcunit
 
-#	gcc -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
-
 # Default target
 make:
 	@touch file00.dat
@@ -31,7 +29,7 @@ make:
 	@rm recu.jpg
 	gcc  -o receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm -g
 
-#	@display recu.jpg
+#	@display
 sha:
 	sha512sum file00.dat
 	sha512sum file.dat
@@ -49,20 +47,6 @@ receiver:
 
 link:    # e=err -d délai -j écart -l lost
 	./link_sim -p 64342 -P 64341 -e 10 -l 10
-
-closer:
-	gcc closer.c -o closer
-	./closer ::1
-
-testA:
-	@touch test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
-	@rm test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
-	gcc -o tests/tests tests/tests.c
-	./tests/tests  #add arguments
-
-testsB: testsB/tests.c
-		cd testsB && make
-		@rm -f testsB/tests.o
 
 test: tests/tests.c
 			cd tests && make

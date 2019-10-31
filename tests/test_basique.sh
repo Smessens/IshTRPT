@@ -1,6 +1,6 @@
 # On lance le simulateur de lien. Lien fiable
- #./../link_sim -p 64342 -P 64341 &> link.log &
- #link_pid=$!
+./../link_sim -p 64342 -P 64341 &> link.log &
+link_pid=$!
 
 # On lance le receiver
 valgrind --log-file=valgrind.txt ./../receiver -o "test_basique_out.txt" :: 64341 &
@@ -26,4 +26,4 @@ if kill -0 $receiver_pid &> /dev/null ; then
 fi
 
 # On arrête le simulateur de lien
- #kill -9 $link_pid &> /dev/null
+kill -9 $link_pid &> /dev/null
