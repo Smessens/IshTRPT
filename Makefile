@@ -10,10 +10,14 @@ CFLAGS += -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE # feature_test_macros for ge
 CFLAGS += -lz
 CFLAGS += -lm
 
+CUNIT   = $(HOME)/local
 
+CFLAGS  = -I$(CUNIT)/include
 # We have no libraries to link against except libc, but we want to keep
 # the symbols for debugging
 LDFLAGS= -rdynamic
+LDFLAGS = -L$(CUNIT)/lib
+LIBS    = -lcunit
 
 #	gcc -lz -lm src/receiver src/packet_implem.c src/packet_implem.h src/read.c src/read.h src/receiver.c src/receiver.h src/selective.c src/selective.h
 
@@ -26,7 +30,7 @@ make:
 	@rm file00.dat
 	@rm recu.jpg
 	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./src/receiver -o "file%00d.dat" :: 64341
+	./src/receiver -o "file%00d.dat" :: 64341 2> log.txt
 	@cat log.txt
 	sha
 #	@display recu.jpg
@@ -46,17 +50,26 @@ receiver:
 
 
 link:    # e=err -d délai -j écart -l lost
-	./link_sim -p 64342 -P 64341 -e 10 -l 10 
+	./link_sim -p 64342 -P 64341 -e 10 -l 10
 
 closer:
 	gcc closer.c -o closer
 	./closer ::1
-	
-test:
+
+testA:
 	@touch test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
 	@rm test_basique_out.dat test_erreur_out.dat test_delay_out.dat test_loss_out.dat test_all_out.dat
 	gcc -o tests/tests tests/tests.c
 	./tests/tests  #add arguments
+
+testsB: testsB/tests.c
+		cd testsB && make
+		@rm -f testsB/tests.o
+
+test: tests/tests.c
+			cd tests && make
+			cd tests && ./tests
+			@rm -f tests/tests.o
 
 #receiver:src/receiver.c
 #	gcc -o src/receiver src/receiver.c
