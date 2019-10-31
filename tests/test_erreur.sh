@@ -3,7 +3,7 @@
 link_pid=$!
 
 # On lance le receiver et capture sa sortie standard
-./../receiver -f "test_erreur_out.txt" :: 64341 &
+valgrind --log-file=valgrind.txt ./../receiver -f "test_erreur_out.txt" :: 64341 &
 receiver_pid=$!
 
 cleanup()

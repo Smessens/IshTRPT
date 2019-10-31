@@ -3,7 +3,7 @@
 link_pid=$!
 
 # On lance le receiver
-./../receiver -o "test_basique_out.dat" :: 64341 &
+valgrind --log-file=valgrind.txt ./../receiver -o "test_basique_out.dat" :: 64341 &
 receiver_pid=$!
 
 cleanup()
