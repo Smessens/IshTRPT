@@ -90,12 +90,12 @@ int main (int argc, char **argv)
   }
 
   //get real format
-  if(format!=NULL){
+  if(format!=NULL&&0!=strcmp(format,strtok(format,"%"))){
+    printf("yooo\n");
     int formatsize =strlen(format);
     char formatbuffer[formatsize];
     char formatbuffer2[formatsize];
     char *token;
-    uint16_t formatnumber=0;
 
     token = strtok(format, "%");
 
@@ -106,10 +106,11 @@ int main (int argc, char **argv)
     token = strtok(token,"d");
     token = strtok(NULL," ");
 
-    strcat(formatbuffer,formatnumber);
+    strcat(formatbuffer,"00");
     strcpy(formatbuffer2,token);
     strcat(formatbuffer,formatbuffer2);
     strcpy(format,formatbuffer);
+
   }
   printf("realformat :%s\n",format);
 

@@ -29,9 +29,8 @@ make:
 	@touch src/receiver
 	@rm file00.dat
 	@rm recu.jpg
-	gcc  -o src/receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
-	./src/receiver -o "file%00d.dat" :: 64341 2> log.txt
-	@cat log.txt
+	gcc  -o receiver src/packet_implem.c  src/read.c  src/receiver.c src/selective.c -lz -lm
+
 #	@display recu.jpg
 sha:
 	sha512sum file00.dat
@@ -70,10 +69,7 @@ test: tests/tests.c
 			cd tests && ./tests
 			@rm -f tests/tests.o
 
-#receiver:src/receiver.c
-#	gcc -o src/receiver src/receiver.c
-#	./src/receiver -m 4 ::1 63345 2> log.txt
-#	./src/receiver -o "fichier_%02d.dat" ::1 63345
+
 
 # If we run `make debug` instead, keep the debug symbols for gdb
 # and define the DEBUG macro.
