@@ -1,0 +1,463 @@
+commit e98ae4a3717862fce7c09574636f934745e5a9e9
+Author: smessens <smessens@chewbacca.info.ucl.ac.be>
+Date:   Thu Oct 31 09:26:39 2019 +0100
+
+    get ssh
+
+commit 71c970f3901a42142ce2e6eacf6c9f5755e5b3e9
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Thu Oct 31 02:11:13 2019 +0100
+
+    small modif in tests.c
+
+commit 5a11bf72d27d5d021deaf3342b1bd5b4ef312cc0
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 23:55:48 2019 +0100
+
+    gestion file standard et log.txt
+
+commit 11186289625bc6bd4a0b196c611fd3017f22c1c6
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 22:14:02 2019 +0100
+
+    roll back
+
+commit 6902444f2df3e6d97e8050e65fcf5aab55d83544
+Author: smessens <smessens@dooku.info.ucl.ac.be>
+Date:   Wed Oct 30 19:52:07 2019 +0100
+
+    saved ssh
+
+commit f5104cc6078463c0e426bd9b9683eabb4ef0b5a9
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 17:54:03 2019 +0100
+
+    forgot to save lol
+
+commit a7f638ba554d50565cd1448b6c18d2d971ecf1f1
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 17:49:37 2019 +0100
+
+    resolve issue with buffer window
+
+commit 920222f111d8a9ab55414e7bb10d0c6ec447bdc4
+Author: smessens <smessens@skywalker.info.ucl.ac.be>
+Date:   Wed Oct 30 17:25:56 2019 +0100
+
+    push to modif isnotlast
+
+commit ac197b0f605caaaa8d07562fedff3dc88bff489f
+Merge: d6987ec 90463a5
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 15:49:32 2019 +0100
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit d6987ec7bfb481e2164f666a891d35c9c3465255
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 15:48:12 2019 +0100
+
+    Update .gitignore
+
+commit 90463a5ab5d768b83d02827afa7d0e8699d44cf0
+Author: smessens <smessens@c3po.info.ucl.ac.be>
+Date:   Wed Oct 30 15:45:34 2019 +0100
+
+    Ssh update
+
+commit 24bf425080c7427bcf684a09f7f0567bc500f7fd
+Author: Smessens <messenssim@gmail.com>
+Date:   Wed Oct 30 10:26:07 2019 +0100
+
+    Added better Cunit
+
+commit ff3a620f8d2d5b789c8459167e8315aeffd8d845
+Author: Smessens <messenssim@gmail.com>
+Date:   Wed Oct 30 10:01:48 2019 +0100
+
+    Transfer cunit file
+
+commit 0e65bfdd645f66fe601e4bd2cc9dc4fa6134e4d8
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 30 09:43:30 2019 +0100
+
+    add more tests
+
+commit 7c22f5f3a9d111723d57f6b6dd2a7714d1b9f1f0
+Author: smessens <smessens@amidala.info.ucl.ac.be>
+Date:   Tue Oct 29 17:45:42 2019 +0100
+
+    saved work from today
+
+commit c4f0a68aa8ea7c3d2f2a5dfa0ee9dff9f984eb2a
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 16:20:14 2019 +0100
+
+    writing in file
+
+commit a27976fec5880eaef6c90d6b7f15ad7faef776ca
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 15:59:33 2019 +0100
+
+    log in selective
+
+commit 22af421589275ba9e706cb73604254fb41c23898
+Merge: db7a36a 9643d8d
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 15:58:49 2019 +0100
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit db7a36aa7ca3350cf63c028ca973527e081cc910
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 15:58:44 2019 +0100
+
+    my version of receiver
+
+commit 9643d8d894a98ea747246c6376c5246ceaf5432b
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 29 15:33:29 2019 +0100
+
+    added real format
+
+commit b0b3db1daa995a73a5ec0c29c34a29808e42a562
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 29 15:13:58 2019 +0100
+
+    Roll back
+
+commit a7cd8962035f5d9b01aa49ce1fc58eef18bb9c1b
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 15:07:00 2019 +0100
+
+    log file
+
+commit 471c9e1d7078a8f32f8b7940ef303a632189fd94
+Author: smessens <smessens@skywalker.info.ucl.ac.be>
+Date:   Tue Oct 29 12:17:41 2019 +0100
+
+    link fonctionne
+
+commit 561031c95151b602fea5adf3fca6cd9e61f48cd5
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 29 11:28:33 2019 +0100
+
+    new senderprof and dissector
+
+commit 9df056986138f3d514cda25794b10a3cb0e5e614
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 29 11:23:58 2019 +0100
+
+    update senderprof version
+
+commit b435f25967a59a423b2454b40da6caed72285dbd
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 29 09:37:47 2019 +0100
+
+    save file
+
+commit 6759bcb763bfaf61eaadd179a0bc09773e90a2ce
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 28 18:03:06 2019 +0100
+
+    Change pointeur
+
+commit 9d87efdcae88425d914f35ebd94f889ef4b25531
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Mon Oct 28 16:52:29 2019 +0100
+
+    MAJ from ssh to gen
+
+commit 2ef1c054f113442b0203d45ccc80deabf2f81b5a
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 28 14:25:52 2019 +0100
+
+    clean packet_implem.c
+
+commit 6c78fc81062d2c527ad5e1324d07e77a4eb936b2
+Author: smessens <smessens@studssh.info.ucl.ac.be>
+Date:   Mon Oct 28 14:23:59 2019 +0100
+
+    MAJ ssh to general
+
+commit ff37e9af3e6f9edc1cd0bc998a8cabab442e5cea
+Author: Smessens <messenssim@gmail.com>
+Date:   Sat Oct 26 00:32:19 2019 +0200
+
+    Closer
+
+commit 147b222fabe71bc1e292a710000a7fa3eab999ed
+Author: Smessens <messenssim@gmail.com>
+Date:   Fri Oct 25 23:48:37 2019 +0200
+
+    senderbis
+
+commit ba3c83a5f22851da224d96b2c8607e1a961c8a6c
+Author: Simon Messens <smessens@studssh.info.ucl.ac.be>
+Date:   Fri Oct 25 23:40:54 2019 +0200
+
+    Ssh
+
+commit 395b4edc5eadb4ac5da73da65fec210ae42768ab
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 16:29:03 2019 +0200
+
+    clean
+
+commit 8c9060addc1c39202e746274f6f0eca545d3af93
+Author: Simon Messens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 22 16:27:52 2019 +0200
+
+    recup ssh
+
+commit de6cca67516567aa52d93492e6c1ba54291b30aa
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 22 16:26:17 2019 +0200
+
+    adding the basic test
+
+commit 56bed9c7855dc0dd0c4190e335c8afff0b06730c
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Tue Oct 22 15:01:36 2019 +0200
+
+    come back of obo
+
+commit 74b41494e431bfec8293c5a310a5444c407fbdad
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 14:57:53 2019 +0200
+
+    Delete senderprof
+
+commit 3f86b74ee977b7dd668412b67cca5613c1b96292
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 14:53:39 2019 +0200
+
+    repush Senderprof
+
+commit fffecb5c64a96e74e7025ac007a74e518de386c4
+Author: Simon Messens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 22 14:51:37 2019 +0200
+
+    save senderprof
+
+commit ce5748451637a006642bec4d95ac826a5404b979
+Author: Simon Messens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 22 11:28:36 2019 +0200
+
+    update ssh
+
+commit 5f0478d465ac497b289f5b3bccb658d7576c2a83
+Author: Simon Messens <smessens@studssh.info.ucl.ac.be>
+Date:   Tue Oct 22 01:35:52 2019 +0200
+
+    update
+
+commit 24a763aedde8d5f3b7af18ed89de34cd8004d2f5
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 01:21:23 2019 +0200
+
+    ssh
+
+commit b2a7effc8920a1f5770334dff0d4c5ab2f553d41
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 01:02:19 2019 +0200
+
+    Makefile en ordre
+
+commit e87cf9e810bb420c4d9dc519297c681b44fb8177
+Author: Smessens <messenssim@gmail.com>
+Date:   Tue Oct 22 00:22:48 2019 +0200
+
+    update
+
+commit 1815910fff5184e0738513425d56ae5fbb210a7d
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 23:36:45 2019 +0200
+
+    ssh update
+
+commit 9561269af08ce000a79f51524d8a1c9b55cce918
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 22:22:03 2019 +0200
+
+    update
+
+commit 0f3dd4fd1f95147d66bcbdfc0685da8079465430
+Merge: ad39b4c 2a5203a
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Mon Oct 21 22:16:56 2019 +0200
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit ad39b4ca9b4ccc6bddae10f741223cca47e297b7
+Merge: 69d3a06 ef02c43
+Author: glegat <guillaume.legat@student.uclouvain.be>
+Date:   Mon Oct 21 22:16:12 2019 +0200
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit 2a5203a2b5591953c01fff1e9cc09b679fa04555
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 22:14:42 2019 +0200
+
+    receiver.c done
+
+commit 69d3a068ce67b63bfeadb79d60d86a469edaa5c8
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Mon Oct 21 22:10:49 2019 +0200
+
+    creation of some .h
+
+commit ef02c435d0ebd7756a186445ab312a2b5afc39a6
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 20:41:58 2019 +0200
+
+    SenderProf pour test
+
+commit 59798e969e7c153aea340fe9cfe1112e61e91b0b
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 20:14:59 2019 +0200
+
+    update
+
+commit 01f99e7089990d9edbd6d1459308464923acf044
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 16:39:06 2019 +0200
+
+    update
+
+commit 0ac15a750682d5769b43c1d5dc5ee7f4a54d7071
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Mon Oct 21 16:20:13 2019 +0200
+
+    adding read with envoyer et recevoir task inginious
+
+commit 10ffdeed33fa977abf8e6e3033999eb07038d511
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 11:11:53 2019 +0200
+
+    added files
+
+commit 54eb93ea90870f670e3cecc2129a60cf8ca3c87a
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 21 09:31:49 2019 +0200
+
+    Nearly done pkt
+
+commit e8cc775ebfed79380f712033ed3b5e26ba1929d6
+Author: Smessens <messenssim@gmail.com>
+Date:   Sun Oct 20 19:56:39 2019 +0200
+
+    update intermediaires pck
+
+commit d871f4108e89c48612742924b746eb08632670c5
+Author: Smessens <messenssim@gmail.com>
+Date:   Sun Oct 20 00:30:19 2019 +0200
+
+    packet compile
+
+commit cf7e39fd08dbee4ddd6ae80fe43aec5fc4aacf72
+Author: Smessens <messenssim@gmail.com>
+Date:   Sat Oct 19 23:50:38 2019 +0200
+
+    Update packet_implem.c
+
+commit 6f145cdb32990cbdbb325fa060ffdc230f29c498
+Author: Smessens <messenssim@gmail.com>
+Date:   Thu Oct 17 16:44:54 2019 +0200
+
+    Update packet_implem.c
+
+commit ea453595b460d6a707bb9737d04fbcf5904150b0
+Author: Smessens <messenssim@gmail.com>
+Date:   Thu Oct 17 14:23:36 2019 +0200
+
+    Update packet_implem.c
+
+commit 248051fcd7e2cd04e53997e3a5fadec149bff605
+Author: Smessens <messenssim@gmail.com>
+Date:   Thu Oct 17 13:51:17 2019 +0200
+
+    Update packet_implem.c
+
+commit 6a31c26107c976518343ba1905ed2e5e9a53d795
+Author: Smessens <messenssim@gmail.com>
+Date:   Wed Oct 16 22:08:08 2019 +0200
+
+    packet_interface update
+
+commit 2ac01720277b6a8b9b38426ca6bb1b413b10ba77
+Merge: 717bdcd 414f098
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 16 13:31:53 2019 +0200
+
+    continue debbug
+
+commit 717bdcd262c94d5db3b16b197c30a4890d551230
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 16 13:29:26 2019 +0200
+
+    continue debugging
+
+commit 414f098fa0defed78c621cf7cc71ee812bc7aedf
+Merge: cd36b79 8a2c067
+Author: Smessens <messenssim@gmail.com>
+Date:   Wed Oct 16 11:52:20 2019 +0200
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit 8a2c067e9a1a3c132771d473bf2bb82ae9bd17a8
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 16 11:51:10 2019 +0200
+
+    new git ignor
+
+commit cd36b79a7595a953d4247e27d1729a89a793e6b6
+Author: Smessens <messenssim@gmail.com>
+Date:   Wed Oct 16 11:42:11 2019 +0200
+
+    changed personnal test to .gitignore
+
+commit 1c50db0597ef07ab47218a5305b0f53423d7c04c
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Wed Oct 16 11:42:06 2019 +0200
+
+    advencement in packet implem but not debugged
+
+commit b6facb0fcfbb29230fb210110837932edab6347a
+Merge: b08c91c ea90a7d
+Author: Smessens <messenssim@gmail.com>
+Date:   Mon Oct 14 14:03:08 2019 +0200
+
+    Merge branch 'master' of https://github.com/Smessens/L1341
+
+commit ea90a7d16751aab7e7cf6e4d567d9cd173407998
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Mon Oct 14 13:59:45 2019 +0200
+
+    beginning
+
+commit b08c91c8e658f9e2acf97d02a18ac4faef9840bb
+Merge: b22a1cf 0d801d9
+Author: Smessens <messenssim@gmail.com>
+Date:   Fri Oct 4 13:05:58 2019 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b22a1cfd567eb3e84d66e899ea01b30ffb58edd6
+Author: Smessens <messenssim@gmail.com>
+Date:   Fri Oct 4 13:05:53 2019 +0200
+
+    Added some tests
+
+commit 0d801d9a917c41f16ccc36be638e9cc8161c43b1
+Author: ChouGui <guillaume.legat@student.uclouvain.be>
+Date:   Fri Oct 4 13:02:31 2019 +0200
+
+    beginning of implementation
+
+commit 40831e0ecbfdd94ffb543ce0f375dd91355618e2
+Author: Smessens <49680481+Smessens@users.noreply.github.com>
+Date:   Fri Oct 4 11:32:45 2019 +0200
+
+    Initial commit

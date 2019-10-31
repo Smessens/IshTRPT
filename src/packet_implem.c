@@ -74,71 +74,104 @@ void pkt_del(pkt_t *pkt)
 }
 
 pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt) {
-  uint8_t firstByte;
-  memcpy(&firstByte, data, 1); // contient les 8 premiers bits de data : 0 1 type, 2 tr, 3 4 5 6 7 window
-  uint8_t WINDOW = (firstByte & (uint8_t)31); // Les 5 derniers bits
-  pkt_set_window(pkt, WINDOW);
-  uint8_t byteType = firstByte >> 6 ; // Sert juste au décallage
-  uint8_t TYPE = (byteType & (uint8_t)3); // les 2 premiers bits
-  pkt_set_type(pkt, TYPE);
-  uint8_t byteTr = firstByte >> 5 ; // Sert juste au décallage
-  uint8_t TR = (byteTr & (uint8_t)1); // Le 3e bit
-  pkt_set_tr(pkt, TR);
-  uint8_t secondByte;
-  memcpy(&secondByte, data+1, 1); // contient les bits 8 à 15 de data
-  uint8_t byteL = secondByte >> 7 ; // sert juste au décallage
-  uint8_t L = (byteL & 00000001); // le 8e bit
-  if (L == 0) { // Length est encodé sur 7 bits
-    uint8_t LENGTH = (secondByte & (uint8_t)127); // les bit 9 à 15
-    pkt_set_length(pkt, LENGTH);
+  //premier byte avec le type, tr et window
+  uint8_t buffbyte;
+  uint8_t byte;
+  uint16_t buff2byte;
+  uint32_t buff4byte;
+  uint16_t leng;
+
+  memcpy(&byte, data, 1);
+
+
+
+  //set type
+  buffbyte = byte >> 6 ;
+  buffbyte = (buffbyte & (uint8_t)3);
+  pkt_set_type(pkt,buffbyte);
+
+
+  //set tr
+  buffbyte = byte >> 5 ;
+  buffbyte= (buffbyte & (uint8_t)1);
+  pkt_set_tr(pkt,buffbyte);
+
+  //set window
+  buffbyte = (byte & (uint8_t)31);
+  pkt_set_window(pkt, buffbyte);
+
+  //set l
+  memcpy(&byte, data+1, 1);
+  buffbyte = byte >> 7 ;
+  buffbyte = (buffbyte & 00000001);
+  uint8_t l = buffbyte;
+
+  //set length
+  if (l == 0) { // la LENGTH fera 7 bits
+    buffbyte = (byte & (uint8_t)127); // les bit 9 à 15
+    pkt_set_length(pkt,buffbyte);
   }
-  else { // Length est encodé sur 15 bits
-    uint16_t secNthirdByte;
-    memcpy(&secNthirdByte, data+1, 2);
-    uint16_t hLENGTH = ntohs(secNthirdByte);
-    uint16_t LENGTH = (hLENGTH & (uint16_t)32767); // contient les bits de 9 à 23 ! En network byte order
-    pkt_set_length(pkt, LENGTH);
+
+  else { // la LENGTH fera 15 bits
+    memcpy(&buff2byte, data+1, 2);
+
+    buff2byte= ntohs(buff2byte);
+    buff2byte = (buff2byte& (uint16_t)32767); // ignore le bit du l
+    pkt_set_length(pkt, buff2byte);
   }
-  uint8_t SEQNUM;
-  memcpy(&SEQNUM, data+2+L, 1); // contient les bits 16 à 23
-  pkt_set_seqnum(pkt, SEQNUM);
-  uint32_t TIMESTAMP;
-  memcpy(&TIMESTAMP, data+3+L, 4); // contient les bits 24 à 55
-  pkt_set_timestamp(pkt, TIMESTAMP);
-  uint32_t CRC1;
-  memcpy(&CRC1, data+7+L, 4);
-  pkt_set_crc1(pkt, CRC1);
-  char* PAYLOAD = (char*)malloc(pkt_get_length(pkt));
-  memcpy(PAYLOAD, data+11+L, pkt_get_length(pkt));
-  pkt_set_payload(pkt, PAYLOAD, pkt_get_length(pkt));
-  free (PAYLOAD);
-  uint32_t CRC2;
-  memcpy(&CRC2, data+11+L+pkt_get_length(pkt), 4);
-  pkt_set_crc2(pkt, CRC2);
-  // calcul du crc1 et du crc2
+
+  leng=pkt_get_length(pkt);
+
+
+
+  //set seqnum
+  memcpy(&byte, data+2+l, 1);
+  pkt_set_seqnum(pkt,byte);
+
+  //set timestamp
+  memcpy(&buff4byte, data+3+l, 4); // contient les bits 24 à 55
+  pkt_set_timestamp(pkt,buff4byte);
+
+  //set crc1
+  memcpy(&buff4byte, data+7+l, 4);
+  pkt_set_crc1(pkt,buff4byte);
+
+  //set pay
+  char* pay = (char*)malloc(leng);
+  memcpy(pay, data+11+l,leng);
+  pkt_set_payload(pkt,pay,leng);
+  free (pay);
+
+  //set crc2
+  memcpy(&buff4byte, data+11+l+leng, 4);
+  pkt_set_crc2(pkt,buff4byte);
+
   if(pkt_get_tr(pkt) == 0) {
-    uint32_t crc1 = crc32(0L, Z_NULL, 0);
-    crc1 = crc32(crc1, ( const Bytef *) data, 7+L);
-    if(crc1 != ntohl(pkt_get_crc1(pkt))) {
+    buff4byte = crc32(0L, Z_NULL, 0);
+    buff4byte = crc32(buff4byte, ( const Bytef *) data, 7+l);
+    if(buff4byte != ntohl(pkt_get_crc1(pkt))) {
       return E_CRC;
     }
   }
+
   if(pkt_get_length(pkt) != 0) {
-    uint32_t crc2 = crc32(0L, Z_NULL, 0);
-    crc2 = crc32(crc2, (Bytef *)(data+11+L), pkt_get_length(pkt));
-    if(crc2 != ntohl(pkt_get_crc2(pkt))) {
+    buff4byte = crc32(0L, Z_NULL, 0);
+    buff4byte= crc32(buff4byte, (Bytef *)(data+11+l),leng);
+    if(buff4byte != ntohl(pkt_get_crc2(pkt))) {
       return E_CRC;
     }
   }
-  if(pkt_get_length(pkt)!=0){
-    if (pkt_get_length(pkt)+15+L > (int)len) {
+
+  if(leng!=0){
+    if (leng+15+l > (int)len) {
       return E_UNCONSISTENT;
     }
   }
+
   else{
     if(11>(int) len){return E_UNCONSISTENT;}
   }
-  if (pkt_get_length(pkt) > 512) {
+  if (leng > 512) {
     return  E_LENGTH;
   }
   return PKT_OK;

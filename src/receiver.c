@@ -4,6 +4,7 @@
 #include "receiver.h"
 
 
+
 int main (int argc, char **argv)
 {
   int connexionconcurrente=-1;
@@ -80,6 +81,7 @@ int main (int argc, char **argv)
   printf("log_name :%s\n",log_name);
   printf("------------------------------------------------------------------------------\n");  //print test a virer avant la soumission
 
+
   // log
   FILE * log = stderr;
 
@@ -104,19 +106,19 @@ int main (int argc, char **argv)
     token = strtok(token,"d");
     token = strtok(NULL," ");
 
-    strcat(formatbuffer,"00");
+    strcat(formatbuffer,formatnumber);
     strcpy(formatbuffer2,token);
     strcat(formatbuffer,formatbuffer2);
     strcpy(format,formatbuffer);
   }
   printf("realformat :%s\n",format);
+
   int fdo = 1;
   if(format != NULL) {
     FILE * fileout = fopen(format,"w");
     fdo = fileno(fileout);
   }
   else {
-    printf("no format file");
     FILE * fileout = fopen("fileout.dat","w");
     fdo = fileno(fileout);
   }
@@ -143,7 +145,6 @@ int main (int argc, char **argv)
     free (source_adresse);
   }
   if (hostname ==NULL) {
-    printf("adresse = ::\n");
     sfd = create_socket(&dest_adresse,port,NULL,port);
     if (sfd>0&&wait_for_client(sfd)<0){
       close(sfd);
