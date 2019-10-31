@@ -3,7 +3,7 @@
 link_pid=$!
 
 # On lance le receiver
-./../src/receiver -o test_out_fiable.txt :: 64341 &
+./../src/receiver -o test_out_fiable.dat :: 64341 &
 receiver_pid=$!
 
 cleanup()
@@ -15,7 +15,7 @@ cleanup()
 trap cleanup SIGINT  # Kill les process en arrière plan en cas de ^-C
 
 # On démarre le transfert
-./../src/sender localhost 64342 < test_in.txt ;
+./../senderprof localhost 64342 < test_in.txt ;
 
 sleep 3 # On attend 8 seconde que le receiver finisse
 
